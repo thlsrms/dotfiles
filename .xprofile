@@ -1,0 +1,9 @@
+# Swap escape and capslock
+setxkbmap -option caps:swapescape
+
+# Stop screen from going blank
+xset s off
+xset -dpms
+
+# Faster key repeat and delay
+xset r rate 270 35
