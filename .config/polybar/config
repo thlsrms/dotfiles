@@ -119,7 +119,7 @@ font-3 = "Noto Sans Mono:size=10;0"
 
 modules-left = i3 xwindow
 modules-center = 
-modules-right = memory2 cpu2 date pavolume
+modules-right = memory2 cpu2 date pavolume battery
 
 separator = |
 

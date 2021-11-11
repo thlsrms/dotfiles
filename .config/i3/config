@@ -144,20 +144,20 @@ mode "$mode_system" {
 bindsym $mod+Shift+e exec --no-startup-id arcolinux-logout
 bindsym $mod+X exec --no-startup-id arcolinux-logout
 
-################# reload changed configuration     
+################# reload changed configuration
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
-################# Stopping an application          
+################# Stopping an application
 
 # kill focused window
 bindsym $mod+Shift+q kill
 bindsym $mod+q kill
 
-################# Moving around in i3              
+################# Moving around in i3
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -189,7 +189,10 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-################# moving around workspaces         
+# disable focus on hover
+focus_follows_mouse no
+
+################# moving around workspaces
 
 # next/previous workspace
 
@@ -204,7 +207,7 @@ bindsym Mod1+Ctrl+Left workspace prev
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
-################# Tiling parameters                
+################# Tiling parameters
 
 # orientation for new workspaces
 default_orientation horizontal
@@ -234,7 +237,7 @@ bindsym $mod+a focus parent
 # focus the child container
 # bindsym $mod+d focus child
 
-################# resize  
+################# resize
 
 # Resizing by 1
 bindsym $mod+Mod1+Ctrl+Right resize shrink width 1 px or 1 ppt
@@ -270,14 +273,14 @@ bindsym $mod+Mod1+Ctrl+Left resize grow width 1 px or 1 ppt
  #      bindsym Escape mode "default"
 # }
 
-################# choose the font                  
+################# choose the font
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # choose your font
 font pango:Noto Mono Regular 13
 
-################# assign applications to workspaces 
+################# assign applications to workspaces
 
 # Assign application to start on a specific workspace
 # you can find the class with the program xprop
@@ -355,10 +358,10 @@ for_window [class="Spotify"] focus
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # Updater
-exec --no-startup-id pamac-tray
+#exec --no-startup-id pamac-tray
 
 # bluetooth
-# exec --no-startup-id blueberry-tray
+exec --no-startup-id blueberry-tray
 
 # network
 exec --no-startup-id nm-applet
@@ -383,15 +386,15 @@ exec --no-startup-id volumeicon
 # exec --no-startup-id xfce4-clipman
 
 # Conky
-exec --no-startup-id conky -c ~/.config/i3/system-overview
+#exec --no-startup-id conky -c ~/.config/i3/system-overview
 
 # feh sets wallpaper
-exec --no-startup-id feh --bg-fill /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg &
+exec --no-startup-id feh --bg-fill /usr/share/backgrounds/arcolinux/time-abstract.jpg &
 
 # Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
-################# system applications       
+################# system applications
 
 exec --no-startup-id xfce4-power-manager &
 # ommitted next line to get super key to bring up the menu in xfce and avoid error then in i3
@@ -399,7 +402,7 @@ exec --no-startup-id xfce4-power-manager &
 # exec --no-startup-id xfsettingsd &
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 
-################# applications keyboard shortcuts  
+################# applications keyboard shortcuts
 
 # not workspace related
 
@@ -505,14 +508,14 @@ bindsym $mod+F9 exec --no-startup-id evolution;focus
 bindsym $mod+F10 exec --no-startup-id spotify;focus
 bindsym control+mod1+s exec --no-startup-id spotify;focus
 
-################# screenshots                      
+################# screenshots
 
 bindsym Print exec --no-startup-id scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
 bindsym Control+Print exec --no-startup-id xfce4-screenshooter
 bindsym Control+Shift+Print exec --no-startup-id gnome-screenshot -i
 # bindsym shift+Print exec --no-startup-id shutter
 
-################# floating or tiled rules         
+################# floating or tiled rules
 
 # floating enabled from some programs - find with xprop
 
@@ -559,43 +562,43 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="^Preferences$"] floating enable
 for_window [window_role="setup"] floating enable
 
-################# give focus to applications       
+################# give focus to applications
 
 for_window [class="Gnome-terminal"] focus
 for_window [class="Termite"] focus
 for_window [class="Terminator"] focus
 for_window [class="Urxvt"] focus
 
-################# variety for wallpapers      
+################# variety for wallpapers
 
 # Variety keybindings mod1 = ALT
 # trash wallpaper
-bindsym mod1+t exec --no-startup-id variety -t
+#bindsym mod1+t exec --no-startup-id variety -t
 # next wallpaper
-bindsym mod1+n exec --no-startup-id variety -n
-bindsym mod1+Right exec --no-startup-id variety -n
+#bindsym mod1+n exec --no-startup-id variety -n
+#bindsym mod1+Right exec --no-startup-id variety -n
 # previous wallpaper
-bindsym mod1+p exec --no-startup-id variety -p
-bindsym mod1+Left exec --no-startup-id variety -p
+#bindsym mod1+p exec --no-startup-id variety -p
+#bindsym mod1+Left exec --no-startup-id variety -p
 # favorite wallpaper
-bindsym mod1+f exec --no-startup-id variety -f
+#bindsym mod1+f exec --no-startup-id variety -f
 # pause wallpaper
-bindsym mod1+Up exec --no-startup-id variety --pause
+#bindsym mod1+Up exec --no-startup-id variety --pause
 # resume wallpaper
-bindsym mod1+Down exec --no-startup-id variety --resume
+#bindsym mod1+Down exec --no-startup-id variety --resume
 
 ################# variety with pywal for your wallpapers/colour schemes
 
 # next wallpaper
-bindsym mod1+Shift+n exec --no-startup-id variety -n && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
+#bindsym mod1+Shift+n exec --no-startup-id variety -n && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
 # previous wallpaper
-bindsym mod1+Shift+p exec --no-startup-id variety -p && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
+#bindsym mod1+Shift+p exec --no-startup-id variety -p && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
 # trash wallpaper
-bindsym mod1+Shift+t exec --no-startup-id variety -t && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
+#bindsym mod1+Shift+t exec --no-startup-id variety -t && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
 # Update Wallpaper
-bindsym mod1+Shift+u exec --no-startup-id wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)
+#bindsym mod1+Shift+u exec --no-startup-id wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)
 
-################# audio settings                   
+################# audio settings
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -D pulse sset Master '5%+'"
 bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -D pulse sset Master '5%-'"
@@ -610,17 +613,17 @@ bindsym XF86AudioStop exec --no-startup-id playerctl stop
 # bindsym XF86AudioPrev exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 # bindsym XF86AudioStop exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
 
-################# xbacklight                       
+################# xbacklight
 
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease screen brightness
 
-################# bar toggle                       
+################# bar toggle
 
 # bar toggle, hide or show
 bindsym $mod+b bar mode toggle
 
-################# border control                   
+################# border control
 
 # Border control
 hide_edge_borders both
@@ -640,12 +643,12 @@ new_window normal
 new_float normal
 # new_float none
 
-################# Popups  control                  
+################# Popups  control
 
 # Popups during fullscreen mode
 popup_during_fullscreen smart
 
-################# i3 gaps next                     
+################# i3 gaps next
 
 # Settings for I3 next gap git
 # https://github.com/Airblader/i3/tree/gaps-next
@@ -658,7 +661,7 @@ gaps outer 5
 # smart_gaps on
 # smart_borders on
 
-################# i3 gaps change                   
+################# i3 gaps change
 
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -697,14 +700,14 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-################# picom of i3wm                  
+################# picom of i3wm
 
 # if you want transparency on non-focused windows, ...
 exec_always --no-startup-id picom --config ~/.config/i3/picom.conf
 
 bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 
-################# bar appearance                   
+################# bar appearance
 
     ##START THEMING WM
     #Theme name : ArcoLinux Var Ashes
@@ -738,7 +741,7 @@ bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 
     ##STOP THEMING WM
 
-######################################## THE END 
+######################################## THE END
 
 ################# Scratchpad
 
@@ -751,7 +754,7 @@ bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 # If there are multiple scratchpad windows, this command cycles through them.
 # bindsym Mod1+minus scratchpad show
 
-################# mouse settings in i3             
+################# mouse settings in i3
 
 # NOT USED
 
@@ -770,7 +773,7 @@ bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 # bindsym button9 move left
 # bindsym button8 move right
 
-################# keyboard control                 
+################# keyboard control
 
 # NOT USED
 
@@ -778,9 +781,13 @@ bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 # exec --no-startup-id setxkbmap be
 # exec --no-startup-id setxkbmap us
 
-################# unclutter                        
+################# unclutter
 
 # NOT USED
 
 # get the mouse out of the way with unclutter
 # exec --no-startup-id unclutter
+
+# OTHER STUFF
+
+exec_always xset -dpms
