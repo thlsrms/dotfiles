@@ -1,2 +1,2 @@
 " HopNvim bindings
-map <M-f> :HopWord<CR>
+map <M-h> :HopWord<CR>

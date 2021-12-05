@@ -1,5 +1,7 @@
 local action_state = require('telescope.actions.state')
 local actions = require('telescope.actions')
+require("telescope").load_extension("flutter")
+
 
 local m = {}
 

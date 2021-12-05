@@ -7,33 +7,49 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ervandew/supertab'
 Plug 'flazz/vim-colorschemes'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' , 'branch' : 'release/1.x' }
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'sbdchd/neoformat'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
-Plug 'OmniSharp/omnisharp-vim'
-Plug 'dense-analysis/ale'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'yuezk/vim-js'
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'maxmellon/vim-jsx-pretty'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'valloric/MatchTagAlways'
-Plug 'jiangmiao/auto-pairs'
+Plug 'windwp/nvim-autopairs'
 Plug 'phaazon/hop.nvim'
 Plug 'tpope/vim-fugitive'
+Plug 'maxmellon/vim-jsx-pretty'
 
+" Code Action plugins
+Plug 'kosayoda/nvim-lightbulb'
+"LSP Plugins
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
+" JS/TS
+Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 "Dart/Flutter
+Plug 'akinsho/flutter-tools.nvim'
 Plug 'dart-lang/dart-vim-plugin'
-Plug 'thosakwe/vim-flutter'
+"Plug 'thosakwe/vim-flutter'
+"VSCode snippet plugins
+Plug 'Neevash/awesome-flutter-snippets'
+Plug 'xabikos/vscode-javascript'
 call plug#end()
+
+luafile ~/.config/nvim/plugin/cmp-config.lua
+luafile ~/.config/nvim/plugin/lightbulb.lua
 
 " Set theme
 let g:gruvbox_material_background = 'hard'
@@ -85,6 +101,15 @@ nmap <silent> <M-Up> :m -2<CR>
 nmap <C-L><C-L> :set norelativenumber<CR>
 nmap <C-L><C-R> :set relativenumber<CR>
 
+:lua require('hop').setup()
+" LSP LS
+:lua require('flutter-tools').setup{} -- use defaults
+
+nnoremap <silent> <leader>fy    <cmd>lua vim.lsp.buf.formatting()<CR>
+
+" Lightbulb
+autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
+
 " Trim whitespace on file save
 fun! TrimWhitespace()
     let l:save = winsaveview()
@@ -96,3 +121,4 @@ augroup TRIM_WHITESPACE
     autocmd!
     autocmd BufWritePre * :call TrimWhitespace()
 augroup END
+

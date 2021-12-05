@@ -26,6 +26,7 @@ set colorcolumn=110
 highlight ColorColumn ctermbg=0 guibg=grey37
 highlight! link SignColumn LineNr
 set shortmess+=c
+set shortmess-=F
 set mouse=a
 set clipboard^=unnamed,unnamedplus
 set background=dark
