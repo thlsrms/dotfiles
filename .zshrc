@@ -100,6 +100,10 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias andemulator="$HOME/Android/Sdk/emulator/emulator -avd Pixel_5_API_29_An._10_"
+
+export ANDROID_HOME=$HOME/Android/Sdk
+export CHROME_EXECUTABLE=brave
 
 
 ####   ARCOLINUX SETTINGS   ####
@@ -385,7 +389,7 @@ alias personal='cp -Rf /personal/* ~'
 # install ufetch-git
 #ufetch
 # install ufetch-arco-git
-ufetch-arco
+#ufetch-arco
 # install arcolinux-paleofetch-git
 #paleofetch
 # install alsi

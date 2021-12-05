@@ -510,10 +510,12 @@ bindsym control+mod1+s exec --no-startup-id spotify;focus
 
 ################# screenshots
 
-bindsym Print exec --no-startup-id scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
-bindsym Control+Print exec --no-startup-id xfce4-screenshooter
-bindsym Control+Shift+Print exec --no-startup-id gnome-screenshot -i
+#bindsym Print exec --no-startup-id scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
+#bindsym Control+Print exec --no-startup-id xfce4-screenshooter
+#bindsym Control+Shift+Print exec --no-startup-id gnome-screenshot -i
 # bindsym shift+Print exec --no-startup-id shutter
+bindsym Print exec --no-startup-id gscreenshot -c -n -f 'Pictures/Screenshots'
+bindsym Shift+Print exec --no-startup-id gscreenshot -c -n -s
 
 ################# floating or tiled rules
 
@@ -790,4 +792,7 @@ bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 
 # OTHER STUFF
 
-exec_always xset -dpms
+exec_always xset s off -dpms
+exec_always setxkbmap -option caps:swapescape
+
+exec_always --no-startup-id ~/.config/i3/scripts/fix_mic-boost.sh
