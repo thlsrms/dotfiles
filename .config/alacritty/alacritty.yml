@@ -178,10 +178,40 @@ font:
 
 # Colors (ArcoLinux)
 colors:
-  # Default colors
+  # Gruvbox-flat
   primary:
-   background: '#222222'
-   foreground: '#F9F9F9'
+    background: '0x1d2021'
+    foreground: '0xd4be98'
+
+  # Normal colors
+  normal:
+    black:   '0x1D2021'
+    red:     '0xea6962'
+    green:   '0xa9b665'
+    yellow:  '0xd8a657'
+    blue:    '0x7daea3'
+    magenta: '0xd3869b'
+    aqua:    '0x89b482'
+    white:   '0xd4be98'
+
+  # Bright colors
+  bright:
+    black:   '0x17191a'
+    red:     '0xea6962'
+    green:   '0xa9b665'
+    yellow:  '0xd8a657'
+    blue:    '0x7daea3'
+    magenta: '0xd3869b'
+    aqua:    '0x89b482'
+    white:   '0xd4be98'
+
+  indexed_colors:
+    - { index: 16, color: '0xe78a4e' }
+    - { index: 17, color: '0xc14a4a' }
+  # Default colors
+  # primary:
+   # background: '#222222'
+   # foreground: '#F9F9F9'
 
     # Bright and dim foreground colors
     #
@@ -250,26 +280,26 @@ colors:
   #  background: CellForeground
 
   # Normal colors
-  normal:
-    black:   '#3f3f3f'
-    red:     '#cc0000'
-    green:   '#4e9a06'
-    yellow:  '#c4a000'
-    blue:    '#94bff3'
-    magenta: '#85678f'
-    cyan:    '#06989a'
-    white:   '#dcdccc'
-
-  # Bright colors
-  bright:
-    black:   '#545454'
-    red:     '#fc5454'
-    green:   '#8ae234'
-    yellow:  '#fce94f'
-    blue:    '#94bff3'
-    magenta: '#b294bb'
-    cyan:    '#93e0e3'
-    white:   '#ffffff'
+  # normal:
+  #   black:   '#3f3f3f'
+  #   red:     '#cc0000'
+  #   green:   '#4e9a06'
+  #   yellow:  '#c4a000'
+  #   blue:    '#94bff3'
+  #   magenta: '#85678f'
+  #   cyan:    '#06989a'
+  #   white:   '#dcdccc'
+  #
+  # # Bright colors
+  # bright:
+  #   black:   '#545454'
+  #   red:     '#fc5454'
+  #   green:   '#8ae234'
+  #   yellow:  '#fce94f'
+  #   blue:    '#94bff3'
+  #   magenta: '#b294bb'
+  #   cyan:    '#93e0e3'
+  #   white:   '#ffffff'
 
   # Dim colors
   #
