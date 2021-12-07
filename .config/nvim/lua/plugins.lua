@@ -117,7 +117,6 @@ use {'numToStr/Comment.nvim',
 use {'akinsho/nvim-toggleterm.lua',
   config = "require('plugins.toggleterm')"
 }
--- use {'tpope/vim-repeat'}
 use {'tpope/vim-speeddating'}
 use {'junegunn/vim-easy-align'}
 use {'JoosepAlviste/nvim-ts-context-commentstring',
@@ -149,6 +148,7 @@ use {'windwp/nvim-autopairs',
 }
 use {'p00f/nvim-ts-rainbow', after = {'nvim-treesitter'}}
 use {'mattn/emmet-vim'}
+use {'windwp/nvim-ts-autotag', after = {'nvim-treesitter'}}
 use {'potatoesmaster/i3-vim-syntax'}
 use {'lukas-reineke/indent-blankline.nvim', config = "require('plugins.indent')"}
 use {'norcalli/nvim-colorizer.lua', config = "require('plugins.colorizer')"}

@@ -44,7 +44,7 @@ local options = {
   guicursor="",
   hlsearch = false,
   undodir = os.getenv("HOME") .. "/.local/share/nvim/undodir",
-  colorcolumn = "110",
+  colorcolumn = "113",
   background = "dark",
   ttimeoutlen = 100,
 }
@@ -52,7 +52,7 @@ local options = {
 vim.cmd([[
   augroup ColumnColors
   autocmd!
-  autocmd ColorScheme * highlight ColorColumn ctermbg=0 guibg=grey37
+  autocmd ColorScheme * highlight ColorColumn ctermbg=0 guibg=grey20
   autocmd ColorScheme * highlight! link SignColumn LineNr
   augroup end
 ]])

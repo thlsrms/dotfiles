@@ -5,10 +5,10 @@ vim.api.nvim_set_keymap("", "n", "<up>", { noremap = true })
 vim.api.nvim_set_keymap("", "s", "<right>", { noremap = true })
 vim.api.nvim_set_keymap("n", "k", "n", { noremap = true })
 vim.api.nvim_set_keymap("n", "K", "N", { noremap = true })
-vim.api.nvim_set_keymap("n", "j", "s", { noremap = true })
-vim.api.nvim_set_keymap("n", "J", "S", { noremap = true })
-vim.api.nvim_set_keymap("n", "l", "t", { noremap = true })
-vim.api.nvim_set_keymap("n", "L", "T", { noremap = true })
+vim.api.nvim_set_keymap("", "j", "s", { noremap = true })
+vim.api.nvim_set_keymap("", "J", "S", { noremap = true })
+vim.api.nvim_set_keymap("", "l", "t", { noremap = true })
+vim.api.nvim_set_keymap("", "L", "T", { noremap = true })
 vim.api.nvim_set_keymap("", "S", "$", {})
 vim.api.nvim_set_keymap("v", "S", "$", { noremap = true })
 vim.api.nvim_set_keymap("", "H", "^", {})
@@ -121,3 +121,7 @@ vim.api.nvim_set_keymap("n", "<F4>", "<cmd>lua require('functions').erase_painte
 -- HopWord
 vim.api.nvim_set_keymap("", "<M-h>", "<cmd>HopWord<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<M-h>", "<cmd>HopWord<CR>", { noremap = true, silent = true })
+
+-- ToggeTerm
+--<cmd>ToggleTerm direction=float<CR>
+vim.api.nvim_set_keymap("n", "<M-b>", "<cmd>ToggleTerm direction=float<CR>", { noremap = true, silent = true })

@@ -6,8 +6,6 @@
 -- vim.g.gruvbox_material_diagnostic_text_highlight = 1
 -- Flat
 vim.g.gruvbox_flat_style = 'hard' -- 'dark'
-vim.g.gruvbox_italic_comments = true
-vim.g.gruvbox_italic_functions = true
 vim.g.gruvbox_theme = { TabLineSel = { bg = "orange"}}
 vim.g.gruvbox_transparent = true
 
