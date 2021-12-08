@@ -39,7 +39,8 @@ format-offset =
 
 [colors]
 ; Nord theme ============
-background = #2F343F
+;background = #2F343F
+background = #c51D2021
 foreground = #f3f4f5
 alert = #d08770
 volume-min = #a3be8c
