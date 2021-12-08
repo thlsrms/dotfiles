@@ -16,6 +16,8 @@ listen() {
 
     LANG=EN; pactl subscribe | while read -r event; do
         if echo "$event" | grep -q "source" || echo "$event" | grep -q "server"; then
+            # Making sure the correct input device is the default
+            pacmd set-default-source 1
             status
         fi
     done
