@@ -44,7 +44,7 @@ cmp.setup {
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<CR>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert }),
     -- ['<Tab>'] = function(fallback)
     --   if vim.fn.complete_info()["selected"] == -1 and vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
     --     press("<C-R>=UltiSnips#ExpandSnippet()<CR>")
@@ -86,6 +86,7 @@ cmp.setup {
     { name = 'nvim_lsp'                        },
     { name = 'npm'                             },
     { name = 'ultisnips'                       },
+    { name = 'vsnip'                       },
     { name = 'cmp_tabnine', max_item_count = 3 },
     { name = 'buffer', keyword_length = 5      },
     { name = 'path'                            },

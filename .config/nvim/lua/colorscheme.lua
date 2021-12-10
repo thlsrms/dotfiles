@@ -6,7 +6,7 @@
 -- vim.g.gruvbox_material_diagnostic_text_highlight = 1
 -- Flat
 vim.g.gruvbox_flat_style = 'hard' -- 'dark'
-vim.g.gruvbox_theme = { TabLineSel = { bg = "orange"}}
+-- vim.g.gruvbox_theme = { TabLineSel = { bg = "orange"}}
 vim.g.gruvbox_transparent = true
 
 -- Lualine config

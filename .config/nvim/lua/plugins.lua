@@ -157,7 +157,12 @@ use {'SirVer/ultisnips',
   config = "require('plugins.ultisnips')",
   after = 'cmp-nvim-ultisnips'
 }
+use {'hrsh7th/cmp-vsnip', after = {'nvim-cmp'}}
+use {'hrsh7th/vim-vsnip', after = {'cmp-vsnip'}}
+use {'hrsh7th/vim-vsnip-integ', after = {'vim-vsnip'}}
 use {'lpinilla/vim-codepainter'}
+-- VSCode snippets
+use {'xabikos/vscode-javascript'}
 
 -- Nvim Tree
 use {'kyazdani42/nvim-tree.lua', config = "require('plugins.tree')"}
