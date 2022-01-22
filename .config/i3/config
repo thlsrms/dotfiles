@@ -118,7 +118,7 @@ bindsym mod1+F3 exec --no-startup-id xfce4-appfinder
 bindsym $mod+F11 exec --no-startup-id "rofi -font 'Noto Sans 13' -theme-str 'window {width: 100%;height: 100%;}' -show drun"
 
 # start rofi small
-bindsym $mod+F12 exec --no-startup-id rofi -show drun -font "Noto Sans 13"
+bindsym $mod+o exec --no-startup-id rofi -show drun -font "Noto Sans 13"
 
 ################# how to exit, logoff, suspend, ...
 
@@ -794,7 +794,9 @@ bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 
 # OTHER STUFF
 
-#exec_always xset s off -dpms
-#exec_always setxkbmap -option caps:swapescape
+exec_always xset s off -dpms
+exec_always setxkbmap -option caps:swapescape
 
 #exec_always --no-startup-id ~/.config/i3/scripts/fix_mic-boost.sh
+#bindsym $mod+z exec --startup-id xinput --disable 14
+#bindsym $mod+Shift+z exec --startup-id xinput --enable 14
