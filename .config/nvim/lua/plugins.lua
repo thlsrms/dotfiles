@@ -47,7 +47,7 @@ use {'kyazdani42/nvim-web-devicons'}
 use {'glepnir/dashboard-nvim', config = "require('plugins.dashboard')"}
 
 -- Themes
-use {'sainnhe/gruvbox-material'}
+use {'morhetz/gruvbox'}
 use {'eddyekofo94/gruvbox-flat.nvim'}
 use {
   'nvim-lualine/lualine.nvim',
@@ -164,6 +164,7 @@ use {'hrsh7th/vim-vsnip-integ', after = {'vim-vsnip'}}
 use {'lpinilla/vim-codepainter'}
 -- VSCode snippets
 use {'xabikos/vscode-javascript'}
+use { 'simrat39/rust-tools.nvim' } -- To enable more of the features of rust-analyzer
 
 -- Nvim Tree
 use {'kyazdani42/nvim-tree.lua', config = "require('plugins.tree')"}

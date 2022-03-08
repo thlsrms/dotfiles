@@ -24,7 +24,7 @@
       ['n <leader>ghp'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
       ['n <leader>gm']  = '<cmd>lua require"gitsigns".blame_line{full=true}<CR>',
     },
-    watch_index = {
+    watch_gitdir = {
       interval = 700,
       follow_files = true
     },
@@ -50,7 +50,9 @@
       row = 0,
       col = 1
     },
-    use_internal_diff = true,  -- If vim.diff or luajit is present
+    diff_opts = {
+      internal = true,  -- If vim.diff or luajit is present
+    },
     yadm = {
       enable = false
     },

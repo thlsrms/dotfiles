@@ -41,6 +41,10 @@ require'lualine'.setup {
   extensions = {}
 }
 
+-- gruvbox-light
+--vim.cmd[[colorscheme gruvbox]]
+
+-- gruvbox-flat
 vim.cmd[[colorscheme gruvbox-flat]]
 
 --[[

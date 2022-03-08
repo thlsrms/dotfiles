@@ -795,6 +795,7 @@ bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 # OTHER STUFF
 
 exec_always xset s off -dpms
+exec_always xset r rate 270 35
 exec_always setxkbmap -option caps:swapescape
 
 #exec_always --no-startup-id ~/.config/i3/scripts/fix_mic-boost.sh
