@@ -660,7 +660,7 @@ popup_during_fullscreen smart
 
 for_window [class="^.*"] border pixel 2
 gaps inner 5
-gaps outer 5
+gaps outer 3
 # smart_gaps on
 # smart_borders on
 
@@ -735,7 +735,7 @@ bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 
     # Window color settings
     # class                 border  backgr. text    indicator
-    client.focused          $base05 $base0D $base00 $base00
+    client.focused          $base05 $base0D $base00 $base00 #3384d0
     client.unfocused        $base01 $base00 $base05 $base01
     client.focused_inactive $base01 $base01 $base05 $base03
     client.placeholder      $base00 $base00 $base05 $base00
