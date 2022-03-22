@@ -120,7 +120,7 @@ font-3 = "Noto Sans Mono:size=10;0"
 
 modules-left = i3 xwindow
 modules-center = 
-modules-right = memory2 cpu2 date pavolume battery pulseaudio-microphone
+modules-right = memory2 cpu2 date pavolume pulseaudio-microphone battery
 
 separator = |
 
@@ -1738,8 +1738,10 @@ interval = 1
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 format-prefix = "  "
-format-prefix-foreground = #cd1f3f
-format-underline = #cd1f3f
+;format-prefix-foreground = #cd1f3f
+;format-underline = #cd1f3f
+format-prefix-foreground = #93b8db
+format-underline = #3384d0
 
 label-font = 3
 
@@ -1772,8 +1774,10 @@ date-alt = " %d-%m-%Y"
 time = %H:%M
 time-alt = %H:%M
 format-prefix = " "
-format-prefix-foreground = #c1941a
-format-underline = #c1941a
+;format-prefix-foreground = #c1941a
+format-prefix-foreground = #93b8db
+;format-underline = #c1941a
+format-underline = #3384d0
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 label = %date% %time%
@@ -1982,7 +1986,8 @@ label = %percentage_used%%
 
 format = Mem <label>
 format-prefix = "  "
-format-prefix-foreground = #3384d0
+;format-prefix-foreground = #3384d0
+format-prefix-foreground = #93b8db
 format-underline = #3384d0
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
@@ -2111,7 +2116,8 @@ click-right = exec pavucontrol
 click-left = ~/.config/polybar/scripts/pavolume.sh --togmute
 scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
 scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
-format-underline = #3EC13F
+;format-underline = #3EC13F
+format-underline = #3384d0
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 

@@ -389,7 +389,7 @@ exec --no-startup-id volumeicon
 #exec --no-startup-id conky -c ~/.config/i3/system-overview
 
 # feh sets wallpaper
-exec --no-startup-id feh --bg-fill /usr/share/backgrounds/arcolinux/time-abstract.jpg &
+exec --no-startup-id ~/.config/fehbg &
 
 # Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
@@ -793,10 +793,6 @@ bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 # exec --no-startup-id unclutter
 
 # OTHER STUFF
-
-exec_always xset s off -dpms
-exec_always xset r rate 270 35
-exec_always setxkbmap -option caps:swapescape
 
 #exec_always --no-startup-id ~/.config/i3/scripts/fix_mic-boost.sh
 #bindsym $mod+z exec --startup-id xinput --disable 14

@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --no-fehbg --bg-fill '/usr/share/sddm/themes/arcolinux-simplicity/images/background.jpg' 
