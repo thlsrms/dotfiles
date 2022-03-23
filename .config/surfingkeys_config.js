@@ -64,3 +64,7 @@ map('S', '$'); // Scroll all the way to the right
 vmap('S', '$');
 
 map('R', 'r'); // Reload page
+
+mapkey('U','#8Open an URL in current tab', function() {
+  Front.openOmnibar({type: "URLs", extra: "getTopSites", tabbed: false});
+});
