@@ -49,6 +49,8 @@ use {'glepnir/dashboard-nvim', config = "require('plugins.dashboard')"}
 -- Themes
 use {'morhetz/gruvbox'}
 use {'eddyekofo94/gruvbox-flat.nvim'}
+use {'EdenEast/nightfox.nvim'}
+
 use {
   'nvim-lualine/lualine.nvim',
   requires = {'kyazdani42/nvim-web-devicons', opt = true}
@@ -56,7 +58,7 @@ use {
 
 -- Treesitter
 use {'nvim-treesitter/nvim-treesitter',
-    commit = '668de0951a36ef17016074f1120b6aacbe6c4515',
+    --commit = '668de0951a36ef17016074f1120b6aacbe6c4515',
     config = "require('plugins.treesitter')",
     run = ':TSUpdate'
 }

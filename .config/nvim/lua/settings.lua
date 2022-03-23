@@ -1,4 +1,5 @@
 local options = {
+  background     = "dark",
   clipboard      = "unnamed,unnamedplus",   --- Copy-paste between vim and everything else
   cmdheight      = 2,                       --- Give more space for displaying messages
   completeopt    = "menu,menuone,noselect", --- Better autocompletion
@@ -41,12 +42,11 @@ local options = {
   fileencoding   = "utf-8",                 --- The encoding written to file
   incsearch      = true,                    --- Start searching before pressing enter
   showmode       = false,                   --- Don't show things like -- INSERT -- anymore
-  guicursor="",
-  hlsearch = false,
-  undodir = os.getenv("HOME") .. "/.local/share/nvim/undodir",
-  colorcolumn = "113",
-  background = "dark",
-  ttimeoutlen = 100,
+  guicursor      = "",
+  hlsearch       = false,
+  undodir        = os.getenv("HOME") .. "/.local/share/nvim/undodir",
+  colorcolumn    = "113",
+  ttimeoutlen    = 100,
 }
 
 vim.cmd([[
