@@ -466,6 +466,8 @@ bindsym --release $mod+Escape exec xkill
 # Function Keybinds
 # Browser
 bindsym $mod+F1 exec --no-startup-id exo-open --launch webbrowser;focus
+bindsym $mod+F2 exec --no-startup-id brave;focus
+bindsym $mod+F3 exec --no-startup-id firefox;focus
 # qwerty/azerty conflict with w
 bindsym $mod+w exec --no-startup-id exo-open --launch webbrowser;focus
 bindsym control+mod1+f exec --no-startup-id firefox;focus
@@ -474,10 +476,10 @@ bindsym control+mod1+g exec --no-startup-id chromium;focus
 
 # Text Editor
 # bindsym $mod+F2 exec --no-startup-id geany;focus
-bindsym $mod+F2 exec --no-startup-id atom;focus
+#bindsym $mod+F2 exec --no-startup-id atom;focus
 
 # Basic Draw Tool
-bindsym $mod+F3 exec --no-startup-id inkscape;focus
+#bindsym $mod+F3 exec --no-startup-id inkscape;focus
 
 # Advanced Draw Tool
 bindsym $mod+F4 exec --no-startup-id gimp;focus
@@ -603,8 +605,11 @@ for_window [class="Urxvt"] focus
 ################# audio settings
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -D pulse sset Master '5%+'"
+bindsym shift+ctrl+0 exec --no-startup-id "amixer -D pulse sset Master '5%+'"
 bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -D pulse sset Master '5%-'"
+bindsym shift+ctrl+9 exec --no-startup-id "amixer -D pulse sset Master '5%-'"
 bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse set Master toggle"
+bindsym shift+ctrl+8 exec --no-startup-id "amixer -D pulse set Master toggle"
 bindsym $mod+period exec --no-startup-id "amixer -D pulse set Capture toggle"
 # https://github.com/acrisci/playerctl/
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
