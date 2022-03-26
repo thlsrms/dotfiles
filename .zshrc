@@ -1,6 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/.cargo/bin:$HOME/bin
+export FPATH=$FPATH:$HOME/.oh-my-zsh/custom/plugins::$HOME/.oh-my-zsh/custom/completions
 
 # Terminal var
 export TERMINAL="alacritty"
