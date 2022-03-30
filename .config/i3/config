@@ -100,8 +100,6 @@ bindsym $mod+Shift+8 move container to workspace 8; workspace 8
 bindsym $mod+Shift+9 move container to workspace 9; workspace 9
 bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 
-################# menu's in arcolinux
-
 # start dmenu
 bindsym $mod+shift+d exec --no-startup-id dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
 
@@ -140,7 +138,7 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 
-# ArcoLinux Logout
+# Logout
 bindsym $mod+Shift+e exec --no-startup-id arcolinux-logout
 bindsym $mod+X exec --no-startup-id arcolinux-logout
 
@@ -219,7 +217,6 @@ bindsym $mod+j split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-# Super + F in arcolinux is execute thunar
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
@@ -325,9 +322,6 @@ font pango:Noto Mono Regular 13
 
 # USER APPLICATIONS TO START AT BOOT
 
-# ArcoLinux Welcome App
-exec --no-startup-id dex $HOME/.config/autostart/arcolinux-welcome-app.desktop
-
 # Autotiling
 exec_always --no-startup-id autotiling
 
@@ -406,12 +400,6 @@ exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 
 # not workspace related
 
-# ArcoLinux Welcome App
-bindsym control+mod1+w exec --no-startup-id arcolinux-welcome-app
-
-# ArcoLinux Tweak Tool
-bindsym control+mod1+e exec --no-startup-id arcolinux-tweak-tool
-
 # conky
 bindsym $mod+c exec --no-startup-id conky-toggle
 bindsym control+mod1+Next exec --no-startup-id conky-rotate -n
@@ -436,26 +424,17 @@ bindsym control+mod1+m exec --no-startup-id xfce4-settings-manager
 # catfish
 bindsym control+mod1+c exec --no-startup-id catfish;focus
 
-# arcolinux-logout
-bindsym control+mod1+k exec --no-startup-id arcolinux-logout
-bindsym control+mod1+l exec --no-startup-id arcolinux-logout
-
 # rofi theme selector
 bindsym control+mod1+r exec --no-startup-id rofi-theme-selector
 
-# arcolinux conflict
-# bindsym $mod+m exec --no-startup-id pragha;focus
-
 # htop
-# arcolinux conflict
 # bindsym $mod+h exec --no-startup-id htop;focus
 
 # pavucontrol
 bindsym control+mod1+u exec --no-startup-id pavucontrol
 
 # start xfce-appfinder
-# arcolinux does not seem to work
-bindsym control+mod1+a exec --no-startup-id xfce4-appfinder
+# bindsym control+mod1+a exec --no-startup-id xfce4-appfinder
 
 # pamac-manager
 bindsym control+mod1+p exec --no-startup-id pamac-manager
@@ -512,10 +491,6 @@ bindsym control+mod1+s exec --no-startup-id spotify;focus
 
 ################# screenshots
 
-#bindsym Print exec --no-startup-id scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
-#bindsym Control+Print exec --no-startup-id xfce4-screenshooter
-#bindsym Control+Shift+Print exec --no-startup-id gnome-screenshot -i
-# bindsym shift+Print exec --no-startup-id shutter
 bindsym Print exec --no-startup-id gscreenshot -c -n -f 'Pictures/Screenshots'
 bindsym Shift+Print exec --no-startup-id gscreenshot -c -n -s
 
@@ -523,9 +498,6 @@ bindsym Shift+Print exec --no-startup-id gscreenshot -c -n -s
 
 # floating enabled from some programs - find with xprop
 
-for_window [class="Arcolinux-welcome-app.py"] floating enable
-# for_window [class="Arcolinux-tweak-tool.py"] floating enable
-for_window [class="Arcolinux-calamares-tool.py"] floating enable
 for_window [class="Bleachbit"] floating disable
 for_window [class="Blueberry.py"] floating enable
 for_window [class="Brasero"] floating disable
@@ -634,11 +606,10 @@ bindsym $mod+b bar mode toggle
 ################# border control
 
 # Border control
-hide_edge_borders both
+hide_edge_borders none
 bindsym $mod+shift+b exec --no-startup-id i3-msg border toggle
 
 # changing border style
-# super+t in arcolinux is starting terminal
 bindsym $mod+k border normal
 bindsym $mod+y border pixel 1
 bindsym $mod+u border none
@@ -665,9 +636,9 @@ popup_during_fullscreen smart
 
 for_window [class="^.*"] border pixel 2
 gaps inner 5
-gaps outer 3
-# smart_gaps on
-# smart_borders on
+gaps outer 2
+smart_gaps on
+smart_borders on
 
 ################# i3 gaps change
 
@@ -711,14 +682,13 @@ mode "$mode_gaps_outer" {
 ################# picom of i3wm
 
 # if you want transparency on non-focused windows, ...
-exec_always --no-startup-id picom --experimental-backends --backend glx
+exec --no-startup-id picom --experimental-backends --backend glx
 
 bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 
 ################# bar appearance
 
     ##START THEMING WM
-    #Theme name : ArcoLinux Var Ashes
 
     set $base00 #1C2023
     set $base01 #393F45
@@ -786,19 +756,19 @@ bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 
 # NOT USED
 
-# Settings of arcolinux will be applied
 # exec --no-startup-id setxkbmap be
 # exec --no-startup-id setxkbmap us
 
 ################# unclutter
 
-# NOT USED
-
 # get the mouse out of the way with unclutter
-# exec --no-startup-id unclutter
+exec --no-startup-id unclutter
 
-# OTHER STUFF
+################# OTHER STUFF
 
 #exec_always --no-startup-id ~/.config/i3/scripts/fix_mic-boost.sh
 #bindsym $mod+z exec --startup-id xinput --disable 14
 #bindsym $mod+Shift+z exec --startup-id xinput --enable 14
+
+## Start i3 on workspace 10
+exec --no-startup-id i3-msg workspace 10

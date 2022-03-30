@@ -1415,16 +1415,16 @@ fuzzy-match = false
 ;http://fontawesome.io/cheatsheet/
 ;       v            
 
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = 8;
-ws-icon-8 = 9;
-ws-icon-9 = 10;
+ws-icon-0 = 10;
+ws-icon-1 = 9;
+ws-icon-2 = 8;
+ws-icon-3 = 7;
+ws-icon-4 = 6;
+ws-icon-5 = 5;
+ws-icon-6 = 4;
+ws-icon-7 = 3;
+ws-icon-8 = 2;
+ws-icon-9 = 1;
 ws-icon-default = " "
 
 ; Available tags:
@@ -1915,7 +1915,7 @@ format-underline = #0084FF
 [module/jgmenu]
 type = custom/script
 interval = 120
-exec = echo "ArcoLinux"
+exec = echo "Start"
 click-left = "jgmenu_run >/dev/null 2>&1 &"
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
