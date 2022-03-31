@@ -116,10 +116,10 @@ local mappings = {
 
   c = {
     name = "LSP",
-    a = { '<cmd>Telescope lsp_code_action',              'telescope code action' },
+    a = { '<cmd>Telescope lsp_code_actions<CR>',              'telescope code action' },
     c = "which_key_ignore",
-    d = { '<cmd>LspTroubleToggle<CR>',                   'local diagnostics' },
-    D = { '<cmd>Telescope lsp_document_diagnostics<CR>', 'diagnostics' },
+    d = { '<cmd>TroubleToggle<CR>',                   'local diagnostics' },
+    D = { '<cmd>Telescope diagnostics bufnr=0<CR>', 'diagnostics' },
     f = { 'format' },
     i = { '<cmd>TSLspImportAll<CR>',                     'import all'},
     l = { 'line diagnostics' },
