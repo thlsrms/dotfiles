@@ -6,4 +6,4 @@ xset s noblank
 
 xset r rate 270 35
 
-xrandr --dpi 96
+xrandr --dpi 144
