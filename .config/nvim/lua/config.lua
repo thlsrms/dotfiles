@@ -1,7 +1,12 @@
 local icons = require('icons')
 
 globals = {
-  colorscheme = 'nightfly', -- nightfly/tokyonight
+  ui = {
+    float = {
+      border = 'rounded',
+      highlight = 'NightflyRed' -- check available by :Telescope highlights
+    }
+  },
   plugins = {
     dashboard = {
       fuzzy_plugin = 'telescope' -- telescope/clap/fzf

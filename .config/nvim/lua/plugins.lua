@@ -58,7 +58,6 @@ use {
 
 -- Treesitter
 use {'nvim-treesitter/nvim-treesitter',
-    --commit = '668de0951a36ef17016074f1120b6aacbe6c4515',
     config = "require('plugins.treesitter')",
     run = ':TSUpdate'
 }
@@ -149,9 +148,9 @@ use {'windwp/nvim-autopairs',
   after = {'nvim-treesitter', 'nvim-cmp'},
   config = "require('plugins.autopairs')"
 }
+use {'windwp/nvim-ts-autotag', after = {'nvim-treesitter'}}
 use {'p00f/nvim-ts-rainbow', after = {'nvim-treesitter'}}
 use {'mattn/emmet-vim'}
-use {'windwp/nvim-ts-autotag', after = {'nvim-treesitter'}}
 use {'potatoesmaster/i3-vim-syntax'}
 use {'lukas-reineke/indent-blankline.nvim', config = "require('plugins.indent')"}
 use {'norcalli/nvim-colorizer.lua', config = "require('plugins.colorizer')"}
