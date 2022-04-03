@@ -3,7 +3,8 @@ setxkbmap -option caps:swapescape
 xset s off
 xset -dpms
 xset s noblank
+xsetroot -solid "#1d2021"
 
 xset r rate 270 35
 
-xrandr --dpi 140
+xrandr --dpi 90
