@@ -1,4 +1,4 @@
--- Gruvbox config
+-- Gruvbox material config
 vim.g.gruvbox_material_background = 'hard'
 vim.g.gruvbox_material_transparent_background = '1'
 vim.g.gruvbox_material_palette = 'mix'
@@ -8,9 +8,13 @@ vim.g.gruvbox_material_diagnostic_line_highlight = '1'
 vim.g.gruvbox_material_diagnostic_virtual_text = 'colored'
 --vim.g.gruvbox_material_better_performance = '1'
 
+-- Gruvbox config
 vim.g.gruvbox_contrast_dark = 'hard'
 vim.g.gruvbox_contrast_light = 'hard'
 vim.g.gruvbox_transparent = true
+
+-- Gruvbox flat config
+vim.g.gruvbox_flat_style = 'hard'
 
 
 -- Lualine config
@@ -18,7 +22,7 @@ local gps = require("nvim-gps")
 require'lualine'.setup {
   options = {
     icons_enabled = true,
-    theme = 'nightfox',
+    theme = 'gruvbox-flat',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {},
@@ -77,8 +81,9 @@ require('nightfox').setup({
 --vim.cmd('colorscheme nightfox')
 
 -- gruvbox
---vim.cmd('colorscheme gruvbox')
-vim.cmd('colorscheme gruvbox-material')
+vim.cmd('colorscheme gruvbox')
+--vim.cmd('colorscheme gruvbox-material')
+--vim.cmd('colorscheme gruvbox-flat')
 
 -- barbar tabline modifications
 vim.cmd('hi BufferCurrent guibg=none')

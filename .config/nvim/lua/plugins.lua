@@ -49,6 +49,7 @@ use {'glepnir/dashboard-nvim', config = "require('plugins.dashboard')"}
 -- Themes
 use {'morhetz/gruvbox'}
 use {'sainnhe/gruvbox-material'}
+use { 'eddyekofo94/gruvbox-flat.nvim' }
 use {'EdenEast/nightfox.nvim'}
 
 use {
