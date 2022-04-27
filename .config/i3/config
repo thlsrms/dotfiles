@@ -492,7 +492,7 @@ bindsym control+mod1+s exec --no-startup-id spotify;focus
 ################# screenshots
 
 bindsym Print exec --no-startup-id gscreenshot -c -n -f 'Pictures/Screenshots'
-bindsym Shift+Print exec --no-startup-id gscreenshot -c -n -s
+bindsym Shift+Print exec --no-startup-id gscreenshot -c -n -s -f 'Pictures/Screenshots'
 
 ################# floating or tiled rules
 
