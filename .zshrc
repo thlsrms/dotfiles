@@ -103,7 +103,7 @@ alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias andemulator="$HOME/Android/Sdk/emulator/emulator -avd Pixel_5_API_29_An._10_"
 
 # exports
-export PATH=$PATH:$HOME/.cargo/bin:$HOME/bin
+export PATH=$PATH:$HOME/.cargo/bin:$HOME/bin:$HOME/.local/bin
 export FPATH=$FPATH:$HOME/.oh-my-zsh/custom/plugins::$HOME/.oh-my-zsh/custom/completions
 export ANDROID_HOME=$HOME/Android/Sdk
 export CHROME_EXECUTABLE=brave
@@ -170,6 +170,15 @@ alias free="free -mt"
 
 #continue download
 alias wget="wget -c"
+
+#alacritty colorscheme
+LIGHT_COLOR='gruvbox_light.yml'
+#DARK_COLOR='gruvbox_dark.yml'
+DARK_COLOR='gruvbox_flat_dark.yml'
+
+alias day="alacritty-colorscheme -V apply $LIGHT_COLOR"
+alias night="alacritty-colorscheme -V apply $DARK_COLOR"
+#alias toggle="alacritty-colorscheme -V toggle $LIGHT_COLOR $DARK_COLOR"
 
 #userlist
 alias userlist="cut -d: -f1 /etc/passwd"
