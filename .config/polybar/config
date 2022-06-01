@@ -119,8 +119,8 @@ font-2 = "Fira Sans:size=10;0"
 font-3 = "Fira Mono:size=10;0"
 
 modules-left = i3 xwindow
-modules-center = date
-modules-right = memory2 cpu2 pavolume pulseaudio-microphone battery
+modules-center = 
+modules-right = memory2 cpu2 pavolume pulseaudio-microphone date battery
 
 separator = %{F#3f5061}|%{F-}
 
