@@ -143,6 +143,7 @@ use {'vuki656/package-info.nvim',
   disable = not globals.plugins.package_info.enabled
 }
 use {'antoinemadec/FixCursorHold.nvim'} -- Needed while issue https://github.com/neovim/neovim/issues/12587 is still open
+use { 'axelf4/vim-strip-trailing-whitespace' }
 
 -- Snippets & Language & Syntax
 use {'windwp/nvim-autopairs',
@@ -167,6 +168,7 @@ use {'lpinilla/vim-codepainter'}
 -- VSCode snippets
 use {'xabikos/vscode-javascript'}
 use { 'simrat39/rust-tools.nvim' } -- To enable more of the features of rust-analyzer
+use { 'rust-lang/rust.vim' }
 
 -- Nvim Tree
 use {'kyazdani42/nvim-tree.lua', config = "require('plugins.tree')"}
