@@ -102,6 +102,9 @@ source $ZSH/oh-my-zsh.sh
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias andemulator="$HOME/Android/Sdk/emulator/emulator -avd Pixel_5_API_29_An._10_"
 
+#Wine use amd vulkan loader
+alias win64="DRI_PRIME=1 VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/amd_icd32.json:/usr/share/vulkan/icd.d/amd_icd64.json wine"
+
 # exports
 export PATH=$PATH:$HOME/.cargo/bin:$HOME/bin:$HOME/.local/bin
 export FPATH=$FPATH:$HOME/.oh-my-zsh/custom/plugins::$HOME/.oh-my-zsh/custom/completions
@@ -120,6 +123,9 @@ export HISTCONTROL=ignoreboth:erasedups
 # Make neovim the default editor
 export EDITOR='nvim'
 export VISUAL='nvim'
+
+# Alias helix -> hx
+alias hx=helix
 
 #PS1='[\u@\h \W]\$ '
 
