@@ -5,6 +5,7 @@ scrolloff = 8
 true-color = true
 rulers = [120]
 idle-timeout = 10
+line-number = "relative"
 
 [editor.lsp]
 display-messages = true
@@ -12,9 +13,6 @@ display-messages = true
 [editor.file-picker]
 # Ignore options
 hidden = false
-
-[editor.whitespace.render]
-newline = "all"
 
 [keys.normal]
 "A-W" = ":w"
