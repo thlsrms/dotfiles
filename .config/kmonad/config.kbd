@@ -39,7 +39,7 @@ lsft  nubs  z     x     c     v     b     n     m     ,     .     /     rsft
       tab   q     w     e     r     t     y     u     i     o     p     del   bspc  ret
       @csft a     s     d     f     g     h     j     k     l     ;     @smin \
 lsft  nubs  @cctr x     c     v     b     n     m     ,     .     /     rsft
-  caps  lalt  @met              spc                   ralt  rmet  cmp   rctl
+  caps  @met  lalt              spc                   ralt  rmet  cmp   rctl
 )
 
 (defalias
