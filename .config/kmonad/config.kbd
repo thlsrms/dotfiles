@@ -18,9 +18,12 @@ lsft  nubs  z     x     c     v     b     n     m     ,     .     /     rsft
 (defalias
   main (layer-switch main)
   sym (tap-next-release (layer-add sym) (layer-toggle sym))
+  ssym (tap-hold-next-release 750 spc (layer-toggle sym))
   xsym (layer-rem sym)
   met (around lmet (layer-toggle i3nav))
   ext (tap-next-release (layer-add extended) (layer-toggle extended))
+  aext (tap-next-release lalt (layer-toggle extended))
+  rext (tap-next-release ralt (layer-toggle extended))
   xext (layer-rem extended)
   mdia (tap-next-release (layer-add media) (layer-toggle media))
   xmdi (layer-rem media)
@@ -31,15 +34,17 @@ lsft  nubs  z     x     c     v     b     n     m     ,     .     /     rsft
   cctr (tap-next-release z lctl) ;; z = ; on dvorak
   csft (tap-next-release esc lsft)
   smin (tap-next-release ' rsft) ;; ' = - on dvorak
+  nsp (tap-next-release nubs @met)
+  tsp (tap-next-release tab @met)
 )
 
 (deflayer main
       @main f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12
       grv   @mdia @sym  @ext  4     5     6     7     8     @ext  @sym  @mdia =     bspc
-      tab   q     w     e     r     t     y     u     i     o     p     del   bspc  ret
-      @csft a     s     d     f     g     h     j     k     l     ;     @smin \
-lsft  nubs  @cctr x     c     v     b     n     m     ,     .     /     rsft
-  caps  @met  lalt              spc                   ralt  rmet  cmp   rctl
+      @tsp  q     w     e     r     t     y     u     i     o     p     @smin  del   ret
+      @csft a     s     d     f     g     h     j     k     l     ;     bspc   \
+lsft  @nsp  @cctr x     c     v     b     n     m     ,     .     /     rsft
+  caps  @met  @aext             @ssym                 @rext rmet  cmp   rctl
 )
 
 (defalias
@@ -66,8 +71,8 @@ _     _     %     ^     }     )     ]     0
       _     _     _     _     _     _     _     _     _     _     _     _     _
       _     _     @xsym _     _     _     _     _     _     _     @xsym _     _     _
       _     !     @     &     {     ]     *     7     8     9     [     _     _     _
-      _     #     $     \_    \(    -     }     4     5     6     .     _     _
-_     _     %     ^     +     \)    =     0     1     2     3     _     _
+      _     #     $     \_    \(    -     }     4     5     6     e     _     _
+_     _     %     ^     +     \)    =     0     1     2     3     \     _
    _    _    _                  _                     _     _     _     _
 )
 
@@ -91,8 +96,8 @@ _     _     %     ^     +     \)    =     0     1     2     3     _     _
       _     _     _     _     _     _     _     _     _     _     _     _     _
       _     _     _     @xext _     _     _     _     _     @xext _     _     _     _
       _     ins   prnt  slck  pause @ac_s pgup  @sm_s home  end   caps  _     _     _
-      _     @ls_s @lm_s @la_s @lc_s @sc_s pgdn  lft   down  up    rght  _     _
-_     _     @ctlz @ctlx @ctlc @ctlv @ra_s bspc  tab   @as_s _     _     _
+      _     @ls_s @ra_s @la_s @lc_s @sc_s pgdn  lft   down  up    rght  _     _
+_     _     @ctlz @ctlx @ctlc @ctlv @lm_s bspc  tab   @as_s _     _     _
    _    _    _                  _                     _     _     _     _
 )
 
