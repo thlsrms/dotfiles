@@ -35,15 +35,14 @@ lsft  nubs  z     x     c     v     b     n     m     ,     .     /     rsft
   csft (tap-next-release esc lsft)
   smin (tap-next-release ' rsft) ;; ' = - on dvorak
   nsp (tap-next-release nubs @met)
-  tsp (tap-next-release tab @met)
 )
 
 (deflayer main
       @main f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12
-      grv   @mdia @sym  @ext  4     5     6     7     8     @ext  @sym  @mdia =     bspc
-      @tsp  q     w     e     r     t     y     u     i     o     p     @smin  del   ret
-      @csft a     s     d     f     g     h     j     k     l     ;     bspc   \
-lsft  @nsp  @cctr x     c     v     b     n     m     ,     .     /     rsft
+      grv   @mdia @sym  @ext  4     5     6     7     8     @ext  @sym  @mdia =     XX
+      tab   q     w     e     r     t     y     u     i     o     p     rsft  bspc  ret
+      @csft a     s     d     f     g     h     j     k     l     ;     '     del
+lsft  @nsp  @cctr x     c     v     b     n     m     ,     .     /     bspc
   caps  @met  @aext             @ssym                 @rext rmet  cmp   rctl
 )
 
@@ -97,7 +96,7 @@ _     _     %     ^     +     \)    =     0     1     2     3     \     _
       _     _     _     @xext _     _     _     _     _     @xext _     _     _     _
       _     ins   prnt  slck  pause @ac_s pgup  @sm_s home  end   caps  _     _     _
       _     @ls_s @ra_s @la_s @lc_s @sc_s pgdn  lft   down  up    rght  _     _
-_     _     @ctlz @ctlx @ctlc @ctlv @lm_s bspc  tab   @as_s _     _     _
+_     _     @ctlz @ctlx @ctlc @ctlv @lm_s bspc  del   @as_s _     _     _
    _    _    _                  _                     _     _     _     _
 )
 
