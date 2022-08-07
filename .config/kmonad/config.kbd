@@ -1,8 +1,9 @@
 (defcfg
   input  (device-file "/dev/input/by-id/usb-SEM_USB_Keyboard-event-kbd")
-  output (uinput-sink "KMonad kbd")
+  output (uinput-sink "KMonad kbd" "sleep 1; setxkbmap -option compose:ralt")
   fallthrough true
   allow-cmd false
+  cmp-seq compose    ;; Set the compose key to 'RightAlt'
 )
 
 (defsrc
@@ -17,21 +18,20 @@ lsft  nubs  z     x     c     v     b     n     m     ,     .     /     rsft
 ;; Layer manipulation aliases
 (defalias
   main (layer-switch main)
-  sym (tap-next-release (layer-add sym) (layer-toggle sym))
+  sym (tap-hold-next-release 750 (layer-add sym) (layer-toggle sym))
   ssym (tap-hold-next-release 750 spc (layer-toggle sym))
   xsym (layer-rem sym)
   met (around lmet (layer-toggle i3nav))
-  aext (tap-next-release lalt (layer-toggle extended))
-  rext (tap-next-release ralt (layer-toggle extended))
-  mdia (tap-next-release grv (layer-toggle media))
+  aext (layer-toggle extended)
+  rext (layer-toggle extended)
+  mdia (tap-hold-next-release 500 grv (layer-toggle media))
 )
 
 ;; Macros and useful aliases
 (defalias
-  cctr (tap-next-release z lctl) ;; z = ; on dvorak
-  csft (tap-next-release esc lsft)
-  smin (tap-next-release ' rsft) ;; ' = - on dvorak
-  nsp (tap-next-release nubs @met)
+  cctr (tap-hold-next-release 500 z lctl) ;; z = ; on dvorak
+  csft (tap-hold-next-release 500 esc lsft)
+  nsp (tap-hold-next-release 500 nubs @met)
 )
 
 (deflayer main
@@ -78,14 +78,15 @@ _     _     %     ^     +     \)    =     0     1     2     3     \     _
   ctlc (around lctl i) ;; i = c on dvorak
   ctlv (around lctl .) ;; . = v on dvorak
   ls_s (sticky-key 1500 lsft)
-  lc_s (sticky-key 1500 lctl)
-  la_s (sticky-key 1500 lalt)
-  ra_s (sticky-key 1500 ralt)
+  lc_s (sticky-key 750 lctl)
+  la_s (sticky-key 750 lalt)
+  ra_s (around-next-timeout 1500 ralt XX)
   lm_s (sticky-key 1500 lmet)
   sm_s (around @ls_s @lm_s)
   sc_s (around @lc_s @ls_s)
   ac_s (around @lc_s @la_s)
   as_s (around @la_s @ls_s)
+  rass (around @ra_s @ls_s)
  )
 
 (deflayer extended
@@ -93,7 +94,7 @@ _     _     %     ^     +     \)    =     0     1     2     3     \     _
       _     _     _     _     _     _     _     _     _     _     _     _     _     _
       _     ins   prnt  slck  pause @ac_s pgup  @sm_s home  end   caps  _     _     _
       _     @ls_s @ra_s @la_s @lc_s @sc_s pgdn  lft   down  up    rght  _     _
-_     _     @ctlz @ctlx @ctlc @ctlv @lm_s bspc  del   @as_s _     _     _
+_     _     @ctlz @ctlx @ctlc @ctlv @lm_s bspc  del   @as_s @rass grv   _
   _     _     _                      _                _     _     _     _
 )
 
