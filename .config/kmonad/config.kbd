@@ -56,13 +56,11 @@ _     _     _     _     _     mute  _     mute  _     _     _     _     _
   _     _     _                      _                _     _     _     _
 )
 
-#| --------------------- sym layer (DVORAK)
-      _     _     _     _     _     _     _ 
-      _     _     _     _     _     _     _ 
-      _     !     @     &     ?     =     * 
-      _     #     $     {     (     [     + 
-_     _     %     ^     }     )     ]     0 
----------------------------------------  |#
+#| --------------------- sym layer (DVORAK) -------------------------------
+      _     !     @     &     ?     =     *     7     8     9     /     _
+      _     #     $     {     (     [     +     4     5     6     .     -
+_     _     %     ^     }     )     ]     0     1     2     3     \     _
+------------------------------------------------------------------------ |#
 (deflayer sym
       _     _     _     _     _     _     _     _     _     _     _     _     _
       _     _     _     _     _     _     _     _     _     _     _     _     _     _
@@ -87,13 +85,15 @@ _     _     %     ^     +     \)    =     0     1     2     3     \     _
   ac_s (around @lc_s @la_s)
   as_s (around @la_s @ls_s)
   rass (around @ra_s @ls_s)
+  altb (around lalt tab)
+  alth (around lalt j)
  )
 
 (deflayer extended
       _     _     _     _     _     _     _     _     _     _     _     _     _
       _     _     _     _     _     _     _     _     _     _     _     _     _     _
-      _     ins   prnt  slck  pause @ac_s pgup  @sm_s home  end   caps  _     _     _
-      _     @ls_s @ra_s @la_s @lc_s @sc_s pgdn  lft   down  up    rght  _     _
+      @altb ins   prnt  slck  pause @ac_s pgup  @sm_s home  end   @alth  _     _     _
+      caps  @ls_s @ra_s @la_s @lc_s @sc_s pgdn  lft   down  up    rght  _     _
 _     _     @ctlz @ctlx @ctlc @ctlv @lm_s bspc  del   @as_s @rass grv   _
   _     _     _                      _                _     _     _     _
 )
