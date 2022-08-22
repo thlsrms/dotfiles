@@ -1,11 +1,18 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", --{}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  sync_install = false,            -- install languages synchronously (only applied to `ensure_installed`)
-  ignore_install = { "haskell" },  -- list of parsers to ignore installing
+  ensure_installed = { -- {}, -- one of "all" or a list of languages
+    "lua", "rust", "bash", "c", "c_sharp", "clojure", "cmake", "comment", "commonlisp", "cpp", "css",
+    "dart", "dockerfile", "elixir", "erlang", "fish", "gdscript", "gitignore", "glsl", "go",
+    "graphql", "hjson", "html", "http", "java", "javascript", "jsdoc", "json", "json5", "jsonc", "julia",
+    "kotlin", "llvm", "make", "markdown", "ninja", "nix", "ocaml", "pascal", "perl", "php", "prisma",
+    "python", "r", "racket", "regex", "ruby", "scala", "scheme", "scss", "solidity", "sql", "svelte",
+    "swift", "todotxt", "toml", "tsx", "typescript", "vala", "vim", "vue", "wgsl", "yaml", "zig",
+  },
+  sync_install = false, -- install languages synchronously
+  ignore_install = {},
   highlight = {
     enable = true,
-    -- disable = { "c", "rust" },  -- list of language that will be disabled
-    -- additional_vim_regex_highlighting = false,
+    -- disable = { "c", "rust" },
+    -- addititional_vim_regex_highlighting = false,
   },
 
   incremental_selection = {
@@ -32,34 +39,36 @@ require'nvim-treesitter.configs'.setup {
   },
 
   textobjects = {
+    -- TODO: Change treesitter motion keymaps
+    -- NOTE: Make use of helix keymaps ?
     move = {
       enable = true,
       set_jumps = true, -- whether to set jumps in the jumplist
       goto_next_start = {
         ["]]"] = "@function.outer",
-        ["]m"] = "@class.outer",
+        ["])"] = "@class.outer",
       },
       goto_next_end = {
         ["]["] = "@function.outer",
-        ["]M"] = "@class.outer",
+        ["]("] = "@class.outer",
       },
-      goto_previous_start = {
-        ["[["] = "@function.outer",
-        ["[m"] = "@class.outer",
-      },
-      goto_previous_end = {
+      goto_previos_start = {
         ["[]"] = "@function.outer",
-        ["[M"] = "@class.outer",
+        ["[)"] = "@class.outer",
+      },
+      goto_previos_end = {
+        ["[["] = "@function.outer",
+        ["[("] = "@class.outer",
       },
     },
     select = {
       enable = true,
 
-      -- Automatically jump forward to textobj, similar to targets.vim
+      -- Automatically jump forward textobj, similar to targets.vim
       lookahead = true,
 
       keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
+        -- You can use capture groups defined in textobjects.scm
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
         ["ac"] = "@class.outer",
@@ -69,11 +78,11 @@ require'nvim-treesitter.configs'.setup {
   },
 
   textsubjects = {
-      enable = true,
-      keymaps = {
-          ['<cr>'] = 'textsubjects-smart', -- works in visual mode
-      }
-    },
+    enable = true,
+    keymaps = {
+      ['<cr>'] = 'textsubjects-smart', -- works in visual mode
+    }
+  },
 
   autotag = {
     enable = true,

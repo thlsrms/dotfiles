@@ -1,194 +1,179 @@
-require'which-key'.setup {
+require('which-key').setup {
   plugins = {
-    marks = true, -- shows a list of your marks on ' and `
-    registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
-    -- the presets plugin, adds help for a bunch of default keybindings in Neovim
-    -- No actual key bindings are created
+    marks = true,
+    registers = false,
     spelling = {
-      enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
-      suggestions = 20, -- how many suggestions should be shown in the list?
+      enabled = true,
+      suggestions = 20,
     },
-    presets = { operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
-      motions = false, -- adds help for motions text_objects = false, -- help for text objects triggered after entering an operator
-      windows = false, -- default bindings on <c-w>
-      nav = false, -- misc bindings to work with windows
-      z = false, -- bindings for folds, spelling and others prefixed with z
-      g = false, -- bindings for prefixed with g
+    presets = {
+      operators = false,
+      motions = false,
+      text_objects = false,
+      windows = false,
+      nav = false,
+      z = false,
+      g = false,
     },
   },
-  -- add operators that will trigger motion and text object completion
-  -- to enable all native operators, set the preset / operators plugin above
   operators = { gc = "Comments" },
   key_labels = {
-    -- override the label used to display some keys. It doesn't effect WK in any other way.
-    -- For example:
-    -- ["<space>"] = "SPC",
-    -- ["<cr>"] = "RET",
-    -- ["<tab>"] = "TAB",
+    ["<space>"] = "SPC",
   },
   icons = {
-    breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-    separator = "➜", -- symbol used between a key and it's label
-    group = "+", -- symbol prepended to a group
+    breadcrumb = "»",
+    separator = "➜",
+    group = "+ ",
+  },
+  popup_mappings = {
+    scroll_down = '<C-d>',
+    scroll_up = '<C-f>',
   },
   window = {
-    border = "single", -- none, single, double, shadow
+    border = "none", -- none, single, double, shadow
     position = "bottom", -- bottom, top
-    margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-    padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
+    margin = { 1, 0, 1, 0 },
+    padding = { 2, 2, 2, 2 },
+    winblend = 0,
   },
   layout = {
-    height = { min = 4, max = 25 }, -- min and max height of the columns
-    width = { min = 20, max = 50 }, -- min and max width of the columns
-    spacing = 4, -- spacing between columns
-    align = "left", -- align columns left, center or right
+    height = { min = 4, max = 25 },
+    width = { min = 20, max = 50 },
+    spacing = 3,
+    align = "center", -- left, center, right
   },
-  ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
-  hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ "}, -- hide mapping boilerplate
-  show_help = true, -- show help message on the command line when the popup is visible
-  -- triggers = "auto", -- automatically setup triggers
-  triggers = {"<leader>"}, -- or specify a list manually
+  ignore_missing = true, -- hide mappings without label
+  hidden = { "<silent>", "<cmd>", "<Cmd>", "<cr>", "<CR>", "call", "lua", "^:", "^ " },
+  show_help = false,
+  triggers = {"<leader>", "g", "z"}, -- "auto" 
   triggers_blacklist = {
-    -- list of mode / prefixes that should never be hooked by WhichKey
-    -- this is mostly relevant for key maps that start with a native binding
-    -- most people should not need to change this
     i = { "j", "k" },
     v = { "j", "k" },
-  },
+  }
 }
 
-local opts = {
-  mode = "n", -- NORMAL mode
-  prefix = "<leader>",
-  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true, -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = false, -- use `nowait` when creating keymaps
-}
+local wk = require("which-key")
 
-local mappings = {
-
-  -- ignore
-  ["1"] = "which_key_ignore",
-  ["2"] = "which_key_ignore",
-  ["3"] = "which_key_ignore",
-  ["4"] = "which_key_ignore",
-  ["5"] = "which_key_ignore",
-  ["6"] = "which_key_ignore",
-  ["7"] = "which_key_ignore",
-  ["8"] = "which_key_ignore",
-  ["9"] = "which_key_ignore",
-
+wk.register({
+  -- To ignore a bind : "which_key_ignore"
   -- single
-  ["+"] = { '<cmd>vertical resize +2<CR>',               'resize +2' },
-  ["-"] = { '<cmd>vertical resize -2<CR>',               'resize +2' },
-  ["="] = { '<C-W>=',                                    'balance windows' },
-  ["v"] = { '<C-W>v',                                    'split right' },
-  ["V"] = { '<C-W>s',                                    'split below' },
+  ["+"] = { '<cmd>vertical resize +2<cr>',                  'Resize +2' },
+  ["-"] = { '<cmd>vertical resize -2<cr>',                  'Resize -2' },
+  ["="] = { '<C-W>=',                                       'Balance windows' },
+  ["f"] = { '<cmd>Telescope find_files<cr>',                'Open file picker'},
+  ["F"] = { '<cmd>Telescope file_browser<cr>',              'Open file browser'},
+  ["b"] = { '<cmd>Telescope buffers<cr>',                   'Open buffer picker'},
+  ["s"] = { '<cmd>Telescope lsp_document_symbols<cr>',      'Open symbol picker'},
+  ["S"] = { '<cmd>Telescope lsp_workspace_symbols<cr>',     'Open workspace symbol picker'},
+  ["'"] = { '<cmd>Telescope resume<cr>',                    'Open last picker'},
+  ["\""] = { '<cmd>Telescope pickers<cr>',                  'List used pickers'},
+  ["a"] = { '<cmd>lua vim.lsp.buf.code_action()<cr>',       'LSP Code actions'},
+  ["r"] = { '<cmd>lua vim.lsp.buf.rename()<cr>',            'LSP Rename symbol'},
+  ["k"] = { '<cmd>lua vim.lsp.buf.hover()<cr>',             'LSP Hover'},
 
-  ["/"] = {
-    name = "Dashboard",
-    ["/"] = { '<cmd>Dashboard<CR>',                      'open dashboard' },
-    ["c"] = { ':e $MYVIMRC<CR>',                         'open init' },
-    ["s"] = { '<cmd>PackerSync<CR>',                     'packer sync' },
-    ["u"] = { '<cmd>PackerUpdate<CR>',                   'packer update' },
+  o = {
+    name = "Settings",
+    n = { '<cmd>set nonumber!<cr>',           'line numbers'},
+    r = { '<cmd>set norelativenumber!<cr>',   'relative number'},
   },
 
-  a = {
-    name = "Actions",
-    m = { '<cmd>Glow<CR>',                               'markdown preview' },
-    n = { '<cmd>set nonumber!<CR>',                      'line numbers' },
-    r = { '<cmd>set norelativenumber!<CR>',              'relative number' },
-    t = { '<cmd>ToggleTerm direction=float<CR>',         'terminal float' },
-  },
-
-  b = {
-    name = "Buffer",
-    b = { '<cmd>BufferMovePrevious<CR>',                 'Move back' },
-    c = { '<cmd>BufferCloseAllButCurrent<CR>',           'Close but current' },
-    d = { '<cmd>BufferOrderByDirectory<CR>',             'Order by directory' },
-    f = { '<cmd>bfirst<CR>',                             'First buffer' },
-    l = { '<cmd>BufferCloseBuffersLeft<CR>',             'Close Left' },
-    r = { '<cmd>BufferCloseBuffersRight<CR>',            'Close Right' },
-    n = { '<cmd>BufferMoveNext<CR>',                     'Move next' },
-    p = { '<cmd>BufferPick<CR>',                         'Pick Buffer' },
-  },
-
-  c = {
-    name = "LSP",
-    a = { '<cmd>Telescope lsp_code_actions<CR>',              'telescope code action' },
-    c = "which_key_ignore",
-    d = { '<cmd>TroubleToggle<CR>',                   'local diagnostics' },
-    D = { '<cmd>Telescope diagnostics bufnr=0<CR>', 'diagnostics' },
-    f = { 'format' },
-    i = { '<cmd>TSLspImportAll<CR>',                     'import all'},
-    l = { 'line diagnostics' },
-    o = { '<cmd>TSLspOrganize<CR>',                      'organize imports'},
-    q = { '<cmd>TSLspFixCurrent<CR>',                    'quick fix' },
-    r = { 'rename' },
-    s = { '<cmd>Telescope symbols<CR>',                  'symbols' },
-  },
-
-  d = {
-    name = "Debug",
-    a = { 'attach' },
-    b = { 'breakpoint' },
-    c = { 'continue' },
-    d = { 'continue' },
-    h = { 'visual hover' },
-    i = { 'step into' },
-    o = { 'step over' },
-    O = { 'step out' },
-    s = { 'scopes' },
+  w = {
+    name = "Window",
+    h = { '<C-w>h',            'Jump to the split to the left'},
+    H = { '<C-w>H',            'Move split to the left'},
+    t = { '<C-w>j',            'Jump to the split below'},
+    T = { '<C-w>J',            'Move split below'},
+    n = { '<C-w>k',            'Jump to the split above'},
+    N = { '<C-w>K',            'Move split above'},
+    s = { '<C-w>l',            'Jump to the split to the right'},
+    S = { '<C-w>L',            'Move split to the right'},
+    q = { '<cmd>bd<cr>',       'Close current buffer'},
+    v = { '<C-W>v',            'Split right' },
+    V = { '<C-W>s',            'Split below' },
   },
 
   g = {
     name = "Git",
-    a = { '<cmd>!git add %:p<CR>',                                   'add current' },
-    A = { '<cmd>!git add .<CR>',                                     'add all' },
-    d = { '<cmd>DiffviewFileHistory<CR>',                            'diff file' },
-    g = { 'lazygit' },
-    h = {
-      name = "Hunk",
-      b = "blame line",
-      p = "preview",
-      r = "reset",
-      s = "stage",
-      u = "undo stage",
+    s = {
+      name = "Stage",
+      h = { '<cmd>Gitsigns stage_hunk<cr>',                   'Stage hunk'},
+      b = { '<cmd>Gitsigns stage_buffer<cr>',                 'Stage buffer'},
     },
-    l = {
-      name = "Log",
-      a = "commits",
-      c = "buffer commits",
+    r = {
+      name = "Reset",
+      h = { '<cmd>Gitsigns reset_hunk<cr>',                   'Reset hunk'},
+      b = { '<cmd>Gitsigns resett_buffer<cr>',                'Reset bufer'},
     },
-    m = { 'blame line' },
-    s = { '<cmd>Telescope git_status<CR>',                           'status' },
-  },
-
-  p = {
-    name = "Project",
-    f = { 'file' },
-    w = { 'word' },
-    l = { '<cmd>Telescope projects<CR>',                             'list' },
-    t = { "<cmd>TodoTrouble<CR>",                                    'todo' },
-    s = { "<cmd>SessionSave<CR>",                                    'save session' }
-  },
-
-  s = {
-    name = "Search",
-    c = { '<cmd>Telescope colorscheme<CR>',                          'color schemes' },
-    d = { '<cmd>lua require("plugins.telescope").edit_neovim()<CR>', 'dotfiles' },
-    h = { '<cmd>Telescope oldfiles<CR>',                             'file history' },
-    H = { '<cmd>Telescope command_history<CR>',                      'command history' },
-    s = { '<cmd>Telescope search_history<CR>',                       'search history' },
+    u = {
+      name = "Undo Stage",
+      h = { '<cmd>Gitsigns undo_stage_hunk<cr>',              'Undo stage hunk'},
+    },
+    p = { '<cmd>Gitsigns preview_hunk<cr>',                   'Preview hunk'},
+    d = { '<cmd>Gitsigns diffthis<cr>',                       'Diff index'},
+    b = { '<cmd>Gitsigns blame_line<cr>',                     'Blame line'},
+    l = { '<cmd>Gitsigns toggle_current_line_blame<cr>',      'Toggle current line blame'},
+    t = { '<cmd>Gitsigns toggle_deleted<cr>',                 'Toggle deleted'},
   },
 
   t = {
-    name = "Table Mode",
-    m = { 'toggle' },
-    t = { 'tableize' },
+    name = "Diagnostics",
+    t = { '<cmd>TroubleToggle<cr>',                           'Toggle'},
+    w = { '<cmd>TroubleToggle workspace_diagnostics<cr>',     'Workspace diagnostics'},
+    d = { '<cmd>TroubleToggle document_diagnostics<cr>',      'Document diagnostics'},
+    q = { '<cmd>TroubleToggle quickfix<cr>',                  'Quickfix list'},
+    l = { '<cmd>TroubleToggle loclist<cr>',                   'Loclist'},
+    g = {
+      name = "Goto",
+      d = { '<cmd>TroubleToggle lsp_definitions<cr>',         'Definitions'},
+      y = { '<cmd>TroubleToggle lsp_type_definitions<cr>',    'Type definitions'},
+      r = { '<cmd>TroubleToggle lsp_references<cr>',          'References'},
+      i = { '<cmd>TroubleToggle lsp_implementations<cr>',     'Implementations'},
+    },
   },
-}
 
-local wk = require "which-key"
-wk.register(mappings, opts)
+  x = {
+    name = "Todo",
+    x = { '<cmd>TodoTrouble<cr>',                             'List TODOs: Trouble'},
+    t = { '<cmd>TodoTelescope<cr>',                           'List TODOs: Telescope'},
+  },
+}, { prefix = "<leader>" })
+
+wk.register({
+  g = {
+    name = "Git",
+    s = {
+      name = "Stage",
+      h = { '<cmd>Gitsigns stage_hunk<cr>',                   'Stage hunk'},
+    },
+    r = {
+      name = "Reset",
+      h = { '<cmd>Gitsigns reset_hunk<cr>',                   'Reset hunk'},
+    },
+    i = {'<cmd>Gitsigns select_husnk<cr>',                    'Select hunk'},
+  }
+}, { prefix = "<leader>", mode = "v"})
+
+wk.register({
+  ["g"] = { 'gg',                                                                 'First line'},
+  ["e"] = { 'G',                                                                  'Last line'},
+  ["w"] = { "<cmd>silent execute '!xdg-open ' . shellescape('<cWORD>')<cr>",      'Open Link'},
+  ["d"] = { '<cmd>lua vim.lsp.buf.definition()<cr>',                              'Definition'},
+  ["y"] = { '<cmd>TroubleToggle lsp_type_definitions<cr>',                        'Type definition'},
+  ["r"] = { '<cmd>TroubleToggle lsp_references<cr>',                              'References'},
+  ["i"] = { '<cmd>TroubleToggle lsp_implementations<cr>',                         'Implementations'},
+  ["n"] = { '<cmd>bNext<cr>',                                                     'Next buffer'},
+  ["p"] = { '<cmd>bprevious<cr>',                                                 'Previous buffer'},
+  ["t"] = { 'H',                                                                  'Window top'},
+  ["m"] = { 'M',                                                                  'Window center'},
+  ["b"] = { 'L',                                                                  'Window bottom'},
+}, { prefix = "g"})
+
+wk.register({
+  ["z"] = { 'zz',       'Align view center'},
+  ["t"] = { 'z+',       'Align view top'},
+  ["b"] = { 'z-',       'Align view bottom'},
+  ["u"] = { '<C-b>',    'Move page up'},
+  ["k"] = { '<C-f>',    'Move page down'},
+  ["h"] = { '<C-u>',    'Move half page up'},
+  ["m"] = { '<C-d>',    'Move half page down'},
+}, { prefix = "z"})
