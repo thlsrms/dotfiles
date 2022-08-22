@@ -1,4 +1,5 @@
 #setxkbmap -option caps:swapescape
+setxkbmap -option compose:ralt
 
 xset s off
 xset -dpms
