@@ -19,20 +19,20 @@ lsft  nubs  z     x     c     v     b     n     m     ,     .     /     rsft
 ;; Layer manipulation aliases
 (defalias
   main (layer-switch main)
-  sym (tap-hold-next-release 750 (layer-add sym) (layer-toggle sym))
-  ssym (tap-hold-next-release 750 spc (layer-toggle sym))
+  sym (tap-hold-next 300 (layer-add sym) (layer-toggle sym))
+  ssym (tap-hold-next 300 spc (layer-toggle sym))
   xsym (layer-rem sym)
   met (around lmet (layer-toggle i3nav))
   aext (layer-toggle extended)
   rext (layer-toggle extended)
-  mdia (tap-hold-next-release 500 grv (layer-toggle media))
+  mdia (tap-hold 500 grv (layer-toggle media))
 )
 
 ;; Macros and useful aliases
 (defalias
-  cctr (tap-hold-next-release 500 z lctl) ;; z = ; on dvorak
-  csft (tap-hold-next-release 500 esc lsft)
-  nsp (tap-hold-next-release 500 nubs @met)
+  cctr (tap-hold-next 300 z lctl) ;; z = ; on dvorak
+  csft (tap-hold-next 300 esc lsft)
+  nsp (tap-hold-next 500 nubs @met)
 )
 
 (deflayer main
@@ -93,9 +93,9 @@ _     _     %     ^     +     \)    =     0     1     2     3     \     _
 (deflayer extended
       _     _     _     _     _     _     _     _     _     _     _     _     _
       _     _     _     _     _     _     _     _     _     _     _     _     _     _
-      @altb ins   prnt  slck  pause @ac_s pgup  @sm_s home  end   @alth  _     _     _
+      @altb ins   prnt  @rass @ac_s slck  pgup  @sm_s bspc  del   @alth  _     _     _
       caps  @ls_s @ra_s @la_s @lc_s @sc_s pgdn  lft   down  up    rght  _     _
-_     _     @ctlz @ctlx @ctlc @ctlv @lm_s bspc  del   @as_s @rass grv   _
+_     _     @ctlz @ctlx @ctlc @ctlv @lm_s home  end   @as_s pause grv   _
   _     _     _                      _                _     _     _     _
 )
 
