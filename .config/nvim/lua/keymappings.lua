@@ -66,6 +66,10 @@ nnoremaps("x", "\"_x")
 nnoremaps("X", "\"_X")
 vnoremaps("x", "\"_x")
 vnoremaps("X", "\"_X")
+nnoremaps("d", "\"_d")
+vnoremaps("d", "\"_d")
+nnoremaps("p", "\"_dP")
+vnoremaps("p", "\"_dP")
 
 -- Open links under cursor
 if vim.fn.has('macunix') == 1 then
