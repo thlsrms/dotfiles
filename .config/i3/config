@@ -2,7 +2,7 @@
 
 # KEY DEFINITIONS TO REMEMBER
 # $mod = Set below
-# Mod4 = Super key
+# Mod4 = Super/Meta key
 # Mod1 = ALT key
 # Control = CTRL key
 # Shift = SHIFT key
@@ -15,17 +15,14 @@
 
 ################# Define the $mod variable/key
 
-# Key to rule them all : Super(Windows) or Alt key - see definition above
-# set Super key
+# set Super/Meta key
 set $mod Mod4
 
 ################# Define the movements keys - variables
 
-# This is setup for qwerty
-# set $right to m if using azerty keyboard
-set $up n
-set $down t
 set $left h
+set $down t
+set $up n
 set $right s
 
 ################# Single and Dual screen
@@ -47,23 +44,6 @@ exec --no-startup-id xrandr --output DP0 --right-of HDMI-0 --auto
 
 set $firstMonitor HDMI-0
 set $secondMonitor DP0
-
-# Other Examples
-
-#set $firstMonitor DP3
-#set $secondMonitor LVDS1
-
-#set $firstMonitor DVI-I-0
-#set $secondMonitor HDMI-0
-
-#set $firstMonitor DVI-0
-#set $secondMonitor DVI-1
-
-#set $firstMonitor DVI-I-1
-#set $secondMonitor DVI-D-1
-
-#set $firstMonitor HDMI-1
-#set $secondMonitor HDMI-2
 
 workspace 1 output $firstMonitor
 workspace 2 output $firstMonitor
@@ -88,7 +68,7 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
-# move focused container to workspace
+# Move focused container to workspace, Switch to the workspace
 bindsym $mod+Shift+1 move container to workspace 1; workspace 1
 bindsym $mod+Shift+2 move container to workspace 2; workspace 2
 bindsym $mod+Shift+3 move container to workspace 3; workspace 3
@@ -100,17 +80,17 @@ bindsym $mod+Shift+8 move container to workspace 8; workspace 8
 bindsym $mod+Shift+9 move container to workspace 9; workspace 9
 bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 
-# start dmenu
-bindsym $mod+shift+d exec --no-startup-id dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
-
-# start xfce4-appfinder
-bindsym mod1+F2 exec --no-startup-id xfce4-appfinder --collapsed
-
-# start xfce-appfinder
-bindsym mod1+F3 exec --no-startup-id xfce4-appfinder
-
-# start xlunch app launcher
-# bindsym mod1+F5 exec --no-startup-id xlunch --config ~/.config/xlunch/default.conf --input ~/.config/xlunch/entries.dsv
+# Move focused container to workspace
+bindsym $mod+Control+1 move container to workspace 1;
+bindsym $mod+Control+2 move container to workspace 2;
+bindsym $mod+Control+3 move container to workspace 3;
+bindsym $mod+Control+4 move container to workspace 4;
+bindsym $mod+Control+5 move container to workspace 5;
+bindsym $mod+Control+6 move container to workspace 6;
+bindsym $mod+Control+7 move container to workspace 7;
+bindsym $mod+Control+8 move container to workspace 8;
+bindsym $mod+Control+9 move container to workspace 9;
+bindsym $mod+Control+0 move container to workspace 10;
 
 # start rofi full
 bindsym $mod+F11 exec --no-startup-id "rofi -font 'Noto Sans 13' -theme-str 'window {width: 100%;height: 100%;}' -show drun"
@@ -120,26 +100,26 @@ bindsym $mod+o exec --no-startup-id rofi -show drun -font "Noto Sans 13"
 
 ################# how to exit, logoff, suspend, ...
 
+# TODO: Rewrite the i3exit.sh
 # Backup exit
 # Press ctrl+alt+x - check toolbar for next choices
-bindsym control+mod1+X mode "$mode_system"
+#bindsym control+mod1+X mode "$mode_system"
 
-set $mode_system System (k) lock, (l) logout, (u) suspend, (h) hibernate, (r) reboot, (s) shutdown
-mode "$mode_system" {
-    bindsym k exec --no-startup-id ~/.config/i3/scripts/i3exit.sh lock, mode "default"
-    bindsym l exec --no-startup-id ~/.config/i3/scripts/i3exit.sh logout, mode "default"
-    bindsym u exec --no-startup-id ~/.config/i3/scripts/i3exit.sh suspend, mode "default"
-    bindsym h exec --no-startup-id ~/.config/i3/scripts/i3exit.sh hibernate, mode "default"
-    bindsym r exec --no-startup-id ~/.config/i3/scripts/i3exit.sh reboot, mode "default"
-    bindsym s exec --no-startup-id ~/.config/i3/scripts/i3exit.sh shutdown, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
+#set $mode_system System (k) lock, (l) logout, (u) suspend, (h) hibernate, (r) reboot, (s) shutdown
+#mode "$mode_system" {
+#    bindsym k exec --no-startup-id ~/.config/i3/scripts/i3exit.sh lock, mode "default"
+#    bindsym l exec --no-startup-id ~/.config/i3/scripts/i3exit.sh logout, mode "default"
+#    bindsym u exec --no-startup-id ~/.config/i3/scripts/i3exit.sh suspend, mode "default"
+#    bindsym h exec --no-startup-id ~/.config/i3/scripts/i3exit.sh hibernate, mode "default"
+#    bindsym r exec --no-startup-id ~/.config/i3/scripts/i3exit.sh reboot, mode "default"
+#    bindsym s exec --no-startup-id ~/.config/i3/scripts/i3exit.sh shutdown, mode "default"
+#
+#    # back to normal: Enter or Escape
+#    bindsym Return mode "default"
+#    bindsym Escape mode "default"
+#}
 
 # Logout
-#bindsym $mod+Shift+e exec --no-startup-id archlinux-logout
 bindsym $mod+X exec --no-startup-id archlinux-logout
 
 ################# reload changed configuration
@@ -243,34 +223,6 @@ bindsym $mod+Mod1+Ctrl+Up resize grow height 1 px or 1 ppt
 bindsym $mod+Mod1+Ctrl+Down resize shrink height 1 px or 1 ppt
 bindsym $mod+Mod1+Ctrl+Left resize grow width 1 px or 1 ppt
 
-# old resize keybindings
-# resize window (you can also use the mouse for that)
-
-# bindsym $mod+r mode "resize"
-
-# mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
- #      bindsym $left       resize shrink width 10 px or 10 ppt
- #      bindsym $down       resize grow height 10 px or 10 ppt
- #      bindsym $up         resize shrink height 10 px or 10 ppt
- #      bindsym $right      resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
- #      bindsym Left        resize shrink width 10 px or 10 ppt
- #      bindsym Down        resize grow height 10 px or 10 ppt
- #      bindsym Up          resize shrink height 10 px or 10 ppt
- #      bindsym Right       resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
- #      bindsym Return mode "default"
- #      bindsym Escape mode "default"
-# }
-
 ################# choose the font
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -330,8 +282,8 @@ for_window [all] title_format " "
 exec_always --no-startup-id autotiling
 
 # Browser
-# exec --no-startup-id vivaldi-stable
-for_window [class="Vivaldi-stable"] focus
+exec --no-startup-id firefox
+for_window [class="firefox"] focus
 
 # Text-editor
 # exec --no-startup-id geany
@@ -345,12 +297,9 @@ for_window [class="Vivaldi-stable"] focus
 
 # Music
 # exec --no-startup-id spotify
-for_window [class="Spotify"] focus
+#for_window [class="Spotify"] focus
 
 # TRAY APPLICATIONS
-
-# applications that are not installed will not start
-# you may see a wheel - hashtag out things you do not want/need
 
 # Authentication dialog
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
@@ -383,9 +332,6 @@ exec --no-startup-id volumeicon
 # clipman
 # exec --no-startup-id xfce4-clipman
 
-# Conky
-#exec --no-startup-id conky -c ~/.config/i3/system-overview
-
 # feh sets wallpaper
 #exec --no-startup-id ~/.config/fehbg &
 
@@ -401,13 +347,6 @@ exec --no-startup-id xfce4-power-manager &
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 
 ################# applications keyboard shortcuts
-
-# not workspace related
-
-# conky
-bindsym $mod+c exec --no-startup-id conky-toggle
-bindsym control+mod1+Next exec --no-startup-id conky-rotate -n
-bindsym control+mod1+Prior exec --no-startup-id conky-rotate -p
 
 # terminal
 # default --no-startup-id urxvt
@@ -451,11 +390,7 @@ bindsym --release $mod+Escape exec xkill
 bindsym $mod+F1 exec --no-startup-id exo-open --launch webbrowser;focus
 bindsym $mod+F2 exec --no-startup-id brave;focus
 bindsym $mod+F3 exec --no-startup-id firefox;focus
-# qwerty/azerty conflict with w
-bindsym $mod+w exec --no-startup-id exo-open --launch webbrowser;focus
 bindsym control+mod1+f exec --no-startup-id firefox;focus
-bindsym control+mod1+v exec --no-startup-id vivaldi-stable;focus
-bindsym control+mod1+g exec --no-startup-id chromium;focus
 
 # Text Editor
 # bindsym $mod+F2 exec --no-startup-id geany;focus
@@ -550,35 +485,6 @@ for_window [class="Termite"] focus
 for_window [class="Terminator"] focus
 for_window [class="Urxvt"] focus
 
-################# variety for wallpapers
-
-# Variety keybindings mod1 = ALT
-# trash wallpaper
-#bindsym mod1+t exec --no-startup-id variety -t
-# next wallpaper
-#bindsym mod1+n exec --no-startup-id variety -n
-#bindsym mod1+Right exec --no-startup-id variety -n
-# previous wallpaper
-#bindsym mod1+p exec --no-startup-id variety -p
-#bindsym mod1+Left exec --no-startup-id variety -p
-# favorite wallpaper
-#bindsym mod1+f exec --no-startup-id variety -f
-# pause wallpaper
-#bindsym mod1+Up exec --no-startup-id variety --pause
-# resume wallpaper
-#bindsym mod1+Down exec --no-startup-id variety --resume
-
-################# variety with pywal for your wallpapers/colour schemes
-
-# next wallpaper
-#bindsym mod1+Shift+n exec --no-startup-id variety -n && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
-# previous wallpaper
-#bindsym mod1+Shift+p exec --no-startup-id variety -p && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
-# trash wallpaper
-#bindsym mod1+Shift+t exec --no-startup-id variety -t && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
-# Update Wallpaper
-#bindsym mod1+Shift+u exec --no-startup-id wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)
-
 ################# audio settings
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -D pulse sset Master '5%+'"
@@ -588,20 +494,17 @@ bindsym shift+ctrl+9 exec --no-startup-id "amixer -D pulse sset Master '5%-'"
 bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse set Master toggle"
 bindsym shift+ctrl+8 exec --no-startup-id "amixer -D pulse set Master toggle"
 bindsym $mod+period exec --no-startup-id "amixer -D pulse set Capture toggle"
-# https://github.com/acrisci/playerctl/
+# https://github.com/acrisci/playerctl/ | Arch -> community/playerctl
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86AudioStop exec --no-startup-id playerctl stop
-# bindsym XF86AudioPlay exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
-# bindsym XF86AudioNext exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
-# bindsym XF86AudioPrev exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
-# bindsym XF86AudioStop exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
 
 ################# xbacklight
-
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease screen brightness
+ # increase screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
+ # decrease screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 
 ################# bar toggle
 
@@ -612,7 +515,7 @@ bindsym $mod+b bar mode toggle
 
 # Border control
 hide_edge_borders none
-bindsym $mod+shift+b exec --no-startup-id i3-msg border toggle
+bindsym $mod+shift+i exec --no-startup-id i3-msg border toggle
 
 # changing border style
 bindsym $mod+k border normal
@@ -636,11 +539,9 @@ popup_during_fullscreen smart
 
 # Settings for I3 next gap git
 # https://github.com/Airblader/i3/tree/gaps-next
-# delete or uncomment the following lines if you do not have it or do not
-# want it
 
 for_window [class="^.*"] border pixel 1
-gaps inner 5
+gaps inner 2
 gaps outer 2
 smart_gaps on
 smart_borders on
@@ -684,13 +585,6 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-################# picom of i3wm
-
-# if you want transparency on non-focused windows, ...
-#exec --no-startup-id picom --experimental-backends --backend glx
-
-#bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
-
 ################# bar appearance
 
     ##START THEMING WM
@@ -727,17 +621,6 @@ mode "$mode_gaps_outer" {
 
 ######################################## THE END
 
-################# Scratchpad
-
-# NOT USED
-
-# move the currently focused window to the scratchpad
-# bindsym Mod1+Shift+minus move scratchpad
-
-# Show the next scratchpad window or hide the focused scratchpad window.
-# If there are multiple scratchpad windows, this command cycles through them.
-# bindsym Mod1+minus scratchpad show
-
 ################# mouse settings in i3
 
 # NOT USED
@@ -761,7 +644,6 @@ mode "$mode_gaps_outer" {
 
 # NOT USED
 
-# exec --no-startup-id setxkbmap be
 # exec --no-startup-id setxkbmap us
 
 ################# unclutter
@@ -770,10 +652,6 @@ mode "$mode_gaps_outer" {
 exec --no-startup-id unclutter
 
 ################# OTHER STUFF
-
-#exec_always --no-startup-id ~/.config/i3/scripts/fix_mic-boost.sh
-#bindsym $mod+z exec --startup-id xinput --disable 14
-#bindsym $mod+Shift+z exec --startup-id xinput --enable 14
 
 ## Start i3 on workspace 10
 exec --no-startup-id i3-msg workspace 10
