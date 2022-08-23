@@ -1,30 +1,15 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Terminal var
 export TERMINAL="alacritty"
 
-# Path to your oh-my-zsh installation.
-#installation via script from github
-#export ZSH="/home/$USER/.oh-my-zsh"
+# Path to oh-my-zsh installation.
 #installation via paru -S oh-my-zsh-git
 export ZSH=/usr/share/oh-my-zsh/
+export ZSH_CUSTOM=~/.config/zsh_custom/
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# if you installed the package oh-my-zsh-powerline-theme-git then you type here "powerline" as zsh theme
-ZSH_THEME="awesomepanda"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# ZSH_THEME_RANDOM_IGNORED=(pygmalion tjkirch_mod)
+#git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+#ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+ZSH_THEME="spaceship"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -70,14 +55,7 @@ ZSH_THEME="awesomepanda"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
@@ -86,24 +64,24 @@ source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# You may need to manually set your language environment
+# Set language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR='nvim'
 # fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# Dotfiles bare repo
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-alias andemulator="$HOME/Android/Sdk/emulator/emulator -avd Pixel_5_API_29_An._10_"
 
 #Wine use amd vulkan loader
-alias win64="DRI_PRIME=1 VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/amd_icd32.json:/usr/share/vulkan/icd.d/amd_icd64.json wine"
+#alias win64="DRI_PRIME=1 VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/amd_icd32.json:/usr/share/vulkan/icd.d/amd_icd64.json wine"
 
 # exports
 export PATH=$PATH:$HOME/.cargo/bin:$HOME/bin:$HOME/.local/bin
@@ -313,9 +291,6 @@ alias sysfailed="systemctl list-units --failed"
 #alias ssn="sudo shutdown now"
 #alias sr="sudo reboot"
 
-#update betterlockscreen images
-alias bls="betterlockscreen -u /usr/share/backgrounds/arcolinux/"
-
 #give the list of all installed desktops - xsessions desktops
 alias xd="ls /usr/share/xsessions"
 
@@ -346,14 +321,7 @@ ex ()
   fi
 }
 
-#remove
 alias rmgitcache="rm -r ~/.cache/git"
-
-#moving your personal files and folders from /personal to ~
-alias personal='cp -Rf /personal/* ~'
-
-#create a file called .zshrc-personal and put all your personal aliases
-#in there. They will not be overwritten by skel.
 
 [[ -f ~/.zshrc-personal ]] && . ~/.zshrc-personal
 
