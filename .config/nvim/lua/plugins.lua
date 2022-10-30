@@ -90,7 +90,7 @@ use {'sainnhe/gruvbox-material'} -- colorscheme
 
 -- Git
 use {'lewis6991/gitsigns.nvim',
-  tag = 'release',
+  tag = 'v0.5',
   requires = {'nvim-lua/plenary.nvim'},
   event = "BufRead",
   config = "require('plugins.gitsigns')",
