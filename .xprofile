@@ -4,7 +4,7 @@ setxkbmap -option compose:ralt
 xset s off
 xset -dpms
 xset s noblank
-xsetroot -solid "#1d2021"
+xsetroot -solid "#000000"
 
 xset r rate 200 40
 
