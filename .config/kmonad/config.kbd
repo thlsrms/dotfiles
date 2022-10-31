@@ -32,15 +32,15 @@ lsft  nubs  z     x     c     v     b     n     m     ,     .     /     rsft
 
 ;; Macros and useful aliases
 (defalias
-  csft (tap-hold-next 300 esc lsft)
+  cctl (tap-hold-next 300 esc lctl)
 )
 
 (deflayer main
       @gms  f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12
       @mdia 1     2     3     4     5     6     7     8     9     0     -     =     @mdia
       tab   q     w     e     r     t     y     u     i     o     p     rsft  bspc  ret
-      @csft a     s     d     f     g     h     j     k     l     ;     '     del
-lsft  lctl  z     x     c     v     b     n     m     ,     .     /     rctl
+      @cctl a     s     d     f     g     h     j     k     l     ;     '     del
+lctl  lsft  z     x     c     v     b     n     m     ,     .     /     rctl
   @sym  @met  @aext                  @ssym            @rext rmet  cmp   @sym
 )
 
