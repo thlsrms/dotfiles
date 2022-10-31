@@ -1,12 +1,10 @@
-vim.g.gruvbox_material_background = 'hard'
-vim.g.gruvbox_material_transparent_background = '2'
-vim.g.gruvbox_material_palette = 'original'
-vim.g.gruvbox_material_statusline_style = 'mix'
-vim.g.gruvbox_material_enable_bold = '1'
-vim.g.gruvbox_material_diagnostic_line_highlight = '1'
-vim.g.gruvbox_material_diagnostic_virtual_text = 'colored'
+vim.o.background = "dark"
 
-vim.cmd('colorscheme gruvbox-material')
+vim.g.gruvbox_baby_background_color = 'dark'
+vim.g.gruvbox_baby_transparent_mode = true
+vim.g.gruvbox_baby_use_original_palette = true
+
+vim.cmd('colorscheme gruvbox-baby')
 
 vim.cmd([[
   augroup ColorSchemes
