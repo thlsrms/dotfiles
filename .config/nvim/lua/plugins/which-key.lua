@@ -161,7 +161,7 @@ wk.register({
   ["y"] = { '<cmd>TroubleToggle lsp_type_definitions<cr>',                        'Type definition'},
   ["r"] = { '<cmd>TroubleToggle lsp_references<cr>',                              'References'},
   ["i"] = { '<cmd>TroubleToggle lsp_implementations<cr>',                         'Implementations'},
-  ["n"] = { '<cmd>bNext<cr>',                                                     'Next buffer'},
+  ["n"] = { '<cmd>bnext<cr>',                                                     'Next buffer'},
   ["p"] = { '<cmd>bprevious<cr>',                                                 'Previous buffer'},
   ["t"] = { 'H',                                                                  'Window top'},
   ["m"] = { 'M',                                                                  'Window center'},
