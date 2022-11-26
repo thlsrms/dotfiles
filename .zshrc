@@ -138,7 +138,8 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
 ## FuzzyFind into the directory
-alias sd="cd ~ && cd \$(find * -type d | fzf)"
+alias sd="cd ~ && cd \$(find . -not -path '*/.*' -type d | fzf)"
+alias sD="cd ~ && cd \$(find * -not -path '*/.*' -type d | fzf)"
 
 #readable output
 alias df='df -h'
