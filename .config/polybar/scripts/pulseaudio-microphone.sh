@@ -17,7 +17,9 @@ listen() {
     LANG=EN; pactl subscribe | while read -r event; do
         if echo "$event" | grep -q "source" || echo "$event" | grep -q "server"; then
             # Making sure the correct input device is the default
-            pacmd set-default-source 1
+            #pacmd set-default-source 1
+            # Keeping the volume low
+            pacmd set-source-volume alsa_input.pci-0000_00_1b.0.analog-stereo 19660
             status
         fi
     done
