@@ -586,7 +586,7 @@ mode "$mode_gaps_outer" {
 }
 
 # Picom - Window transparency
-exec --no-startup-id picom --experimental-backends --backend glx
+exec --no-startup-id picom --backend glx
 bindsym $mod+Shift+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 
 ################# bar appearance
