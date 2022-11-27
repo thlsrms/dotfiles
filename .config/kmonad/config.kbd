@@ -28,6 +28,8 @@ lsft  nubs  z     x     c     v     b     n     m     ,     .     /     rsft
   mdia (tap-hold 500 grv (layer-toggle media))
   gms (layer-add games)
   xgms (layer-rem games)
+  qwty (layer-add qwerty)
+  xqwt (layer-rem qwerty)
 )
 
 ;; Macros and useful aliases
@@ -37,10 +39,10 @@ lsft  nubs  z     x     c     v     b     n     m     ,     .     /     rsft
 
 (deflayer main
       @gms  f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12
-      @mdia 1     2     3     4     5     6     7     8     9     0     -     =     @mdia
+      @mdia 1     2     3     4     5     6     7     8     9     0     -     =     @qwty
       tab   q     w     e     r     t     y     u     i     o     p     rsft  bspc  ret
       @cctl a     s     d     f     g     h     j     k     l     ;     '     del
-lctl  lsft  z     x     c     v     b     n     m     ,     .     /     rctl
+@met  lsft  z     x     c     v     b     n     m     ,     .     /     rctl
   @sym  @met  @aext                  @ssym            @rext rmet  cmp   @sym
 )
 
@@ -110,11 +112,20 @@ _     _     _     _     _     _     _     0     1     2     3     4     _
 
 (deflayer games
       @xgms _     _     _     _     _     _     _     _     _     _     _     _
-      _     _     _     _     _     _     _     _     _     _     _     _     _     _
+      _     _     _     _     _     _     _     _     _     _     _     _     _     bspc
       _     _     _     _     _     _     _     _     _     _     _     _     _     _
       esc   _     _     _     _     _     _     _     _     _     _     _     _
-_     _     _     _     _     _     _     _     _     _     _     _     _
+lctl  _     _     _     _     _     _     _     _     _     _     _     _
   lctl  _     lalt                   spc              _     _     _     _
+)
+
+(deflayer qwerty
+      caps  f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12
+      grv   1     2     3     4     5     6     7     8     9     0     '     ]     @xqwt
+      tab   x     ,     d     o     k     t     f     g     s     r     -     bspc  ret
+      esc   a     ;     h     y     u     j     c     v     p     z     q     \
+lctl  _     /     b     i     .     n     l     m     w     e     [     rsft
+  lctl  lmet  lalt                   spc              ralt  rmet  cmp   rctl
 )
 
 (deflayer empty
