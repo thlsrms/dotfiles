@@ -30,6 +30,7 @@ mason_lspconfig.setup({
         "dockerls",
         "html",
         "cssls",
+        "wgsl_analyzer",
     }
 })
 
