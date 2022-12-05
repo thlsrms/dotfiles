@@ -23,26 +23,18 @@ local xnoremaps = bind("x", { noremap = true, silent = true })
 local inoremap = bind("i")
 local inoremaps = bind("i", { noremap = true, silent = true })
 
--- Dvorak remaps
---noremap("h", "<left>")
---noremap("t", "<down>")
---noremap("n", "<up>")
---noremap("s", "<right>")
---nnoremap("k", "n")
---nnoremap("K", "N")
---noremap("j", "s")
---noremap("J", "S")
---noremap("l", "t")
---noremap("L", "T")
---map("S", "$")
---vnoremap("S", "$")
 map("H", "^")
 map("-", "%")
---map("%", "H")
---map("^", "L")
 
 nnoremap("ge", "G")
 nnoremap("U", "<C-r>")
+-- Reverse mark motions between backtick and single quote
+nnoremap("'", "`")
+nnoremap("`", "'")
+
+-- Center on C-u/d
+nnoremap("<C-u>", "<C-u>zz")
+nnoremap("<C-d>", "<C-d>zz")
 
 
 -- Move selected line / block of text in visual mode
@@ -60,16 +52,6 @@ inoremaps("<M-W>", "<esc> :w<cr>")
 -- Remove highlight
 --nnoremap("<esc>", "<NOP>")
 nnoremaps("<esc>", ":noh<cr>")
-
--- Don't yank on delete char
---nnoremaps("x", "\"_x")
---nnoremaps("X", "\"_X")
---vnoremaps("x", "\"_x")
---vnoremaps("X", "\"_X")
---nnoremaps("d", "\"_d")
---vnoremaps("d", "\"_d")
---nnoremaps("<leader>p", "\"_dP")
---vnoremaps("p", "\"_dP")
 
 -- Open links under cursor
 if vim.fn.has('macunix') == 1 then
