@@ -6,6 +6,6 @@ xset -dpms
 xset s noblank
 xsetroot -solid "#000000"
 
-xset r rate 175 40
+xset r rate 240 40
 
 xrandr --dpi 90
