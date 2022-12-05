@@ -93,6 +93,12 @@ use { 'nvim-telescope/telescope.nvim',
 
 -- Theme
 use { 'luisiacc/gruvbox-baby' } -- colorscheme
+use { 'kyazdani42/nvim-web-devicons',
+    config = function()
+        require("nvim-web-devicons").setup {}
+    end
+}
+
 use { 'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 }
@@ -141,5 +147,11 @@ use { 'folke/todo-comments.nvim',
     requires = 'nvim-lua/plenary.nvim',
     config = function()
         require("todo-comments").setup {}
+    end
+}
+
+use { 'NvChad/nvim-colorizer.lua',
+    config = function()
+        require("colorizer").setup {}
     end
 }
