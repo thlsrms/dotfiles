@@ -88,6 +88,7 @@ export PATH=$PATH:$HOME/.cargo/bin:$HOME/bin:$HOME/.local/bin
 export FPATH=$FPATH:$HOME/.oh-my-zsh/custom/plugins::$HOME/.oh-my-zsh/custom/completions
 export ANDROID_HOME=$HOME/Android/Sdk
 export CHROME_EXECUTABLE=brave
+export AMD_VULKAN_ICD=RADV
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -138,8 +139,7 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
 ## FuzzyFind into the directory
-alias sd="cd ~ && cd \$(find . -not -path '*/.*' -type d | fzf)"
-alias sD="cd ~ && cd \$(find * -not -path '*/.*' -type d | fzf)"
+alias sd="cd ~ && cd \$(find ./* -not -path '*/.*' -type d | fzf)"
 
 #readable output
 alias df='df -h'
