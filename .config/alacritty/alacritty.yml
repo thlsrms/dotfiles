@@ -22,7 +22,7 @@ env:
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
   #TERM: alacritty
-  TERM: tmux-256color
+  TERM: alacritty
 
 #window:
   # Window dimensions (changes require restart)
@@ -213,7 +213,7 @@ colors:
 
   
 window:
-  opacity: 0.875
+  opacity: 0.82
 
 #selection:
   # This string contains all characters that are used as separators for
@@ -280,7 +280,7 @@ shell:
   args:
     - -l
     - -c
-    - tmux
+    - zellij attach --index 0 || zellij
 
 # Startup directory
 #
