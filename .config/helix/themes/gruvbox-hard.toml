@@ -38,10 +38,10 @@
 "info" = { fg = "aqua1", bg = "bg1" }
 "hint" = { fg = "blue1", bg = "bg1" }
 
-"ui.background" = { bg = "bg0" }
+#"ui.background" = { bg = "bg0" }
 "ui.linenr" = { fg = "bg4" }
 "ui.linenr.selected" = { fg = "yellow1" }
-"ui.statusline" = { fg = "fg1", bg = "bg2" }
+#"ui.statusline" = { fg = "fg1", bg = "bg2" }
 "ui.statusline.inactive" = { fg = "fg4", bg = "bg1" }
 "ui.popup" = { bg = "bg1" }
 "ui.window" = { bg = "bg1" }
