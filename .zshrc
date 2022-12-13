@@ -102,6 +102,7 @@ export HISTCONTROL=ignoreboth:erasedups
 # Make neovim the default editor
 export EDITOR='nvim'
 export VISUAL='nvim'
+alias vim='nvim'
 
 # Alias helix -> hx
 alias hx=helix
