@@ -103,9 +103,11 @@ export HISTCONTROL=ignoreboth:erasedups
 export EDITOR='nvim'
 export VISUAL='nvim'
 alias vim='nvim'
-
 # Alias helix -> hx
 alias hx=helix
+
+# zellij -> zj
+alias zj=zellij
 
 #PS1='[\u@\h \W]\$ '
 
@@ -148,11 +150,6 @@ alias df='df -h'
 #pacman unlock
 alias unlock="sudo rm /var/lib/pacman/db.lck"
 alias rmpacmanlock="sudo rm /var/lib/pacman/db.lck"
-
-alias rmlogoutlock="sudo rm /tmp/arcologout.lock"
-
-#which graphical card is working
-alias whichvga="/usr/local/bin/arcolinux-which-vga"
 
 #free
 alias free="free -mt"
@@ -280,10 +277,6 @@ alias fix-keyserver="[ -d ~/.gnupg ] || mkdir ~/.gnupg ; cp /etc/pacman.d/gnupg/
 
 #fixes
 alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
-alias keyfix="/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
-alias fix-key="/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
-alias fix-sddm-config="/usr/local/bin/arcolinux-fix-sddm-config"
-alias fix-pacman-conf="/usr/local/bin/arcolinux-fix-pacman-conf"
 
 #maintenance
 alias big="expac -H M '%m\t%n' | sort -h | nl"
