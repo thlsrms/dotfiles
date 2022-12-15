@@ -2,6 +2,9 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+# remove greeting message
+set fish_greeting
+
 # Set theme
 fish_config theme choose 'ayu Dark'
 
