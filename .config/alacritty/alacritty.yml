@@ -280,7 +280,7 @@ shell:
   args:
     - -l
     - -c
-    - zellij attach --index 0 || zellij
+    - zellij attach --index 0 || zellij -s 0
 
 # Startup directory
 #
