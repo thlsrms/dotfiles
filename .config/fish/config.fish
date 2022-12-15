@@ -85,7 +85,7 @@ function sysfailed --description 'alias sysfailed=systemctl list-units --failed'
 end
 
 # Dotfiles bare repo
-function config --description 'alias config=/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+function dotfiles --description 'alias dotfiles=/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
      command /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $argv; 
 end
 
