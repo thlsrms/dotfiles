@@ -33,7 +33,7 @@ dotfiles remote add github git@github.com:thlsrms/dotfiles.git
 In my case, using `fish` shell I add my **dotfiles** alias as a function in my `config.fish` file.
 
 
-Now git commands such as `git add`` | commit | push` can be used to track relevant config files using: `dotfiles add | commit | push`
+Now git commands such as `git add | commit | push` can be used to track relevant config files using: `dotfiles add | commit | push`
 
 ### New system setup
 To avoid conflicts, for possibly having some default config files in the new system's `$HOME` directory, the repository must be cloned to a temporary directory.
@@ -41,5 +41,6 @@ To avoid conflicts, for possibly having some default config files in the new sys
 git clone --separate-git-dir=$HOME/.dotfiles https://github.com/thlsrms/dotfiles.git tmpdotfiles
 rsync --recursive --verbose --exclude '.git' tmpdotfiles/ $HOME/
 rm -r tmpdotfiles
+dotfiles config --local status.showUntrackedFiles no
 ```
 
