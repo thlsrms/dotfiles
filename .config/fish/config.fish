@@ -67,10 +67,10 @@ function cleanup --description 'alias cleanup=sudo pacman -Rns $(pacman -Qtdq)'
 end
 # recent installed packages
 function ripkgs --description 'alias rip=expac --timefmt=\'%Y-%m-%d %T\' \'%l\t%n %v\' | sort | tail -200 | nl'
-    command expac --timefmt=\'%Y-%m-%d %T\' \'%l\t%n %v\' | sort | tail -200 | nl;
+    command expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl;
 end
 function ripkgslong --description 'alias rip=expac --timefmt=\'%Y-%m-%d %T\' \'%l\t%n %v\' | sort | tail -3000 | nl'
-    command expac --timefmt=\'%Y-%m-%d %T\' \'%l\t%n %v\' | sort | tail -3000 | nl;
+    command expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | nl;
 end
 function big --description "alias big=expac -H M '%m\t%n' | sort -h | nl"
     command expac -H M '%m\t%n' | sort -h | nl; 
