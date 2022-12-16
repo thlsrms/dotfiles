@@ -1,4 +1,5 @@
-require('impatient')
+pcall(require, 'impatient')
+
 require('globals')
 require('plugins')
 require('colorscheme')
