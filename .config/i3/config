@@ -289,9 +289,6 @@ for_window [class="firefox"] focus
 # exec --no-startup-id geany
 # exec --no-startup-id atom
 
-# File manager
-# exec --no-startup-id thunar
-
 # Mail clients
 # exec --no-startup-id evolution
 
@@ -308,7 +305,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 #exec --no-startup-id pamac-tray
 
 # bluetooth
-exec --no-startup-id blueberry-tray
+exec --no-startup-id blueman-tray
 
 # network
 exec --no-startup-id nm-applet
@@ -329,9 +326,6 @@ exec --no-startup-id volumeicon
 # variety
 # exec --no-startup-id variety
 
-# clipman
-# exec --no-startup-id xfce4-clipman
-
 # feh sets wallpaper
 exec_always --no-startup-id feh --no-fehbg --randomize --bg-max ~/Pictures/WPs/*
 
@@ -344,7 +338,7 @@ exec --no-startup-id xfce4-power-manager &
 # ommitted next line to get super key to bring up the menu in xfce and avoid error then in i3
 # IF xfsettingsd is activated you can not change themes
 # exec --no-startup-id xfsettingsd &
-exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
+exec --no-startup-id /usr/lib/notification-daemon-1.0/notification-daemon &
 
 ################# applications keyboard shortcuts
 
@@ -356,10 +350,10 @@ bindsym $mod+KP_Enter exec $term;focus
 bindsym control+mod1+t exec $term; focus
 bindsym control+mod1+Return exec $term; focus
 bindsym control+mod1+KP_Enter exec $term; focus
-bindsym F12 exec --no-startup-id xfce4-terminal --drop-down; focus
+bindsym F12 exec --no-startup-id gnome-terminal --drop-down; focus
 
 # System monitor
-bindsym control+Shift+Escape exec --no-startup-id xfce4-taskmanager;focus
+bindsym control+Shift+Escape exec --no-startup-id gnome-system-monitor;focus
 
 # settings
 bindsym control+mod1+m exec --no-startup-id xfce4-settings-manager
@@ -375,9 +369,6 @@ bindsym control+mod1+r exec --no-startup-id rofi-theme-selector
 
 # pavucontrol
 bindsym control+mod1+u exec --no-startup-id pavucontrol
-
-# start xfce-appfinder
-# bindsym control+mod1+a exec --no-startup-id xfce4-appfinder
 
 # pamac-manager
 bindsym control+mod1+p exec --no-startup-id pamac-manager
@@ -412,11 +403,11 @@ bindsym $mod+F6 exec --no-startup-id vlc;focus
 bindsym $mod+F7 exec --no-startup-id virtualbox;focus
 
 # file management
-for_window [class="Thunar"] focus
-bindsym $mod+F8 exec --no-startup-id thunar;focus
-bindsym $mod+Shift+Return exec --no-startup-id thunar;focus
-bindsym $mod+Shift+KP_Enter exec --no-startup-id thunar;focus
-bindsym control+mod1+b exec --no-startup-id thunar;focus
+for_window [class="Nautilus"] focus
+bindsym $mod+F8 exec --no-startup-id nautilus;focus
+bindsym $mod+Shift+Return exec --no-startup-id nautilus;focus
+bindsym $mod+Shift+KP_Enter exec --no-startup-id nautilus;focus
+bindsym control+mod1+b exec --no-startup-id nautilus;focus
 
 # mail application
 bindsym $mod+F9 exec --no-startup-id evolution;focus
@@ -459,9 +450,9 @@ for_window [class="Usb-creator-gtk"] floating enable
 for_window [class="^Vlc$"] floating disable
 for_window [class="Wine"] floating disable
 for_window [class="Xfburn"] floating disable
-for_window [class="Xfce4-appfinder"] floating enable
 for_window [class="Xfce4-settings-manager"] floating disable
-for_window [class="Xfce4-taskmanager"] floating enable
+for_window [class="gnome-system-monitor"] floating enable
+for_window [class="Nautilus"] floating enable
 
 # for_window [instance="gimp"] floating disable
 for_window [instance="script-fu"] border normal
