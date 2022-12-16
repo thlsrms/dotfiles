@@ -1,4 +1,4 @@
-#setxkbmap -option caps:swapescape
+#!/bin/sh
 setxkbmap -option compose:ralt
 
 xset s off
