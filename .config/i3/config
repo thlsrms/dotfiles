@@ -390,7 +390,6 @@ bindsym --release $mod+Escape exec xkill
 bindsym $mod+F1 exec --no-startup-id exo-open --launch webbrowser;focus
 bindsym $mod+F2 exec --no-startup-id brave;focus
 bindsym $mod+F3 exec --no-startup-id firefox;focus
-bindsym control+mod1+f exec --no-startup-id firefox;focus
 
 # Text Editor
 # bindsym $mod+F2 exec --no-startup-id geany;focus
