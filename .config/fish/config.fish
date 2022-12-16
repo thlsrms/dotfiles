@@ -49,9 +49,9 @@ function fix-permissions --description 'alias fix-permissions=sudo chown -R $USE
 end
 
 # pacman & paru helpers
-function pacman --description 'alias pacman=sudo pacman'
-    command sudo pacman $argv; 
-end
+abbr -g spm sudo pacman
+abbr -g pm pacman
+abbr -g pms 'pacman -Ss'
 function update --description 'alias update=sudo pacman -Syyu'
     command sudo pacman -Syyu; 
 end
@@ -85,6 +85,7 @@ function sysfailed --description 'alias sysfailed=systemctl list-units --failed'
 end
 
 # Dotfiles bare repo
+abbr -g .f dotfiles
 function dotfiles --description 'alias dotfiles=/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
      command /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $argv; 
 end
