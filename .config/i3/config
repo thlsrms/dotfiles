@@ -334,7 +334,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
 ################# system applications
 
-exec --no-startup-id xfce4-power-manager &
+exec --no-startup-id xfce4-power-manager --daemon &
 # ommitted next line to get super key to bring up the menu in xfce and avoid error then in i3
 # IF xfsettingsd is activated you can not change themes
 # exec --no-startup-id xfsettingsd &
