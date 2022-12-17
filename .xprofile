@@ -1,11 +1,9 @@
 #!/bin/sh
 setxkbmap -option compose:ralt
-
+xsetroot -solid "#000000"
+xrandr --dpi 90
+xset r rate 240 40
+xset b off
+xset s noblank
 xset s off
 xset -dpms
-xset s noblank
-xsetroot -solid "#000000"
-
-xset r rate 240 40
-
-xrandr --dpi 90
