@@ -120,7 +120,7 @@ font-3 = "Fira Mono:size=10;0"
 
 modules-left = i3 xwindow
 modules-center = 
-modules-right = memory2 cpu2 pavolume pulseaudio-microphone date battery
+modules-right = memory2 cpu2 pulseaudio-control pulseaudio-microphone date 
 
 separator = %{F#3f5061}|%{F-}
 
@@ -675,11 +675,11 @@ format-prefix = " "
 ;format-prefix-foreground = #c1941a
 ;format-prefix-foreground = #93b8db
 format-prefix-foreground = #949494
-;format-underline = #c1941a
+format-padding = 2
 format-underline = #3384d0
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
-label = %date%  %{F#949494}%{F-} %time%
+label = %date%  %{F#949494}%{F-} %time% 
 
 #################################################################
 
@@ -1017,6 +1017,25 @@ click-left = ~/.config/polybar/scripts/pavolume.sh --togmute
 scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
 scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
 ;format-underline = #3EC13F
+format-underline = #3384d0
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+
+
+################################################################################
+
+# pulseaudio-control must be installed
+[module/pulseaudio-control]
+type = custom/script
+tail = true
+exec = pulseaudio-control --icons-volume " , " --icon-muted " " listen
+click-right = exec pavucontrol &
+click-left = pulseaudio-control togmute
+click-middle = pulseaudio-control next-sink
+scroll-up = wpctl set-volume @DEFAULT_SINK@ 0.05+ &
+scroll-down = wpctl set-volume @DEFAULT_SINK@ 0.05- &
+label-padding = 2
 format-underline = #3384d0
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
