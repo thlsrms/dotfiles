@@ -8,7 +8,7 @@ status () {
         VOLUME=$(wpctl get-volume @DEFAULT_SOURCE@ | tr -d 'Volume: ' | awk '{print $1 * 100}') 
         if  [[ $VOLUME -gt 60 ]]; then
             # Limit mic volume to 0.60 to fight the mic boost, until a better solution is found
-            wpctl set-volume @DEFAULT_SOURCE@ 0.60
+            wpctl set-volume @DEFAULT_SOURCE@ 0.30
         fi
 
         echo "%{u#3384d0}%{+u}   $VOLUME "
