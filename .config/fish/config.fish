@@ -26,6 +26,7 @@ if test -d ~/.cargo/bin
 end
 
 # Aliases ------------------------------!
+
 function vim --description 'alias vim=nvim'
     command nvim $argv; 
 end
@@ -39,6 +40,26 @@ end
 function rg --description 'alias rg=rg --sort path'
     command rg --sort path $argv;
 end
+
+function fehrandomize -d "alias fehrandomize=feh --randomize --bg-max"
+    command feh --no-fehbg --randomize --bg-max ~/Pictures/WPs/*;
+end
+
+# Utilities
+function edfish -d "Open EDITOR and edit fish config files"
+    $EDITOR ~/.config/fish/. -c ":cd ~/.config/fish/.";
+end
+function edi3 -d "Open EDITOR and edit i3wm config files"
+    $EDITOR ~/.config/i3/. -c ":cd ~/.config/i3/.";
+end
+function ednvim -d "Open EDITOR and edit neovim config files"
+    $EDITOR ~/.config/nvim/. -c ":cd ~/.config/nvim/.";
+end
+
+function zz -d "Z jump to /zdrive" 
+    z zdrive;
+end
+
 
 function rmgitcache -d "alias rmgitcache=rm -r $HOME/.cache/git"
     command rm -r $HOME/.cache/git;
