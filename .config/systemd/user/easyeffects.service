@@ -1,0 +1,11 @@
+[Unit]
+Description=easyeffects pipewire audio
+
+[Service]
+Restart=always
+RestartSec=3
+ExecStart=/usr/bin/easyeffects --gapplication-service
+Nice=20
+
+[Install]
+WantedBy=default.target
