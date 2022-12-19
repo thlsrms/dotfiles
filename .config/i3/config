@@ -651,6 +651,6 @@ exec --no-startup-id i3-msg workspace 10
 # xorg stuff
 exec --no-startup-id sleep 2; xset r rate 240 40
 exec --no-startup-id sleep 2; xset b off
-exec --no-startup-id sleep 2; xrandr --dpi 140
+exec --no-startup-id sleep 2; xrandr --dpi 96
 exec --no-startup-id sleep 2; xsetroot -solid "#000000"
 exec --no-startup-id sleep 2; setxkbmap -option compose:ralt
