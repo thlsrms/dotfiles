@@ -1,0 +1,127 @@
+(defcfg
+  ;; input  (device-file "/dev/input/by-id/usb-SEM_USB_Keyboard-event-kbd")
+  input (device-file "/dev/input/by-path/platform-i8042-serio-0-event-kbd") ;; Internal KBD
+  output (uinput-sink "KMonad kbd" "sleep 1; setxkbmap -option compose:ralt")
+  fallthrough true
+  allow-cmd false
+  cmp-seq compose    ;; Set the compose key to 'RightAlt'
+)
+
+(defsrc
+      esc   f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12
+      grv   1     2     3     4     5     6     7     8     9     0     -     =     bspc
+      tab   q     w     e     r     t     y     u     i     o     p     [     ]     ret
+      caps  a     s     d     f     g     h     j     k     l     ;     '     \
+lsft  nubs  z     x     c     v     b     n     m     ,     .     /     rsft
+  lctl  lmet  lalt                   spc              ralt  rmet  cmp   rctl
+)
+
+;; Layer manipulation aliases
+(defalias
+  main (layer-switch main)
+  sym (tap-hold-next 300 (layer-add sym) (layer-toggle sym))
+  ssym (tap-hold-next 500 spc (layer-toggle sym))
+  xsym (layer-rem sym)
+  met (around lmet (layer-toggle i3nav))
+  aext (layer-toggle extended)
+  rext (layer-toggle extended)
+  mdia (tap-hold 500 grv (layer-toggle media))
+  qwty (layer-add qwerty)
+  xqwt (layer-rem qwerty)
+)
+
+;; Macros and useful aliases
+(defalias
+  cctl (tap-hold-next 300 esc lctl)
+)
+
+(deflayer main
+      @qwty  f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12
+      @mdia 1     2     3     4     5     6     7     8     9     0     -     =     bspc
+      tab   q     w     e     r     t     y     u     i     o     p     rsft  rctl  ret
+      @cctl a     s     d     f     g     h     j     k     l     ;     '     del
+@met  lsft  z     x     c     v     b     n     m     ,     .     /     bspc
+  @sym  @met  @aext                  @ssym            @rext rmet  cmp   @sym
+)
+
+(defalias
+  mmic (around lmet e) ;; e = . on dvorak | "lmet + ." = my i3 bind to mic mute
+)
+
+(deflayer media
+      _     _     _     _     _     _     _     _     _     _     _     _     _
+      _     _     _     _     _     _     _     _     _     _     _     _     _     _
+      _     _     vold  volu  _     _     _     _     vold  volu  _     _     _     _
+      _     prev  pp    next  @mmic _     _     @mmic prev  pp    next  _     _
+_     _     _     _     _     mute  _     mute  _     _     _     _     _
+  _     _     _                      _                _     _     _     _
+)
+
+#| --------------------- sym layer (DVORAK) -------------------------------
+      _     !     @     &     ?     =     *     7     8     9     /     _
+      _     #     $     {     (     [     +     4     5     6     \     -
+_     _     %     ^     }     )     ]     0     1     2     3     .     _
+------------------------------------------------------------------------ |#
+(deflayer sym
+      _     _     _     _     _     _     _     _     _     _     _     _     _
+      _     _     _     _     _     _     _     _     _     _     _     _     _     _
+      _     !     @     &     {     ]     *     7     8     9     [     ret   _     _
+      _     #     $     \_    \(    -     }     4     5     6     \     _     _
+_     _     %     ^     +     \)    =     0     1     2     3     e     _
+  @xsym _     _                      _                _     _     _     @xsym
+)
+
+(defalias
+  ctlz (around lctl /) ;; / = z on dvorak
+  ctlx (around lctl b) ;; b = x on dvorak
+  ctlc (around lctl i) ;; i = c on dvorak
+  ctlv (around lctl .) ;; . = v on dvorak
+  ls_s (sticky-key 1500 lsft)
+  lc_s (sticky-key 750 lctl)
+  la_s (sticky-key 750 lalt)
+  ra_s (around-next-timeout 1500 ralt XX)
+  lm_s (sticky-key 1500 lmet)
+  sm_s (around @ls_s @lm_s)
+  sc_s (around @lc_s @ls_s)
+  ac_s (around @lc_s @la_s)
+  as_s (around @la_s @ls_s)
+  rass (around @ra_s @ls_s)
+  altb (around lalt tab)
+  alth (around lalt j)
+ )
+
+(deflayer extended
+      _     _     _     _     _     _     _     _     _     _     _     _     _
+      _     _     _     _     _     _     _     _     _     _     _     _     _     _
+      @altb ins   prnt  @rass @ac_s slck  pgup  @sm_s bspc  del   @alth ret   _     _
+      caps  @ls_s @ra_s @la_s @lc_s @sc_s pgdn  lft   down  up    rght  _     _
+_     _     @ctlz @ctlx @ctlc @ctlv @lm_s home  end   @as_s pause grv   _
+  _     _     _                      _                _     _     _     _
+)
+
+(deflayer i3nav
+      _     _     _     _     _     _     _     _     _     _     _     _     _
+      _     _     _     _     _     _     _     _     _     _     _     _     _     _
+      _     _     prnt  _     _     _     _     6     7     8     9     _     _     _
+      _     _     _     _     _     _     5     _     _     _     _     _     _
+_     _     _     _     _     _     _     0     1     2     3     4     _
+  _     _     _                      _                _     _     _     _
+)
+
+(deflayer qwerty
+      @xqwt f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12
+      grv   1     2     3     4     5     6     7     8     9     0     '     ]     _
+      tab   x     ,     d     o     k     t     f     g     s     r     -     caps  _
+      esc   a     ;     h     y     u     j     c     v     p     z     q     \
+lctl  _     /     b     i     .     n     l     m     w     e     [     rsft
+  lctl  lmet  lalt                   spc              ralt  rmet  cmp   rctl
+)
+
+(deflayer empty
+      _     _     _     _     _     _     _     _     _     _     _     _     _
+      _     _     _     _     _     _     _     _     _     _     _     _     _     _
+      _     _     _     _     _     _     _     _     _     _     _     _     _     _
+      _     _     _     _     _     _     _     _     _     _     _     _     _
+_     _     _     _     _     _     _     _     _     _     _     _     _
+  _     _     _                      _                _     _     _     _
+)
