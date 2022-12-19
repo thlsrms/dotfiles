@@ -93,7 +93,7 @@ bindsym $mod+Control+9 move container to workspace 9;
 bindsym $mod+Control+0 move container to workspace 10;
 
 # start rofi full
-bindsym $mod+F11 exec --no-startup-id "rofi -font 'Noto Sans 13' -theme-str 'window {width: 100%;height: 100%;}' -show drun"
+bindsym $mod+F11 exec --no-startup-id "rofi -font 'Noto Sans 13' -theme-str 'window {width: 100%;height: 100%;}' -show run"
 
 # start rofi small
 bindsym $mod+o exec --no-startup-id rofi -show drun -font "Noto Sans 13"
