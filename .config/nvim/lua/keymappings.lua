@@ -10,17 +10,12 @@ local function bind(op, outer_opts)
 end
 
 local map = bind("", { noremap = false })
-local noremap = bind("")
 local noremaps = bind("", { noremap = true, silent = true })
-local nmap = bind("n", { noremap = false })
 local nmaps = bind("n", { noremap = false, silent = true })
 local nnoremap = bind("n")
 local nnoremaps = bind("n", { noremap = true, silent = true })
-local vnoremap = bind("v")
 local vnoremaps = bind("v", { noremap = true, silent = true })
-local xnoremap = bind("x")
 local xnoremaps = bind("x", { noremap = true, silent = true })
-local inoremap = bind("i")
 local inoremaps = bind("i", { noremap = true, silent = true })
 
 map("H", "^")
@@ -59,7 +54,3 @@ if vim.fn.has('macunix') == 1 then
 else
     nmaps("gw", "<cmd>silent execute '!xdg-open ' . shellescape('<cWORD>')<cr>")
 end
-
--- HopWord
-noremaps("<M-h>", "<cmd>HopWord<cr>")
-vnoremaps("<M-h>", "<cmd>HopWord<cr>")

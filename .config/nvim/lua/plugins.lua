@@ -40,7 +40,6 @@ use { 'nvim-treesitter/nvim-treesitter',
         { 'RRethy/nvim-treesitter-textsubjects' },
     },
     run = ':TSUpdate',
-    config = "require('plugins.treesitter')",
 }
 use { 'nvim-treesitter/nvim-treesitter-context',
     after = "nvim-treesitter",
@@ -49,17 +48,41 @@ use { 'nvim-treesitter/nvim-treesitter-context',
     end
 }
 
+-- LSP
+use { 'VonHeikemen/lsp-zero.nvim',
+    requires = {
+        { 'neovim/nvim-lspconfig' },
+        { 'williamboman/mason.nvim' },
+        { 'williamboman/mason-lspconfig.nvim' },
+        { 'hrsh7th/nvim-cmp',
+            requires = {
+                { 'onsails/lspkind-nvim' }, -- Add pictograms to lsp
+                { 'hrsh7th/cmp-nvim-lua' },
+                { 'hrsh7th/cmp-nvim-lsp' },
+                { 'hrsh7th/cmp-buffer' },
+                { 'hrsh7th/cmp-path' },
+                { 'hrsh7th/cmp-calc' },
+                { 'hrsh7th/cmp-vsnip' },
+                { 'hrsh7th/vim-vsnip' },
+                { 'hrsh7th/vim-vsnip-integ' },
+            },
+            event = 'InsertEnter',
+        },
+    }
+}
 -- LSP Base
+--[[
 use { 'neovim/nvim-lspconfig' }
 
 -- LSP Addons
-use { 'williamboman/mason.nvim', config = "require('plugins.mason')" }
+use { 'williamboman/mason.nvim' }
 use { 'williamboman/mason-lspconfig.nvim' }
 use { 'onsails/lspkind-nvim' } -- Add pictograms to lsp
 
 -- LSP Cmp
 use { 'hrsh7th/nvim-cmp',
     requires = {
+        { 'onsails/lspkind-nvim' }, -- Add pictograms to lsp
         { 'hrsh7th/cmp-nvim-lua' },
         { 'hrsh7th/cmp-nvim-lsp' },
         { 'hrsh7th/cmp-buffer' },
@@ -70,8 +93,8 @@ use { 'hrsh7th/nvim-cmp',
         { 'hrsh7th/vim-vsnip-integ' },
     },
     event = 'InsertEnter',
-    config = "require('plugins.cmp')",
 }
+]] --
 use { 'tzachar/cmp-tabnine', after = "nvim-cmp", run = './install.sh', opt = true }
 
 -- Debug
@@ -88,7 +111,6 @@ use { 'nvim-telescope/telescope.nvim',
         { 'nvim-telescope/telescope-ui-select.nvim' },
         { 'nvim-telescope/telescope-file-browser.nvim' },
     },
-    config = "require('plugins.telescope')",
 }
 
 -- Theme
@@ -108,32 +130,22 @@ use { 'lewis6991/gitsigns.nvim',
     tag = 'v0.5',
     requires = { 'nvim-lua/plenary.nvim' },
     event = "BufRead",
-    config = "require('plugins.gitsigns')",
 }
 use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
--- use {'tpope/vim-fugitive'}
+use { 'tpope/vim-fugitive' }
 
 -- -- Language specifics
 -- Rust
 use { 'simrat39/rust-tools.nvim' }
 
 -- -- General -- --
-use { 'phaazon/hop.nvim',
-    branch = 'v2',
-    config = function()
-        require 'hop'.setup { keys = 'aoeuidhtnspygcrljkbmw' }
-    end
-}
-
 use { 'windwp/nvim-ts-autotag', after = 'nvim-treesitter' }
 use { 'windwp/nvim-autopairs',
     after = { 'nvim-treesitter', 'nvim-cmp' },
-    config = "require('plugins.autopairs')",
 }
 
 use { 'folke/which-key.nvim',
     event = "BufWinEnter",
-    config = "require('plugins.which-key')"
 }
 
 use { 'folke/trouble.nvim',

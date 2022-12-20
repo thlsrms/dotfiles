@@ -16,7 +16,7 @@ local source_mapping = {
     zsh = globals.icons.terminal .. '[ZSH]',
 }
 
-cmp.setup({
+local cmp_opts = {
     snippet = {
         expand = function(args)
             vim.fn["vsnip#anonymous"](args.body)
@@ -59,7 +59,7 @@ cmp.setup({
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'vsnip' },
-        { name = 'cmp_tabnine', max_item_count = 5 },
+        { name = 'cmp_tabnine', max_item_count = 8 },
         { name = 'buffer', keyword_length = 5 },
         { name = 'path' },
         { name = 'calc' },
@@ -70,11 +70,67 @@ cmp.setup({
         native_menu = false,
         ghost_text = true,
     }
-})
+}
 
 tabnine:setup({
-    max_lines = 1000;
+    max_lines = 500;
     max_num_results = 5;
     sort = true;
     show_prediction_strength = true;
 })
+
+cmp.setup(cmp_opts)
+
+
+--#region LSP
+local lsp = require('lsp-zero')
+lsp.preset('recommended')
+
+lsp.setup_nvim_cmp(cmp_opts)
+
+lsp.set_preferences({
+    sign_icons = {
+        error = globals.icons.error,
+        warn = globals.icons.warningTriangleNoBg,
+        hint = globals.icons.lightbulbOutline,
+        info = globals.icons.iinfo,
+    }
+})
+
+lsp.ensure_installed({
+    "bashls",
+    "tsserver",
+    "tailwindcss",
+    "emmet_ls",
+    "eslint",
+    "rust_analyzer",
+    "sumneko_lua",
+    "pyright",
+    "sqlls",
+    "svelte",
+    "omnisharp",
+    "clangd",
+    "dockerls",
+    "html",
+    "cssls",
+    "wgsl_analyzer",
+})
+
+lsp.configure("sumneko_lua", {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim', 'globals' } -- Fix undefined global
+            }
+        }
+    }
+})
+
+lsp.configure("rust_analyzer", {
+    on_attach = function()
+        require('rust-tools').setup({})
+    end
+})
+
+lsp.setup()
+--#endregion

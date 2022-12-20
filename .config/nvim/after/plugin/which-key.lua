@@ -75,23 +75,24 @@ wk.register({
 
     o = {
         name = "Settings",
-        n = { '<cmd>set nonumber!<cr>', 'line numbers' },
-        r = { '<cmd>set norelativenumber!<cr>', 'relative number' },
+        n = { '<cmd>set nonumber!<cr>', 'Line numbers' },
+        r = { '<cmd>set norelativenumber!<cr>', 'Relative number' },
+        w = { '<cmd>set nowrap!<cr>', 'Toggle wrap' }
     },
 
     w = {
         name = "Window",
         h = { '<C-w>h', 'Jump to the split to the left' },
         H = { '<C-w>H', 'Move split to the left' },
-        t = { '<C-w>j', 'Jump to the split below' },
-        T = { '<C-w>J', 'Move split below' },
-        n = { '<C-w>k', 'Jump to the split above' },
-        N = { '<C-w>K', 'Move split above' },
-        s = { '<C-w>l', 'Jump to the split to the right' },
-        S = { '<C-w>L', 'Move split to the right' },
+        j = { '<C-w>j', 'Jump to the split below' },
+        J = { '<C-w>J', 'Move split below' },
+        k = { '<C-w>k', 'Jump to the split above' },
+        K = { '<C-w>K', 'Move split above' },
+        l = { '<C-w>l', 'Jump to the split to the right' },
+        L = { '<C-w>L', 'Move split to the right' },
         q = { '<cmd>bd<cr>', 'Close current buffer' },
-        v = { '<C-W>v', 'Split right' },
-        V = { '<C-W>s', 'Split below' },
+        r = { '<C-W>v', 'Split right' },
+        d = { '<C-W>s', 'Split below' },
     },
 
     g = {
