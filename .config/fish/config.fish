@@ -45,6 +45,10 @@ function fehrandomize -d "alias fehrandomize=feh --randomize --bg-max"
     command feh --no-fehbg --randomize --bg-max ~/Pictures/WPs/*;
 end
 
+function llait -d "alias llait=llai --tree --level"
+    llai --tree --level $argv;
+end
+
 # Utilities
 function edfish -d "Open EDITOR and edit fish config files"
     $EDITOR ~/.config/fish/. -c ":cd ~/.config/fish/.";
