@@ -110,6 +110,10 @@ abbr -g .f dotfiles
 function dotfiles --description 'alias dotfiles=/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
      command /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $argv; 
 end
+abbr -g .lf lzdotfiles
+function lzdotfiles --description 'alias lzdotfiles=lazygit --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+     command lazygit --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $argv; 
+end
 
 # # usage: ex <file>
 function ex -d "Extractor for all kinds of archives"
