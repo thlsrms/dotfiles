@@ -42,6 +42,7 @@ local options = {
     guicursor = "",
     undodir = os.getenv("HOME") .. "/.local/share/nvim/undodir",
     colorcolumn = "113",
+    pumblend = 25,
 }
 
 local globals = {

@@ -13,6 +13,9 @@ vim.cmd([[
   autocmd ColorScheme * highlight! link SignColumn LineNr
   augroup end
 ]])
+-- Restyle popup completion menu
+vim.cmd("highlight Pmenu guibg=NONE")
+vim.cmd("highlight PmenuSel blend=0 guibg=brown4 guifg=orange")
 
 ---- LuaLine config
 -- Eviline config for lualine
