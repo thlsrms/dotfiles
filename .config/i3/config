@@ -133,7 +133,7 @@ bindsym $mod+Shift+u reload
 
 # kill focused window
 bindsym $mod+Shift+q kill
-bindsym $mod+q kill
+#bindsym $mod+q kill
 
 ################# Moving around in i3
 
@@ -366,6 +366,8 @@ bindsym control+mod1+r exec --no-startup-id rofi-theme-selector
 
 # pavucontrol
 bindsym control+mod1+u exec --no-startup-id pavucontrol
+# easyeffects
+bindsym control+mod1+e exec --no-startup-id easyeffects
 
 # pamac-manager
 bindsym control+mod1+p exec --no-startup-id pamac-manager
@@ -437,7 +439,7 @@ for_window [class="Imagewriter"] floating enable
 for_window [class="Font-manager"] floating enable
 # for_window [class="qt5ct|Lxappearance] floating enable
 for_window [class="Nitrogen"] floating disable
-for_window [class="Pavucontrol"] floating disable
+for_window [class="Pavucontrol"] floating enable
 for_window [class="Peek"] floating enable
 for_window [class="^Skype$"] floating enable
 for_window [class="^Spotify$"] floating disable
@@ -451,6 +453,7 @@ for_window [class="Xfce4-settings-manager"] floating disable
 for_window [class="gnome-system-monitor"] floating enable
 for_window [class="Nautilus"] floating enable
 for_window [class="KeePassXC"] floating enable
+for_window [class="easyeffects"] floating enable
 
 # for_window [instance="gimp"] floating disable
 for_window [instance="script-fu"] border normal
