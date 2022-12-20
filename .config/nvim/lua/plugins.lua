@@ -70,31 +70,7 @@ use { 'VonHeikemen/lsp-zero.nvim',
         },
     }
 }
--- LSP Base
---[[
-use { 'neovim/nvim-lspconfig' }
 
--- LSP Addons
-use { 'williamboman/mason.nvim' }
-use { 'williamboman/mason-lspconfig.nvim' }
-use { 'onsails/lspkind-nvim' } -- Add pictograms to lsp
-
--- LSP Cmp
-use { 'hrsh7th/nvim-cmp',
-    requires = {
-        { 'onsails/lspkind-nvim' }, -- Add pictograms to lsp
-        { 'hrsh7th/cmp-nvim-lua' },
-        { 'hrsh7th/cmp-nvim-lsp' },
-        { 'hrsh7th/cmp-buffer' },
-        { 'hrsh7th/cmp-path' },
-        { 'hrsh7th/cmp-calc' },
-        { 'hrsh7th/cmp-vsnip' },
-        { 'hrsh7th/vim-vsnip' },
-        { 'hrsh7th/vim-vsnip-integ' },
-    },
-    event = 'InsertEnter',
-}
-]] --
 use { 'tzachar/cmp-tabnine', after = "nvim-cmp", run = './install.sh', opt = true }
 
 -- Debug
