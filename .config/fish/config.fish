@@ -1,5 +1,9 @@
+#!/bin/sh fish
 if status is-interactive
     # Commands to run in interactive sessions can go here
+
+    bind \cW __zj_zjessions_menu
+
 end
 
 # remove greeting message
@@ -161,6 +165,7 @@ end
 
 
 
+
 # Alias fn
 #function *ALIAS* --description 'alias *ALIAS*=*COMMAND*'
 # command *COMMAND* $argv; 
@@ -169,3 +174,5 @@ end
 # Starship theme:
 # install 'curl -sS https://starship.rs/install.sh | sh' before.
 starship init fish | source
+
+
