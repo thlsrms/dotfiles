@@ -31,7 +31,6 @@ nnoremap("`", "'")
 nnoremap("<C-u>", "<C-u>zz")
 nnoremap("<C-d>", "<C-d>zz")
 
-
 -- Move selected line / block of text in visual mode
 xnoremaps("<C-n>", ":move '<-2<cr>gv-gv")
 xnoremaps("<C-t>", ":move '>+1<cr>gv-gv")
@@ -40,13 +39,18 @@ xnoremaps("<C-t>", ":move '>+1<cr>gv-gv")
 vnoremaps("<", "<gv")
 vnoremaps(">", ">gv")
 
--- Save with Alt-W
+-- Save with Alt-Shift-W
 nnoremaps("<M-W>", ":w<cr>")
 inoremaps("<M-W>", "<esc> :w<cr>")
 
 -- Remove highlight
 --nnoremap("<esc>", "<NOP>")
 nnoremaps("<esc>", ":noh<cr>")
+
+-- Delete forward word in insert mode with Ctrl-Del
+inoremaps("<C-Del>", "<C-o>dw")
+-- Delete backward word in insert mode with Alt-Backspace
+inoremaps("<M-BS>", "<C-w>")
 
 -- Open links under cursor
 if vim.fn.has('macunix') == 1 then
