@@ -40,8 +40,8 @@ format-offset =
 [colors]
 ; Nord theme ============
 ;background = #2F343F
-background = #c51D2021
-foreground = #f3f4f5
+background = #c51d2021
+foreground = #b3c4b5
 alert = #d08770
 volume-min = #a3be8c
 volume-med = #ebcb8b
@@ -81,10 +81,10 @@ monitor = ${env:MONITOR}
 ;monitor-fallback = HDMI1
 monitor-strict = false
 override-redirect = false
-bottom = true
+bottom = false
 fixed-center = true
 width = 100%
-height = 15
+height = 16
 ;offset-x = 1%
 ;offset-y = 1%
 
@@ -118,9 +118,9 @@ font-1 = "FontAwesome:size=10;0"
 font-2 = "Fira Sans:size=10;0"
 font-3 = "Fira Mono:size=10;0"
 
-modules-left = i3 xwindow
-modules-center = 
-modules-right = memory2 cpu2 pulseaudio-control pulseaudio-microphone date 
+modules-left = date i3
+modules-center = xwindow
+modules-right = memory2 cpu2 pulseaudio-control pulseaudio-microphone
 
 separator = %{F#3f5061}|%{F-}
 
@@ -134,6 +134,7 @@ tray-maxsize = 20
 tray-scale = 1.0
 tray-position = right
 tray-background = ${colors.background}
+tray-foreground = ${colors.foreground}
 
 #i3: Make the bar appear below windows
 ;wm-restack = i3
