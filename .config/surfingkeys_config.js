@@ -34,3 +34,5 @@ map('u', 'f'); // Show link hints. -- Hold <space> to hide hints
 mapkey('gO','#8Open an URL in current tab', function() {
   Front.openOmnibar({type: "URLs", extra: "getTopSites", tabbed: false});
 });
+
+Hints.setCharacters("aoeuidhtnsqjkxb");
