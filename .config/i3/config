@@ -96,7 +96,7 @@ bindsym $mod+Control+0 move container to workspace 10;
 bindsym $mod+F11 exec --no-startup-id "rofi -font 'Noto Sans 13' -theme-str 'window {width: 100%;height: 100%;}' -show run"
 
 # start rofi small
-bindsym $mod+o exec --no-startup-id rofi -show drun -font "Noto Sans 13"
+bindsym $mod+o exec --no-startup-id rofi -show drun -modi drun -show-icons -font "Noto Sans 13"
 
 ################# how to exit, logoff, suspend, ...
 
@@ -255,6 +255,7 @@ exec --no-startup-id i3-msg workspace 10
 exec_always --no-startup-id feh --no-fehbg --randomize --bg-max ~/Pictures/WPs/*
 exec --no-startup-id xfce4-power-manager --daemon &
 exec --no-startup-id /usr/lib/notification-daemon-1.0/notification-daemon &
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # USER APPLICATIONS TO START AT BOOT
 
@@ -288,7 +289,7 @@ for_window [class="firefox"] focus
 exec --no-startup-id keepassxc
 
 # Picom - Window transparency
-exec --no-startup-id picom --backend glx
+# exec --no-startup-id picom --backend glx # Leave it off by default and toggle using the script
 bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 
 ################# applications keyboard shortcuts
@@ -320,14 +321,15 @@ bindsym $mod+F1 exec --no-startup-id exo-open --launch webbrowser;focus
 bindsym $mod+F2 exec --no-startup-id brave;focus
 bindsym $mod+F3 exec --no-startup-id firefox;focus
 
+# mail application
+bindsym $mod+F7 exec --no-startup-id evolution;focus
 
 # file management
 for_window [class="Nautilus"] focus
 bindsym $mod+F8 exec --no-startup-id nautilus;focus
-bindsym $mod+Shift+o exec --no-startup-id nautilus;focus
 
-# mail application
-bindsym $mod+F7 exec --no-startup-id evolution;focus
+# emacs
+bindsym $mod+Shift+o exec --no-startup-id emacs;focus
 
 ################# screenshots
 
