@@ -1,18 +1,16 @@
 ## .dotfiles
 - .config/
 	- [alacritty](https://github.com/alacritty/alacritty): terminal emulator
+    - [emacs](https://www.gnu.org/software/emacs): 50/50 editor
 	- [fish](https://github.com/fish-shell/fish-shell): shell
 		- [fisher](https://github.com/jorgebucaran/fisher): fish plugin manager
-			- [patrickf1/fzf.fish](https://github.com/PatrickF1/fzf.fish) - FuzzyFinder utilities
-			- [jethrokuan/z](https://github.com/jethrokuan/z) - z for directory jumping
-			- [gazorby/fish-exa](https://github.com/gazorby/fish-exa) - exa (better ls) aliases for fish
 	- [i3](https://github.com/i3/i3): window manager
 	- [kmonad](https://github.com/kmonad/kmonad): Keyboard layout and layers manager
 	- [lazygit](https://github.com/jesseduffield/lazygit): TUI application for git commands
-	- [neovim](https://github.com/neovim/neovim): editor
+	- [neovim](https://github.com/neovim/neovim): 50/50 editor
 		- [packer.nvim](https://github.com/wbthomason/packer.nvim) - neovim plugin manager
 	- [omf](https://github.com/oh-my-fish/oh-my-fish): oh-my-fish for fish shell
-	- [picom](https://github.com/yshui/picom): window transparency
+	- [picom](https://github.com/yshui/picom): X Compositor for window transparency
 	- [polybar](https://github.com/polybar/polybar): i3wm status bar
 	- [zellij](https://github.com/zellij-org/zellij): terminal multiplexer
 	- surfingkeys_config.js: [SurfingKeys](https://github.com/brookhong/Surfingkeys) browser extension for web navigation using vim-like keys
