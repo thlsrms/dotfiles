@@ -87,15 +87,15 @@ _     _     %     ^     +     \)    =     0     1     2     3     e     _
   as_s (around @la_s @ls_s)
   rass (around @ra_s @ls_s)
   altb (around lalt tab)
-  alth (around lalt j)
+  altx (around lalt b) ;; b = x on dvorak
  )
 
 (deflayer extended
       _     _     _     _     _     _     _     _     _     _     _     _     _
       _     _     _     _     _     _     _     _     _     _     _     _     _     _
-      @altb ins   prnt  @rass @ac_s slck  pgup  @sm_s bspc  del   @alth ret   _     _
+      @altb ins   prnt  @rass @ac_s slck  pgup  @sm_s bspc  del   @altx ret   _     _
       caps  @ls_s @ra_s @la_s @lc_s @sc_s pgdn  lft   down  up    rght  _     _
-_     _     @ctlz @ctlx @ctlc @ctlv @lm_s home  end   @as_s pause grv   _
+_     _     @ctlz @ctlx @ctlc @ctlv @lm_s home  end   @as_s @ctlx grv   _
   _     _     _                      _                _     _     _     _
 )
 
