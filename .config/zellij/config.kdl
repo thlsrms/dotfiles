@@ -214,11 +214,11 @@ themes {
         orange 214 93 14
     }
     main-theme {
-        fg 169 177 214
-        bg 10 10 15
-        black 0 0 5
+        fg 120 112 150
+        bg 24 24 27
+        black 24 24 27
         red 249 51 87
-        green 67 71 181
+        green 65 134 139
         yellow 224 175 104
         blue 122 162 247
         magenta 187 154 247

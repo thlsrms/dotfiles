@@ -30,7 +30,7 @@ compositing-border = over
 ; Define fallback values used by all module formats
 format-foreground = #FF0000
 format-background = #00FF00
-format-underline =
+format-underline = #41868B
 format-overline =
 format-spacing =
 format-padding =
@@ -40,7 +40,8 @@ format-offset =
 [colors]
 ; Nord theme ============
 ;background = #2F343F
-background = #c51d2021
+;background = #c51d2021
+background = #18181b
 foreground = #b3c4b5
 alert = #d08770
 volume-min = #a3be8c
@@ -84,7 +85,7 @@ override-redirect = false
 bottom = false
 fixed-center = true
 width = 100%
-height = 16
+height = 24
 ;offset-x = 1%
 ;offset-y = 1%
 
@@ -345,7 +346,7 @@ label-mode-background = #FFBB00
 label-focused = %icon% %name%
 label-focused-background = ${colors.background}
 label-focused-foreground = ${colors.foreground}
-label-focused-underline = #6790eb
+label-focused-underline = #41868b
 label-focused-padding = 2
 
 ; Available tokens:
@@ -354,10 +355,11 @@ label-focused-padding = 2
 ;   %index%
 ; Default: %icon%  %name%
 ; unfocused = Inactive workspace on any monitor
+format-underline = 
 label-unfocused = %icon% %name%
 label-unfocused-padding = 2
 label-unfocused-background = ${colors.background}
-label-unfocused-foreground = ${colors.foreground}
+label-unfocused-foreground = #41868b
 label-unfocused-underline =
 
 ; visible = Active workspace on unfocused monitor
@@ -635,11 +637,11 @@ type = internal/cpu
 interval = 1
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
-format-prefix = "  "
+format-prefix = "  "
 ;format-prefix-foreground = #cd1f3f
-;format-underline = #cd1f3f
-format-prefix-foreground = #93b8db
-format-underline = #3384d0
+format-underline = 
+format-prefix-foreground = #41868b
+;format-underline = #3384d0
 
 label-font = 3
 
@@ -677,7 +679,7 @@ format-prefix = " "
 ;format-prefix-foreground = #93b8db
 format-prefix-foreground = #949494
 format-padding = 2
-format-underline = #3384d0
+format-underline = 
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 label = %date%  %{F#949494}%{F-} %time% 
@@ -888,8 +890,8 @@ label = %percentage_used%%
 format =  <label>
 format-prefix = "  "
 ;format-prefix-foreground = #3384d0
-format-prefix-foreground = #93b8db
-format-underline = #3384d0
+format-prefix-foreground = #41868b
+format-underline = 
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 
@@ -1037,7 +1039,7 @@ click-middle = pulseaudio-control next-sink
 scroll-up = wpctl set-volume @DEFAULT_SINK@ 0.05+ &
 scroll-down = wpctl set-volume @DEFAULT_SINK@ 0.05- &
 label-padding = 2
-format-underline = #3384d0
+;format-underline = #3384d0
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 
@@ -1400,6 +1402,7 @@ label-maxlen = 50
 
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
+format-underline =
 
 ###############################################################################
 
@@ -1412,7 +1415,7 @@ tail = true
 
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
-format-underline = #3ecfb2
+;format-underline = #3ecfb2
 
 click-left = ~/.config/polybar/scripts/pulseaudio-microphone.sh --toggle &
 scroll-up = ~/.config/polybar/scripts/pulseaudio-microphone.sh --increase &

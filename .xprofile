@@ -1,6 +1,7 @@
 #!/bin/sh
+xinput set-prop "SynPS/2 Synaptics TouchPad" 340  1
 setxkbmap -option compose:ralt
-xsetroot -solid "#000000"
+#xsetroot -solid "#18181B"
 xrandr --dpi 96
 xset r rate 240 40
 xset b off

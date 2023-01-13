@@ -492,7 +492,7 @@ mode "$mode_gaps_outer" {
 
     # Window color settings
     # class                 border  backgr. text    indicator
-    client.focused          $base0C $base00 $base04 $base00 #3384d0
+    client.focused          $base0C $base00 $base04 $base00 #41868B
     client.unfocused        $base01 $base00 $base02 $base01
     client.focused_inactive $base01 $base01 $base05 $base03
     client.placeholder      $base00 $base00 $base05 $base00

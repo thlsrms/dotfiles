@@ -11,7 +11,7 @@ status () {
             wpctl set-volume @DEFAULT_SOURCE@ 0.40
         fi
 
-        echo "%{u#3384d0}%{+u}   $VOLUME "
+        echo "%{u#41868b}%{+u}   $VOLUME "
     else
         echo "%{u#ab2115}%{+u}%{F#f00}  mtd "
     fi
