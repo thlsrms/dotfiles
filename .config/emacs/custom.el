@@ -37,7 +37,7 @@
  '(lisp-body-indent 4)
  '(menu-bar-mode nil)
  '(package-selected-packages
-   '(writeroom-mode doom-modeline dashboard fzf general vertico-multiform kaolin-themes vertico-posframe flycheck-rust rust-mode flycheck tree-sitter-langs tree-sitter company lsp-ui evil lsp-mode orderless marginalia undo-tree which-key vertico use-package rainbow-mode evil-collection))
+   '(yaml-mode rustic embark-consult consult embark ripgrep projectile lua-mode writeroom-mode doom-modeline dashboard fzf general vertico-multiform kaolin-themes flycheck-rust rust-mode flycheck tree-sitter-langs tree-sitter company lsp-ui evil lsp-mode orderless marginalia undo-tree which-key vertico use-package rainbow-mode evil-collection))
  '(recentf-mode t)
  '(scroll-bar-mode nil)
  '(scroll-margin 8)

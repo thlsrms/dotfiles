@@ -11,9 +11,11 @@
 (eval-when-compile (require 'use-package))
 (setq use-package-always-ensure t)
 
+;;; Utilities
 (use-package undo-tree)
 (use-package all-the-icons
     :if (display-graphic-p))
+(use-package ripgrep)
 
 (setq custom-file "~/.config/emacs/custom.el")
 (load custom-file)
@@ -41,7 +43,7 @@
     (setq dashboard-set-file-icons t)
     (setq dashboard-center-content t)
     (setq dashboard-startup-banner 'logo)
-    (setq dashboard-projects-backend 'project-el)
+    (setq dashboard-projects-backend 'projectile)
     (setq dashboard-items '((recents . 5)
                             (bookmarks . 5)
                             (projects . 5)
@@ -90,6 +92,8 @@
         "f" '(:ignore t :which-key "File")
         "fo" '(find-file :which-key "Open File")
 
+        "g" '(:ignore t :which-key "Goto")
+
         "b" '(:ignore t :which-key "Buffer")
         "bb" 'switch-to-buffer
         "bq" 'kill-this-buffer
@@ -134,6 +138,7 @@
         :predicate 'lsp-mode
 
         "k" 'lsp-ui-doc-glance
+        "s" 'lsp-ui-imenu
 
         "p" '(:ignore t :which-key "Peek")
         "pi" 'lsp-ui-peek-find-implementation
@@ -177,6 +182,9 @@
     :bind (("M-," . rust-compile)))
 (use-package flycheck-rust
     :hook (flycheck-mode-hook . flycheck-rust-setup))
+;; LUA
+(use-package lua-mode
+    :defer t)
 
 ;;; General purpose packages
 (use-package which-key
@@ -186,22 +194,70 @@
           which-key-idle-secondary-delay 0.05
           which-key-allow-evil-operators t))
 
-(use-package vertico ;; Completion for emacs commands
+;; Vertico
+(use-package vertico
     :init
     (vertico-mode))
-(use-package vertico-posframe
-    :init
-    (vertico-posframe-mode))
 
-(use-package marginalia ;; Works with vertico
+(use-package marginalia ;; cmds descriptions
     :init
     (marginalia-mode))
+
+(use-package consult
+    :hook (completion-list-mode . consult-preview-at-point-mode)
+    :init
+    (setq register-preview-delay 0.5
+          register-preview-function #'consult-register-format)
+    ;; Adds thin lines, sorting and hides the mode line of the window
+    (advice-add #'register-preview :override #'consult-register-window)
+    ;; Use consult to select xref locations with preview
+    (setq xref-show-xrefs-function #'consult-xref
+          xref-show-definitions-function #'consult-xref)
+    (keymap/keys-def
+        :keysmap 'keymap/keys-map
+        "gt" 'consult-line
+        "go" 'consult-outline
+        "gb" 'consult-bookmark
+        "gr" 'consult-ripgrep
+
+        "fr" 'consult-recent-file)
+    :config
+    (setq consult-narrow-key "<"))
+
+(use-package embark
+    :bind
+    (("C-." . embark-act)
+     ("C-h B" . embark-bindings))
+    :init
+    (setq prefix-help-command #'embark-prefix-help-command)
+    :config
+    ;; Hide the mode line of the Embark live/completions buffers
+    (add-to-list 'display-buffer-alist
+                 '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
+                   nil
+                   (window-parameters (mode-line-format . none)))))
+
+(use-package embark-consult
+    :hook
+    (embark-collect-mode . consult-preview-at-point-mode))
 
 (use-package orderless
     :init
     (setq completion-styles '(orderless basic)
           completion-category-defaults nil
           completion-category-overrides '((file (styles basic partial-completion)))))
+
+;; Projectile
+(use-package projectile
+    :diminish projectile-mode
+    :init (when (file-directory-p "/zdrive/Projs/")
+              (setq projectile-project-search-path '("/zdrive/Projs")))
+    (setq projectile-switch-project-action #'projectile-dired)
+    :config (projectile-mode)
+    (keymap/keys-def
+        :keymaps 'keymap/keys-map
+        "p" 'projectile-command-map
+        "pb" 'consult-project-buffer))
 
 ;; fzf
 (evil-set-initial-state 'term-mode 'emacs)
@@ -219,8 +275,8 @@
     (keymap/keys-def
         :keymaps 'keymap/keys-map
         "ff" '(fzf-find-file :which-key "Find file")
-        "fg" '(fzf-grep-with-narrowing :which-key "Find with grep")
-        "fr" '(fzf-recentf :which-key "Recent files")
+        ;;"fg" '(fzf-grep-with-narrowing :which-key "Find with grep")
+        ;;"fr" '(fzf-recentf :which-key "Recent files")
         "fd" '(fzf-directory :which-key "Fzf inside directory")))
 
 (use-package rainbow-mode ;; colorize color codes
@@ -229,7 +285,7 @@
 
 (use-package writeroom-mode
     :init
-    (setq writeroom-width 100)
+    (setq writeroom-width 102)
     (setq writeroom-fullscreen-effect 'maximized)
     (setq writeroom-header-line t)
     (setq writeroom-mode-line t)
