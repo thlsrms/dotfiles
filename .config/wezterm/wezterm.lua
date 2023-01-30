@@ -50,10 +50,26 @@ local config = {
   },
   automatically_reload_config = false,
 
+  -- Multiplexing
+  unix_domains = {
+    {
+      name = 'unix',
+    },
+    {
+      name = 'test'
+    }
+  },
+  default_gui_startup_args = { 'connect', 'unix' },
+
   -- Keys remap
   keys = {
     { key = 'S', mods = 'SHIFT|CTRL', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
     { key = 'H', mods = 'SHIFT|CTRL', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
+    -- workspaces
+    { key = 'y', mods = 'SHIFT|CTRL', action = act.SwitchToWorkspace { name = 'default' } },
+    { key = 'o', mods = 'SHIFT|CTRL', action = act.SwitchWorkspaceRelative(-1) },
+    { key = 'e', mods = 'SHIFT|CTRL', action = act.SwitchWorkspaceRelative(1) },
+    { key = 'a', mods = 'SHIFT|CTRL', action = act.ShowLauncherArgs { flags = 'FUZZY|WORKSPACES'} },
   },
 }
 
