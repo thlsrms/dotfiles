@@ -45,6 +45,7 @@ exec --no-startup-id xrandr --output eDP1 --auto
 set $firstMonitor eDP1
 #set $secondMonitor DP0
 
+workspace 0 output $firstMonitor
 workspace 1 output $firstMonitor
 workspace 2 output $firstMonitor
 workspace 3 output $firstMonitor
@@ -54,9 +55,9 @@ workspace 6 output $firstMonitor
 workspace 7 output $firstMonitor
 workspace 8 output $firstMonitor
 workspace 9 output $firstMonitor
-workspace 10 output $firstMonitor
 
 # switch to workspace
+bindsym $mod+0 workspace 0
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
@@ -66,9 +67,9 @@ bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
 
 # Move focused container to workspace, Switch to the workspace
+bindsym $mod+Shift+0 move container to workspace 0; workspace 0
 bindsym $mod+Shift+1 move container to workspace 1; workspace 1
 bindsym $mod+Shift+2 move container to workspace 2; workspace 2
 bindsym $mod+Shift+3 move container to workspace 3; workspace 3
@@ -78,9 +79,9 @@ bindsym $mod+Shift+6 move container to workspace 6; workspace 6
 bindsym $mod+Shift+7 move container to workspace 7; workspace 7
 bindsym $mod+Shift+8 move container to workspace 8; workspace 8
 bindsym $mod+Shift+9 move container to workspace 9; workspace 9
-bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 
 # Move focused container to workspace
+bindsym $mod+Control+0 move container to workspace 0;
 bindsym $mod+Control+1 move container to workspace 1;
 bindsym $mod+Control+2 move container to workspace 2;
 bindsym $mod+Control+3 move container to workspace 3;
@@ -90,36 +91,9 @@ bindsym $mod+Control+6 move container to workspace 6;
 bindsym $mod+Control+7 move container to workspace 7;
 bindsym $mod+Control+8 move container to workspace 8;
 bindsym $mod+Control+9 move container to workspace 9;
-bindsym $mod+Control+0 move container to workspace 10;
-
-# start rofi full
-bindsym $mod+F11 exec --no-startup-id "rofi -font 'Noto Sans 13' -theme-str 'window {width: 100%;height: 100%;}' -show run"
-
-# start rofi small
-bindsym $mod+o exec --no-startup-id rofi -show drun -modi drun -show-icons -font "Noto Sans 13"
 
 ################# how to exit, logoff, suspend, ...
 
-# TODO: Rewrite the i3exit.sh
-# Backup exit
-# Press ctrl+alt+x - check toolbar for next choices
-#bindsym control+mod1+X mode "$mode_system"
-
-#set $mode_system System (k) lock, (l) logout, (u) suspend, (h) hibernate, (r) reboot, (s) shutdown
-#mode "$mode_system" {
-#    bindsym k exec --no-startup-id ~/.config/i3/scripts/i3exit.sh lock, mode "default"
-#    bindsym l exec --no-startup-id ~/.config/i3/scripts/i3exit.sh logout, mode "default"
-#    bindsym u exec --no-startup-id ~/.config/i3/scripts/i3exit.sh suspend, mode "default"
-#    bindsym h exec --no-startup-id ~/.config/i3/scripts/i3exit.sh hibernate, mode "default"
-#    bindsym r exec --no-startup-id ~/.config/i3/scripts/i3exit.sh reboot, mode "default"
-#    bindsym s exec --no-startup-id ~/.config/i3/scripts/i3exit.sh shutdown, mode "default"
-#
-#    # back to normal: Enter or Escape
-#    bindsym Return mode "default"
-#    bindsym Escape mode "default"
-#}
-
-# Logout
 bindsym $mod+X exec --no-startup-id archlinux-logout
 
 ################# reload changed configuration
@@ -238,98 +212,67 @@ for_window [all] title_format " "
 # you can find the class with the program xprop
 
 # Workspace 2 file managers | image viewer
-assign [class="Nemo|Thunar|Caja|nautilus|Nautilus"]                         → 2
-assign [class="ristretto|Ristretto|shotwell|Shotwell|Xviewer|Nitrogen"]     → 2
+assign [class="dolphin|Dolphin"]						→ 2
+assign [class="ristretto|Ristretto|gwenview|Nitrogen"]	→ 2
 # Workspace 10 (0) web browsers
-assign [class="Firefox|Vivaldi-stable|Brave|Chrome"]                        → 0
+assign [class="Firefox|Brave|Chrome"]					→ 0
 # Workspace 4 mail clients | chat clients
-assign [class="Evolution|evolution"]                                        → 4
+assign [class="Evolution|evolution|kmail"]				→ 4
 
 
 ################# autostart - execute applications at boot time
-## Start i3 on workspace 10
-exec --no-startup-id i3-msg workspace 10
 
 ################# system applications
 # feh sets wallpaper
 exec_always --no-startup-id /bin/sh $HOME/.fehbg
-exec --no-startup-id xfce4-power-manager --daemon &
-exec --no-startup-id /usr/lib/notification-daemon-1.0/notification-daemon &
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # USER APPLICATIONS TO START AT BOOT
 
 # Polybar
-exec_always --no-startup-id ~/.config/polybar/launch.sh &
+# exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
 # Autotiling
 exec_always --no-startup-id autotiling
 
-# Mail clients
-# exec --no-startup-id evolution
-
-# TRAY APPLICATIONS
-# bluetooth
-exec --no-startup-id blueman-tray
-
-# network
-exec --no-startup-id nm-applet
-
-# num lock activated
-exec_always --no-startup-id numlockx on
-
 # get the mouse out of the way with unclutter
 exec --no-startup-id unclutter
-
-# Browser
-exec --no-startup-id firefox
-for_window [class="firefox"] focus
-
-# passes
-exec --no-startup-id keepassxc
-
-# Picom - Window transparency
-# exec --no-startup-id picom --backend glx # Leave it off by default and toggle using the script
-bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 
 ################# applications keyboard shortcuts
 
 # terminal
 # default --no-startup-id urxvt
 set $term --no-startup-id wezterm
-bindsym $mod+Return exec $term;focus
-bindsym $mod+KP_Enter exec $term;focus
+# bindsym $mod+Return exec $term;focus
+# bindsym $mod+KP_Enter exec $term;focus
 bindsym control+mod1+t exec $term; focus
-bindsym control+mod1+Return exec $term; focus
-bindsym control+mod1+KP_Enter exec $term; focus
-bindsym F12 exec --no-startup-id xfce4-terminal --drop-down; focus
+# bindsym control+mod1+Return exec $term; focus
+# bindsym control+mod1+KP_Enter exec $term; focus
+# bindsym F12 exec --no-startup-id yakuake --drop-down; focus
 
 # System monitor
-bindsym control+Shift+Escape exec --no-startup-id gnome-system-monitor;focus
+bindsym control+Shift+Escape exec --no-startup-id plasma-system-monitor;focus
 
 # pavucontrol
-bindsym control+mod1+u exec --no-startup-id pavucontrol
+# bindsym control+mod1+u exec --no-startup-id pavucontrol
 # easyeffects
-bindsym control+mod1+e exec --no-startup-id easyeffects
+# bindsym control+mod1+e exec --no-startup-id easyeffects
 
 # xkill
 bindsym --release control+mod1+F4 exec xkill
 
 # Function Keybinds
 # Browser
-bindsym $mod+F1 exec --no-startup-id exo-open --launch webbrowser;focus
-bindsym $mod+F2 exec --no-startup-id brave;focus
-bindsym $mod+F3 exec --no-startup-id firefox;focus
+# bindsym $mod+F1 exec --no-startup-id exo-open --launch webbrowser;focus
+# bindsym $mod+F2 exec --no-startup-id brave;focus
+# bindsym $mod+F3 exec --no-startup-id firefox;focus
 
-# mail application
-bindsym $mod+F7 exec --no-startup-id evolution;focus
+# email application
+for_window [class="kmail"] focus
+bindsym $mod+F7 exec --no-startup-id kmail;focus
 
 # file management
-for_window [class="Nautilus"] focus
-bindsym $mod+F8 exec --no-startup-id nautilus;focus
-
-# emacs
-bindsym $mod+Shift+o exec --no-startup-id emacs;focus
+for_window [class="Dolphin"] focus
+bindsym $mod+F8 exec --no-startup-id dolphin;focus
 
 ################# screenshots
 
@@ -337,9 +280,43 @@ bindsym Print exec --no-startup-id gscreenshot -c -n -f 'Pictures/Screenshots'
 bindsym Shift+Print exec --no-startup-id gscreenshot -c -n -s -f 'Pictures/Screenshots'
 bindsym Mod4+Shift+Print exec --no-startup-id gscreenshot -c -n -s -f 'Pictures/Screenshots'
 
-################# floating or tiled rules
+# >>> Plasma Integration <<<
+# Try to kill the wallpaper set by Plasma
+exec --no-startup-id wmctrl -c Plasma
+for_window [class="plasmashell" title="Desktop"] kill; floating enable, border none
 
-# floating enabled from some programs - find with xprop
+# Compositor (Animations, Shadows, Transparency)
+bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
+
+# >>> Window rules <<<
+
+################# enable/disable floating to applications
+# find class with xprop
+
+# Plasma specific >>
+for_window [class="yakuake"] floating enable
+for_window [class="lattedock"] floating enable
+for_window [class="plasmashell"] floating enable
+for_window [class="Kmix"] floating enable; border none
+for_window [class="kruler"] floating enable; border none
+for_window [class="knotes"] floating enable; border none
+for_window [class="Plasma"] floating enable; border none
+for_window [class="Klipper"] floating enable; border none
+for_window [class="krunner"] floating enable; border none
+for_window [class="Plasmoidviewer"] floating enable; border none
+for_window [class="plasma-desktop"] floating enable; border none
+for_window [class="plasmashell" window_type="notification"] floating enable; move position 1800 40
+no_focus [class="plasmashell" window_type="notification"]
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_role="About"] floating enable
+for_window [window_role="dialog"] floating enable
+for_window [window_role="menu"] floating enable
+for_window [instance="__scratchpad"] floating enable
+# end of Plasma windows <<
 
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Galculator"] floating enable
@@ -423,8 +400,8 @@ popup_during_fullscreen smart
 # https://github.com/Airblader/i3/tree/gaps-next
 
 for_window [class="^.*"] border pixel 1
-gaps inner 2
-gaps outer 2
+gaps inner 0
+gaps outer 0
 smart_gaps on
 smart_borders on
 
@@ -525,4 +502,4 @@ mode "$mode_gaps_outer" {
 
 ################# OTHER STUFF
 # source .xinitrc
-exec --no-startup-id  sleep 3; /bin/sh $HOME/.xinitrc
+# exec --no-startup-id  sleep 3; /bin/sh $HOME/.xinitrc
