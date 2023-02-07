@@ -21,7 +21,7 @@ lsft  nubs  z     x     c     v     b     n     m     ,     .     /     rsft
 (defalias
   main (layer-switch main)
   sym (tap-hold-next 300 (layer-add sym) (layer-toggle sym))
-  ssym (tap-hold-next 500 spc (layer-toggle sym))
+  ssym (tap-next-release spc (layer-toggle sym))
   xsym (layer-rem sym)
   met (around lmet (layer-toggle i3nav))
   aext (layer-toggle extended)
@@ -53,7 +53,7 @@ lsft  nubs  z     x     c     v     b     n     m     ,     .     /     rsft
       _     _     _     _     _     _     _     _     _     _     _     _     _
       _     _     _     _     _     _     _     _     _     _     _     _     _     _
       _     _     vold  volu  _     _     _     _     vold  volu  _     _     _     _
-      _     prev  pp    next  @mmic _     _     @mmic prev  pp    next  _     _
+      _     _     prev  pp    next  @mmic @mmic prev  pp    next  _     _     _
 _     _     _     _     _     mute  _     mute  _     _     _     _     _
   _     _     _                      _                _     _     _     _
 )
