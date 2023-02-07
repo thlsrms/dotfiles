@@ -1,21 +1,19 @@
 vim.o.background = "dark"
 
+--[[
 vim.g.gruvbox_baby_background_color = 'dark'
 vim.g.gruvbox_baby_transparent_mode = true
 vim.g.gruvbox_baby_use_original_palette = true
+]]
+require('kanagawa').setup({
+    transparent = true,
+})
+vim.cmd('colorscheme kanagawa')
 
-vim.cmd('colorscheme gruvbox-baby')
-
-vim.cmd([[
-  augroup ColorSchemes
-  autocmd!
-  autocmd ColorScheme * highlight ColorColumn ctermbg=0 guibg=grey20
-  autocmd ColorScheme * highlight! link SignColumn LineNr
-  augroup end
-]])
--- Restyle popup completion menu
-vim.cmd("highlight Pmenu guibg=NONE")
-vim.cmd("highlight PmenuSel blend=0 guibg=brown4 guifg=orange")
+-- Restyle the colorscheme
+vim.cmd("hi ColorColumn ctermbg=0 guibg=#1C1C1F")
+vim.cmd("hi CursorLine guifg=NONE ctermfg=NONE guibg=NONE ctermbg=NONE gui=NONE cterm=NONE")
+vim.cmd("hi Pmenu guibg=NONE")
 
 ---- LuaLine config
 -- Eviline config for lualine
@@ -26,17 +24,27 @@ local lualine = require('lualine')
 -- Color table for highlights
 -- stylua: ignore
 local evilline_colors = {
-    bg       = '#202328',
-    fg       = '#bbc2cf',
-    yellow   = '#ECBE7B',
-    cyan     = '#008080',
-    darkblue = '#081633',
-    green    = '#98be65',
-    orange   = '#FF8800',
-    violet   = '#a9a1e1',
-    magenta  = '#c678dd',
-    blue     = '#51afef',
-    red      = '#ec5f67',
+    --bg       = '#18181B',
+    fg       = '#C8C093',
+    --yellow      = '#ECBE7B',
+    --cyan        = '#008080',
+    --darkblue    = '#081633',
+    --green       = '#98be65',
+    --orange      = '#FF8800',
+    --violet      = '#a9a1e1',
+    --magenta     = '#c678dd',
+    --blue        = '#51afef',
+    --red         = '#ec5f67',
+    bg       = nil,
+    yellow   = '#FF9E3B',
+    cyan     = '#7E9CD8',
+    darkblue = '#223249',
+    green    = '#76946A',
+    orange   = '#FFA066',
+    violet   = '#957FB8',
+    magenta  = '#FF5D62',
+    blue     = '#2D4F67',
+    red      = '#E82424',
 }
 
 local conditions = {
@@ -149,7 +157,7 @@ ins_left {
 ins_left {
     'filename',
     cond = conditions.buffer_not_empty,
-    color = { fg = evilline_colors.magenta, gui = 'bold' },
+    color = { fg = evilline_colors.cyan, gui = 'bold' },
 }
 
 ins_left { 'location' }

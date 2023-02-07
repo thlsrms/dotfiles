@@ -72,6 +72,7 @@ use { 'VonHeikemen/lsp-zero.nvim',
 }
 
 use { 'tzachar/cmp-tabnine', after = "nvim-cmp", run = './install.sh', opt = true }
+use { 'j-hui/fidget.nvim' }
 
 -- Debug
 -- TODO: Configure dap
@@ -89,7 +90,8 @@ use { 'nvim-telescope/telescope.nvim',
     },
 }
 
--- Theme
+-- Themes
+use { 'rebelot/kanagawa.nvim' }
 use { 'luisiacc/gruvbox-baby' } -- colorscheme
 use { 'kyazdani42/nvim-web-devicons',
     config = function()

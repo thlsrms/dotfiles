@@ -41,7 +41,7 @@ local options = {
     showmode = true,
     guicursor = "",
     undodir = os.getenv("HOME") .. "/.local/share/nvim/undodir",
-    colorcolumn = "113",
+    colorcolumn = "103",
     pumblend = 25,
 }
 

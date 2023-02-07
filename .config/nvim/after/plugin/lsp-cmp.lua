@@ -134,3 +134,5 @@ lsp.configure("rust_analyzer", {
 
 lsp.setup()
 --#endregion
+
+require('fidget').setup {} -- lsp progress
