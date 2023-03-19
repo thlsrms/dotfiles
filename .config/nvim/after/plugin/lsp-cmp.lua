@@ -133,6 +133,11 @@ lsp.configure("clangd", {
 })
 
 lsp.configure("rust_analyzer", {
+    cargo = {
+        buildScripts = {
+            enable = true
+        }
+    },
     on_attach = function()
         require('rust-tools').setup({})
     end
