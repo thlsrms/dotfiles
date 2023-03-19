@@ -135,4 +135,9 @@ lsp.configure("rust_analyzer", {
 lsp.setup()
 --#endregion
 
+vim.diagnostic.config({
+    virtual_text = true,
+    update_in_insert = true,
+})
+
 require('fidget').setup {} -- lsp progress
