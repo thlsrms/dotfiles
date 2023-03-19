@@ -145,3 +145,5 @@ use { 'NvChad/nvim-colorizer.lua',
         require("colorizer").setup {}
     end
 }
+
+use { 'shortcuts/no-neck-pain.nvim', tag = '*' }

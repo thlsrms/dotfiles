@@ -72,14 +72,14 @@ wk.register({
     ["a"] = { '<cmd>lua vim.lsp.buf.code_action()<cr>', 'LSP Code actions' },
     ["r"] = { '<cmd>lua vim.lsp.buf.rename()<cr>', 'LSP Rename symbol' },
     ["k"] = { '<cmd>lua vim.lsp.buf.hover()<cr>', 'LSP Hover' },
-
+    ["W"] = { '<cmd>write<cr>', 'Write file' },
     o = {
         name = "Settings",
         n = { '<cmd>set nonumber!<cr>', 'Line numbers' },
         r = { '<cmd>set norelativenumber!<cr>', 'Relative number' },
-        w = { '<cmd>set nowrap!<cr>', 'Toggle wrap' }
+        w = { '<cmd>set nowrap!<cr>', 'Toggle wrap' },
+        p = { '<cmd>NoNeckPain<cr>', 'Toggle NoNeckPain' },
     },
-
     w = {
         name = "Window",
         h = { '<C-w>h', 'Jump to the split to the left' },
@@ -94,7 +94,6 @@ wk.register({
         r = { '<C-W>v', 'Split right' },
         d = { '<C-W>s', 'Split below' },
     },
-
     g = {
         name = "Git",
         s = {
@@ -117,7 +116,6 @@ wk.register({
         l = { '<cmd>Gitsigns toggle_current_line_blame<cr>', 'Toggle current line blame' },
         t = { '<cmd>Gitsigns toggle_deleted<cr>', 'Toggle deleted' },
     },
-
     t = {
         name = "Diagnostics",
         t = { '<cmd>TroubleToggle<cr>', 'Toggle' },
@@ -133,7 +131,6 @@ wk.register({
             i = { '<cmd>TroubleToggle lsp_implementations<cr>', 'Implementations' },
         },
     },
-
     x = {
         name = "Todo",
         x = { '<cmd>TodoTrouble<cr>', 'List TODOs: Trouble' },
