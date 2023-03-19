@@ -60,7 +60,7 @@ function lzdotfiles --description 'alias lzdotfiles=lazygit --git-dir=$HOME/.dot
      command lazygit --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $argv; 
 end
 
-# exa extros
+# exa extras
 function llait -d 'alias llait=llai --tree --level'
 	llai --tree --level $argv;
 end
@@ -69,4 +69,7 @@ function llit -d 'alias llit=lli --tree --level'
 	lli --tree --level $argv;
 end
 
+function lgit -d 'alias lgit=lgi --tree --level'
+	lgi --tree --level $argv;
+end
 
