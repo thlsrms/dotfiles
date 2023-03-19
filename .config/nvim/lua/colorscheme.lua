@@ -1,10 +1,5 @@
 vim.o.background = "dark"
 
---[[
-vim.g.gruvbox_baby_background_color = 'dark'
-vim.g.gruvbox_baby_transparent_mode = true
-vim.g.gruvbox_baby_use_original_palette = true
-]]
 require('kanagawa').setup({
     transparent = true,
 })
@@ -13,7 +8,18 @@ vim.cmd('colorscheme kanagawa')
 -- Restyle the colorscheme
 vim.cmd("hi ColorColumn ctermbg=0 guibg=#1C1C1F")
 vim.cmd("hi CursorLine guifg=NONE ctermfg=NONE guibg=NONE ctermbg=NONE gui=NONE cterm=NONE")
-vim.cmd("hi Pmenu guibg=NONE")
+vim.cmd("hi Pmenu               guibg=NONE")
+vim.cmd("hi SignColumn          guibg=NONE")
+vim.cmd("hi LineNr              guibg=NONE")
+vim.cmd("hi CursorLineNr        guibg=NONE")
+vim.cmd("hi DiagnosticSignError guibg=NONE")
+vim.cmd("hi DiagnosticSignWarn  guibg=NONE")
+vim.cmd("hi DiagnosticSignInfo  guibg=NONE")
+vim.cmd("hi DiagnosticSignHint  guibg=NONE")
+vim.cmd("hi GitSignsAdd         guibg=NONE")
+vim.cmd("hi GitSignsChange      guibg=NONE")
+vim.cmd("hi GitSignsDelete      guibg=NONE")
+
 
 ---- LuaLine config
 -- Eviline config for lualine
@@ -24,18 +30,8 @@ local lualine = require('lualine')
 -- Color table for highlights
 -- stylua: ignore
 local evilline_colors = {
-    --bg       = '#18181B',
-    fg       = '#C8C093',
-    --yellow      = '#ECBE7B',
-    --cyan        = '#008080',
-    --darkblue    = '#081633',
-    --green       = '#98be65',
-    --orange      = '#FF8800',
-    --violet      = '#a9a1e1',
-    --magenta     = '#c678dd',
-    --blue        = '#51afef',
-    --red         = '#ec5f67',
     bg       = nil,
+    fg       = '#C8C093',
     yellow   = '#FF9E3B',
     cyan     = '#7E9CD8',
     darkblue = '#223249',
