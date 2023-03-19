@@ -126,6 +126,12 @@ lsp.configure("lua_ls", {
     }
 })
 
+lsp.configure("clangd", {
+    filetypes = {
+        "c", "cpp", "objc", "objcpp", "cuda"
+    }
+})
+
 lsp.configure("rust_analyzer", {
     on_attach = function()
         require('rust-tools').setup({})
