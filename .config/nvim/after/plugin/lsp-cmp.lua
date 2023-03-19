@@ -104,7 +104,7 @@ lsp.ensure_installed({
     "emmet_ls",
     "eslint",
     "rust_analyzer",
-    "sumneko_lua",
+    "lua_ls",
     "pyright",
     "sqlls",
     "svelte",
@@ -116,7 +116,7 @@ lsp.ensure_installed({
     "wgsl_analyzer",
 })
 
-lsp.configure("sumneko_lua", {
+lsp.configure("lua_ls", {
     settings = {
         Lua = {
             diagnostics = {
