@@ -2,12 +2,10 @@
 local cmp = require('cmp')
 
 local lspkind = require('lspkind')
-local tabnine = require('cmp_tabnine.config')
 
 local source_mapping = {
     buffer = globals.icons.buffer .. '[BUF]',
     calc = globals.icons.calculator,
-    cmp_tabnine = globals.icons.light,
     nvim_lsp = globals.icons.paragraph .. '[LSP]',
     nvim_lua = globals.icons.bomb,
     path = globals.icons.folderOpen2,
@@ -26,7 +24,7 @@ local cmp_opts = {
     mapping = cmp.mapping.preset.insert({
         ['<up>'] = cmp.mapping.select_prev_item(),
         ['<down>'] = cmp.mapping.select_next_item(),
-        ['<C-f>'] = cmp.mapping.scroll_docs( -4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(-4),
         ['<C-d>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.close(),
@@ -56,8 +54,7 @@ local cmp_opts = {
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'vsnip' },
-        { name = 'cmp_tabnine', max_item_count = 8 },
-        { name = 'buffer',      keyword_length = 5 },
+        { name = 'buffer',  keyword_length = 5 },
         { name = 'path' },
         { name = 'calc' },
         { name = 'nvim_lua' },
@@ -67,13 +64,6 @@ local cmp_opts = {
         ghost_text = true,
     }
 }
-
-tabnine:setup({
-    max_lines = 500,
-    max_num_results = 5,
-    sort = true,
-    show_prediction_strength = true,
-})
 
 cmp.setup(cmp_opts)
 

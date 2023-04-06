@@ -60,7 +60,6 @@ use { 'VonHeikemen/lsp-zero.nvim',
     }
 }
 
---use { 'tzachar/cmp-tabnine', dependencies = "nvim-cmp", build = './install.sh', lazy = true }
 use { 'j-hui/fidget.nvim' }
 
 -- Debug
