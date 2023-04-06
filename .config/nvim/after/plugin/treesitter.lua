@@ -5,12 +5,11 @@ end
 
 require 'nvim-treesitter.configs'.setup {
     ensure_installed = { -- {}, -- one of "all" or a list of languages
-        "lua", "rust", "bash", "c", "c_sharp", "clojure", "cmake", "comment", "commonlisp", "cpp", "css",
-        "dart", "dockerfile", "elixir", "erlang", "fish", "gdscript", "gitignore", "glsl", "go",
-        "graphql", "hjson", "html", "http", "java", "javascript", "jsdoc", "json", "json5", "jsonc", "julia",
-        "kotlin", "llvm", "make", "markdown", "ninja", "nix", "ocaml", "pascal", "perl", "php", "prisma",
-        "python", "r", "racket", "regex", "ruby", "scala", "scheme", "scss", "solidity", "sql", "svelte",
-        "swift", "todotxt", "toml", "tsx", "typescript", "vala", "vim", "vue", "wgsl", "yaml", "zig",
+        "lua", "rust", "bash", "c", "c_sharp", "clojure", "cmake", "comment", "commonlisp", "cpp",
+        "css", "dart", "dockerfile", "fish", "gdscript", "gitignore", "glsl", "go", "graphql", "hjson",
+        "html", "java", "javascript", "jsdoc", "json", "json5", "jsonc", "llvm", "make", "markdown",
+        "ninja", "prisma", "python", "regex", "scala", "scheme", "scss", "sql", "svelte", "toml",
+        "tsx", "typescript", "vala", "vim", "vue", "wgsl", "yaml", "zig",
     },
     sync_install = false, -- install languages synchronously
     ignore_install = {},
