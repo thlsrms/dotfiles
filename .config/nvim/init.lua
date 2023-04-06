@@ -1,7 +1,6 @@
-pcall(require, 'impatient')
-
-require('globals')
-require('colorscheme')
 require('settings')
+require('globals')
+require('plugins')
+require('colorscheme')
 require('keymappings')
 require('autocmds')

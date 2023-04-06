@@ -1,48 +1,34 @@
-local execute = vim.api.nvim_command
-
--- check if packer is installed (~/.local/share/nvim/site/pack)
-local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-local compile_path = install_path .. "/plugin/packer_compiled.lua"
-local packer_installed = vim.fn.empty(vim.fn.glob(install_path)) == 0
-
-if not packer_installed then
-    if vim.fn.input("Install packer.nvim? (y for yes) ") == "y" then
-        execute("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
-        execute("packadd packer.nvim")
-        print("Installed packer.nvim.")
-        packer_installed = true
-    end
-end
-
-local packer = nil
-if not packer_installed then return end
-if packer == nil then
-    packer = require('packer')
-    packer.init({
-        -- We don't want the compilation file in '~/.config/nvim'
-        compile_path = compile_path
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        'git',
+        'clone',
+        '--filter=blob:none',
+        'https://github.com/folke/lazy.nvim.git',
+        '--branch=stable',
+        lazypath,
     })
 end
+vim.opt.rtp:prepend(lazypath)
 
-local use = packer.use
+local plugins = {}
 
--- Packer can manage itself
-use 'wbthomason/packer.nvim'
+local function use(plugin)
+    table.insert(plugins, plugin)
+end
 
--- Needed to load first
-use { 'lewis6991/impatient.nvim', rocks = 'mpack' } -- Speed up loading Lua modules
 use { 'nvim-lua/plenary.nvim' }
 
 -- Treesitter
 use { 'nvim-treesitter/nvim-treesitter',
-    requires = {
+    dependencies = {
         { 'nvim-treesitter/nvim-treesitter-textobjects' },
         { 'RRethy/nvim-treesitter-textsubjects' },
     },
-    run = ':TSUpdate',
+    build = ':TSUpdate',
 }
 use { 'nvim-treesitter/nvim-treesitter-context',
-    after = "nvim-treesitter",
+    dependencies = "nvim-treesitter",
     config = function()
         require("treesitter-context").setup {}
     end
@@ -50,12 +36,13 @@ use { 'nvim-treesitter/nvim-treesitter-context',
 
 -- LSP
 use { 'VonHeikemen/lsp-zero.nvim',
-    requires = {
+    dependencies = {
         { 'neovim/nvim-lspconfig' },
         { 'williamboman/mason.nvim' },
         { 'williamboman/mason-lspconfig.nvim' },
-        { 'hrsh7th/nvim-cmp',
-            requires = {
+        {
+            'hrsh7th/nvim-cmp',
+            dependencies = {
                 { 'onsails/lspkind-nvim' }, -- Add pictograms to lsp
                 { 'hrsh7th/cmp-nvim-lua' },
                 { 'hrsh7th/cmp-nvim-lsp' },
@@ -65,26 +52,28 @@ use { 'VonHeikemen/lsp-zero.nvim',
                 { 'hrsh7th/cmp-vsnip' },
                 { 'hrsh7th/vim-vsnip' },
                 { 'hrsh7th/vim-vsnip-integ' },
+                { 'L3MON4D3/LuaSnip' },
+                { 'rafamadriz/friendly-snippets' },
             },
             event = 'InsertEnter',
         },
     }
 }
 
-use { 'tzachar/cmp-tabnine', after = "nvim-cmp", run = './install.sh', opt = true }
+--use { 'tzachar/cmp-tabnine', dependencies = "nvim-cmp", build = './install.sh', lazy = true }
 use { 'j-hui/fidget.nvim' }
 
 -- Debug
 -- TODO: Configure dap
 --use {'mfussenegger/nvim-dap', config = "require('plugins.dap')"}
---use {'rcarriga/nvim-dap-ui', requires = 'mfussenegger/nvim-dap'}
+--use {'rcarriga/nvim-dap-ui', dependencies = 'mfussenegger/nvim-dap'}
 
 -- Telescope
 use { 'nvim-telescope/telescope.nvim',
-    requires = {
+    dependencies = {
         { 'nvim-lua/popup.nvim' },
         { 'nvim-lua/plenary.nvim' },
-        { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+        { 'nvim-telescope/telescope-fzf-native.nvim',  build = 'make' },
         { 'nvim-telescope/telescope-ui-select.nvim' },
         { 'nvim-telescope/telescope-file-browser.nvim' },
     },
@@ -100,16 +89,16 @@ use { 'kyazdani42/nvim-web-devicons',
 }
 
 use { 'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    dependencies = { 'kyazdani42/nvim-web-devicons', lazy = true }
 }
 
 -- Git
 use { 'lewis6991/gitsigns.nvim',
-    tag = 'v0.5',
-    requires = { 'nvim-lua/plenary.nvim' },
+    version = 'v0.5',
+    dependencies = { 'nvim-lua/plenary.nvim' },
     event = "BufRead",
 }
-use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+use { 'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim' }
 use { 'tpope/vim-fugitive' }
 
 -- -- Language specifics
@@ -117,9 +106,9 @@ use { 'tpope/vim-fugitive' }
 use { 'simrat39/rust-tools.nvim' }
 
 -- -- General -- --
-use { 'windwp/nvim-ts-autotag', after = 'nvim-treesitter' }
+use { 'windwp/nvim-ts-autotag', dependencies = 'nvim-treesitter' }
 use { 'windwp/nvim-autopairs',
-    after = { 'nvim-treesitter', 'nvim-cmp' },
+    dependencies = { 'nvim-treesitter', 'nvim-cmp' },
 }
 
 use { 'folke/which-key.nvim',
@@ -127,14 +116,14 @@ use { 'folke/which-key.nvim',
 }
 
 use { 'folke/trouble.nvim',
-    requires = 'kyazdani42/nvim-web-devicons',
+    dependencies = 'kyazdani42/nvim-web-devicons',
     config = function()
         require("trouble").setup {}
     end
 }
 
 use { 'folke/todo-comments.nvim',
-    requires = 'nvim-lua/plenary.nvim',
+    dependencies = 'nvim-lua/plenary.nvim',
     config = function()
         require("todo-comments").setup {}
     end
@@ -146,4 +135,6 @@ use { 'NvChad/nvim-colorizer.lua',
     end
 }
 
-use { 'shortcuts/no-neck-pain.nvim', tag = '*' }
+use { 'shortcuts/no-neck-pain.nvim', version = '*' }
+
+require('lazy').setup(plugins)

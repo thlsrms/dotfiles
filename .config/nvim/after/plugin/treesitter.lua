@@ -1,3 +1,8 @@
+if vim.loop.os_uname().sysname == "Windows_NT" then
+    -- Make sure llvm is installed and available on PATH
+    require 'nvim-treesitter.install'.compilers = { 'clang' }
+end
+
 require 'nvim-treesitter.configs'.setup {
     ensure_installed = { -- {}, -- one of "all" or a list of languages
         "lua", "rust", "bash", "c", "c_sharp", "clojure", "cmake", "comment", "commonlisp", "cpp", "css",
