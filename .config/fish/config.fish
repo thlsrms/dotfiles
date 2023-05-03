@@ -18,6 +18,7 @@ set -gx VISUAL 'nvim'
 
 set -gx AMD_VULKAN_ICD 'RADV'
 set -gx CHROME_EXECUTABLE 'brave'
+set -gx CPATH "$(clang -v 2>&1 | grep "Selected GCC installation" | rev | cut -d' ' -f1 | rev)/include"
 
 # Add to the PATH if directory exists
 if test -d ~/.bin
