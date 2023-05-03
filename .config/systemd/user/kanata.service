@@ -1,0 +1,14 @@
+[Unit]
+Description=Kanata layout and layers manager
+Documentation=https://github.com/jtroo/kanata
+
+[Service]
+Environment=PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin
+Environment=DISPLAY=:0
+Environment=HOME=%h
+Type=simple
+Restart=no
+ExecStart=%h/.cargo/bin/kanata --cfg %h/.config/kanata/config.kbd
+
+[Install]
+WantedBy=default.target

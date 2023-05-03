@@ -3,7 +3,7 @@
 	- [fish](https://github.com/fish-shell/fish-shell): shell
 	- [helix](https://github.com/helix-editor/helix): Helix editor
 	- [i3](https://github.com/i3/i3): window manager
-	- [kmonad](https://github.com/kmonad/kmonad): Keyboard layout and layers manager
+	- [kanata](https://github.com/jtroo/kanata): Keyboard layout and layers manager
 	- [lazygit](https://github.com/jesseduffield/lazygit): TUI application for git commands
 	- [nvim](https://github.com/neovim/neovim): Neovim editor
 	- [picom](https://github.com/yshui/picom): X Compositor for window transparency
