@@ -8,6 +8,6 @@ NoNeckPain.setup({
     width = 120,
     minSideBufferWidth = 0,
     autocmds = {
-        enableOnVimEnter = true,
+        enableOnVimEnter = false,
     }
 })
