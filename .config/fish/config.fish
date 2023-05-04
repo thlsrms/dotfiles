@@ -12,14 +12,6 @@ fish_config theme choose 'ayu Dark'
 # source icons-in-terminal icons
 source ~/.local/share/icons-in-terminal/icons.fish
 
-# Env vars
-set -gx EDITOR 'nvim'
-set -gx VISUAL 'nvim'
-
-set -gx AMD_VULKAN_ICD 'RADV'
-set -gx CHROME_EXECUTABLE 'brave'
-set -gx CPATH "$(clang -v 2>&1 | grep "Selected GCC installation" | rev | cut -d' ' -f1 | rev)/include"
-
 # Add to the PATH if directory exists
 if test -d ~/.bin
     fish_add_path -gaP ~/.bin
@@ -32,6 +24,7 @@ if test -d ~/.cargo/bin
 end
 
 # Aliases
+source $__fish_config_dir/functions/env_vars.fish
 source $__fish_config_dir/functions/my_aliases.fish
 source $__fish_config_dir/functions/system_maintenance.fish
 
