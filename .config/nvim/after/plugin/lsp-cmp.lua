@@ -83,6 +83,14 @@ lsp.set_preferences({
     }
 })
 
+lsp.on_attach(function(_, bufnr)
+    lsp.default_keymaps({ buffer = bufnr })
+
+    vim.keymap.set('n', 'gr', '<cmd>TroubleToggle lsp_references<cr>', { buffer = true })
+    vim.keymap.set('n', 'gi', '<cmd>TroubleToggle lsp_implementations<cr>', { buffer = true })
+    vim.keymap.set('n', 'go', '<cmd>TroubleToggle lsp_type_definitions<cr>', { buffer = true })
+end)
+
 lsp.ensure_installed({
     "bashls",
     "tsserver",
