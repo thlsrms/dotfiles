@@ -129,8 +129,6 @@ lsp.configure("rust_analyzer", {
     end
 })
 
-lsp.setup_servers({ "dartls", force = true })
-
 lsp.setup()
 --#endregion
 

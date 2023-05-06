@@ -103,6 +103,12 @@ use { 'tpope/vim-fugitive' }
 -- -- Language specifics
 -- Rust
 use { 'simrat39/rust-tools.nvim' }
+-- Dart/Flutter
+use { 'akinsho/flutter-tools.nvim',
+    config = function()
+        require('flutter-tools').setup {}
+    end
+}
 
 -- -- General -- --
 use { 'windwp/nvim-ts-autotag', dependencies = 'nvim-treesitter' }
