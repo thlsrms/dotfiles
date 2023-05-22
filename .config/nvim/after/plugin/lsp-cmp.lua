@@ -132,6 +132,11 @@ lsp.configure("rust_analyzer", {
             enable = true
         }
     },
+    imports = {
+        granularity = {
+            group = "module",
+        },
+    },
     on_attach = function()
         require('rust-tools').setup({})
     end
