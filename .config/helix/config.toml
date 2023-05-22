@@ -1,4 +1,4 @@
-theme = "kaolin-dark-theme"
+theme = "kaolin-dark-transparent"
 
 [editor]
 color-modes = true
@@ -10,9 +10,9 @@ rulers = [100]
 
 [editor.lsp]
 display-messages = true
+auto-signature-help = false
 
 [editor.file-picker]
-max-depth = 4
 hidden = false
 
 [keys.normal.space]
@@ -23,19 +23,24 @@ b.f = ":format"
 b.n = ":new"
 b.c = ":buffer-close"
 b.a = "select_all"
+# options toggle
+o.h = ":toggle lsp.display-inlay-hints"
+o.H = ":toggle file-picker.hidden"
 
 [keys.normal]
 esc = ["collapse_selection", "keep_primary_selection"]
 C-u = ["half_page_up", "goto_window_center"]
 C-d = ["half_page_down", "goto_window_center"]
-"." = "repeat_last_motion"
+";" = "repeat_last_motion"
+"minus" = "trim_selections"
 
 ### EVIL mode
 0 = "goto_line_start"
 "$" = "goto_line_end"
-"^" = "goto_first_nonwhitespace"
+"#" = "goto_first_nonwhitespace"
 G = "goto_file_end"
 "%" = "match_brackets"
+"^" = "match_brackets"
 V = ["select_mode", "extend_to_line_bounds"]
 C = ["extend_to_line_end", "yank_main_selection_to_clipboard", "delete_selection", "insert_mode"]
 D = ["extend_to_line_end", "yank_main_selection_to_clipboard", "delete_selection"]
@@ -65,9 +70,10 @@ g.g = ["select_mode", "extend_to_line_bounds", "goto_file_start", "extend_to_lin
 [keys.select]
 0 = "goto_line_start"
 "$" = "goto_line_end"
-"^" = "goto_first_nonwhitespace"
+"#" = "goto_first_nonwhitespace"
 G = "goto_file_end"
 "%" = "match_brackets"
+"^" = "match_brackets"
 D = ["extend_to_line_bounds", "delete_selection", "normal_mode"]
 i = "select_textobject_inner"
 a = "select_textobject_around"
