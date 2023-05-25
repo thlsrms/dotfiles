@@ -1,6 +1,6 @@
 # Env vars
 set -gx EDITOR 'nvim'
-set -gx VISUAL 'nvim'
+set -gx VISUAL 'hx'
 
 set -gx AMD_VULKAN_ICD 'RADV'
 set -gx CHROME_EXECUTABLE 'brave'

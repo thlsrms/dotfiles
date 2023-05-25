@@ -1,28 +1,6 @@
 #!/bin/sh fish
 # My aliases
 
-function ov -d 'Open neovim and \":cd (directory)\" or open a new buffer if fzf is cancelled'
-    if count $argv > /dev/null
-        command nvim $argv;
-    else
-        # Find a directory to open with neovim using fd
-        set -l dir (fd . ~/. /zdrive -H -t directory \
-            # exclude some of my dirs
-            -E "*cache" \
-            -E "*.git" \
-            -E "*.stack" \
-            -E "*node_modules" \
-            -E "*target" \
-            -E "*.cargo" \
-            -E "*go/pkg/mod" \
-            -E "*github*" \
-            -E "*Games*" \
-            -E "*Downloads*" \
-        | fzf)
-        command nvim $dir/. -c ":cd $dir";
-    end
-end
-
 function ch -d 'cd into or find and cd if used without arguments'
     if count $argv > /dev/null
         cd $argv;
@@ -73,3 +51,6 @@ function lgit -d 'alias lgit=lgi --tree --level'
 	lgi --tree --level $argv;
 end
 
+function lgait -d 'alias lgait=lgai --tree --level'
+	lgai --tree --level $argv;
+end
