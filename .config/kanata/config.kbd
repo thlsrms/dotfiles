@@ -11,23 +11,36 @@ lsft  102d  z     x     c     v     b     n     m     ,     .     /     rsft
   lctl  lmet  lalt                   spc              ralt  rmet  cmp   rctl
 )
 
+(defvar
+  hold-to-modifier 200
+  htm $hold-to-modifier
+)
+
 (defalias
   main (layer-switch main)
   extl (layer-while-held extended)
-  syml (tap-hold-press 100 200 spc (layer-while-held symbols))
+  syml (tap-hold 100 150 spc (layer-while-held symbols))
   mdia (tap-hold-press 100 200 grv (layer-while-held media))
   qwty (layer-switch qwerty)
   met (multi lmet (layer-while-held i3nav))
 
   esct (tap-hold-press 100 200 esc lctl)
+  sfta (tap-hold $htm $htm a lsft)
+  agro (tap-hold $htm $htm s ralt)
+  alte (tap-hold $htm $htm d lalt)
+  ctlu (tap-hold $htm $htm f lctl)
+  ctlh (tap-hold $htm $htm j rctl)
+  altt (tap-hold $htm $htm k lalt)
+  agrn (tap-hold $htm $htm l ralt)
+  sfts (tap-hold $htm $htm ; lsft)
 )
 
 (deflayer main
       @qwty _     _     _     _     _     _     _     _     _     _     _     _
       @mdia _     _     _     _     _     _     _     _     _     _     _     _     _
-      _     _     _     _     _     _     _     _     _     _     _     rsft  rctl  _
-      @esct _     _     _     _     _     _     _     _     _     _     _     del
-@met  lsft  _     _     _     _     _     _     _     _     _     _     bspc
+      _     _     _     _     _     _     _     _     _     _     _     ret   @mdia _
+      esc   @sfta @agro @alte @ctlu _     _     @ctlh @altt @agrn @sfts _     _
+@met  @met  _     _     _     _     _     _     _     _     _     _     bspc
   _     @met  @extl                  @syml            @extl _     _     _
 )
 
@@ -58,7 +71,7 @@ lsft  102d  z     x     c     v     b     n     m     ,     .     /     rsft
 (deflayer extended
       _     _     _     _     _     _     _     _     _     _     _     _     _
       _     f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12   _
-      @atab ins   prnt  @sras @sac  slck  pgup  @ssmt bspc  del   @ssc  ret   _     _
+      @atab ins   prnt  @sras @sac  slck  pgup  @ssmt bspc  del   @ssc  _     _     _
       caps  @ssft @sagr @salt @sctl f20   pgdn  lft   down  up    rght  _     _
 _     _     @cz   @cx   @cc   @cv   @smet home  end   @sas  _     grv   _
   _     _     _                      _                _     _     _     _
@@ -89,7 +102,7 @@ _     _     %     ^     }     )     ]     0     1     2     3     .     _
 (deflayer symbols
       _     _     _     _     _     _     _     _     _     _     _     _     _
       _     _     _     _     _     _     _     _     _     _     _     _     _     _
-      _     @excl @at   @amp  @inte ]     @ast  7     8     9     [     ret   _     _
+      _     @excl @at   @amp  @inte ]     @ast  7     8     9     [     _     _     _
       _     @hash @dol  @lbrc @lpar -     +     4     5     6     \     _     _
 _     _     @perc @care @rbrc @rpar =     0     1     2     3     e     _
   _     _     _                      _                _     _     _     _
