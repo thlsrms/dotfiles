@@ -5,6 +5,8 @@ set fish_greeting
 if status is-interactive
     # Commands to run in interactive sessions can go here
     bind \cs ch
+    bind \cg lazygit
+    bind \cu fg
 end
 
 # Set theme
@@ -22,6 +24,8 @@ end
 if test -d ~/.cargo/bin
     fish_add_path -gaP ~/.cargo/bin
 end
+# Source xprofile
+source ~/.xprofile
 
 # Aliases
 source $__fish_config_dir/functions/env_vars.fish
