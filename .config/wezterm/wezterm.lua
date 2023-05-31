@@ -11,7 +11,7 @@ local color_purple01 = '#787096'
 local config = {
     default_prog = { '/usr/bin/fish', '-l' },
     font = wezterm.font('Hasklug Nerd Font Mono', { weight = 'Medium' }),
-    font_size = 10.5,
+    font_size = 11,
     tab_bar_at_bottom = true,
     use_fancy_tab_bar = false,
     hide_tab_bar_if_only_one_tab = true,
