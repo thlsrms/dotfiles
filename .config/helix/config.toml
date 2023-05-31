@@ -1,4 +1,4 @@
-theme = "kaolin-dark-transparent"
+theme = "kaolin-dark"
 
 [editor]
 color-modes = true
@@ -6,7 +6,7 @@ line-number = "relative"
 cursorline = false
 idle-timeout = 200
 completion-trigger-len = 2
-rulers = [100]
+rulers = [101]
 
 [editor.lsp]
 display-messages = true
@@ -18,7 +18,7 @@ hidden = false
 [keys.normal.space]
 # buffer
 b.b = "buffer_picker"
-b.s = ":write"
+b.s = ":update"
 b.f = ":format"
 b.n = ":new"
 b.c = ":buffer-close"
@@ -33,6 +33,8 @@ C-u = ["half_page_up", "goto_window_center"]
 C-d = ["half_page_down", "goto_window_center"]
 ";" = "repeat_last_motion"
 "minus" = "trim_selections"
+"S-up" = "copy_selection_on_prev_line"
+"S-down" = "copy_selection_on_next_line"
 
 ### EVIL mode
 0 = "goto_line_start"
