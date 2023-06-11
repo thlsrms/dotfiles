@@ -22,9 +22,7 @@ lsft  102d  z     x     c     v     b     n     m     ,     .     /     rsft
   syml (tap-hold 100 150 spc (layer-while-held symbols))
   mdia (tap-hold-press 100 200 grv (layer-while-held media))
   qwty (layer-switch qwerty)
-  met (multi lmet (layer-while-held i3nav))
 
-  esct (tap-hold-press 100 200 esc lctl)
   ;; Home row mods
   meta (tap-hold $htm $htm a lmet)
   alto (tap-hold $htm $htm s lalt)
@@ -40,9 +38,9 @@ lsft  102d  z     x     c     v     b     n     m     ,     .     /     rsft
       @qwty _     _     _     _     _     _     _     _     _     _     _     _
       @mdia _     _     _     _     _     _     _     _     _     _     _     _     _
       _     _     _     _     _     _     _     _     _     _     _     ret   @mdia _
-@met  @met  _     _     _     _     _     _     _     _     _     _     bspc
-  _     @met  @extl                  @syml            @extl _     _     _
       esc   @meta @alto @ctle @sftu _     _     @sfth @ctlt @altn @agrs _     _
+_     _     _     _     _     _     _     _     _     _     _     _     bspc
+  _     _     @extl                  @syml            @extl _     _     _
 )
 
 (defvar
@@ -118,22 +116,13 @@ _     _     _     _     _     mute  _     mute  _     _     _     _     _
   _     _     _                      _                _     _     _     _
 )
 
-(deflayer i3nav
-      _     _     _     _     _     _     _     _     _     _     _     _     _
-      _     _     _     _     _     _     _     _     _     _     _     _     _     _
-      _     _     prnt  f20   _     _     _     6     7     8     9     _     _     _
-      _     _     _     _     _     _     5     _     _     _     _     _     _
-_     _     _     _     _     _     _     0     1     2     3     4     _
-  _     _     _                      _                _     _     _     _
-)
-
 (deflayer qwerty
       @main f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12
       grv   1     2     3     4     5     6     7     8     9     0     '     ]     _
       tab   x     ,     d     o     k     t     f     g     s     r     -     caps  _
       esc   a     ;     h     y     u     j     c     v     p     z     q     \
 lctl  lsft  /     b     i     .     n     l     m     w     e     [     rsft
-  f20 @met  lalt                   spc              ralt  rmet  cmp   rctl
+  f20 lmet  lalt                   spc              ralt  rmet  cmp   rctl
 )
 
 (deflayer empty
