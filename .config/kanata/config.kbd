@@ -91,9 +91,14 @@ _     _     @cz   @cx   @cc   @cv   @smet home  end   @sas  grv   _     _
   inte S-[
   lbrc S--
   rbrc S-=
+  lbra -
+  rbra =
+  eq ]
+  slas [
+  dot e
 )
 
-#| --------------------- sym layer layout (dvorak) ------------------------
+#| ------------------------- sym layer layout ----------------------------
       _     !     @     &     ?     =     *     7     8     9     /     _
       _     #     $     {     (     [     +     4     5     6     \     _
 _     _     %     ^     }     )     ]     0     1     2     3     .     _
@@ -101,9 +106,9 @@ _     _     %     ^     }     )     ]     0     1     2     3     .     _
 (deflayer symbols
       _     _     _     _     _     _     _     _     _     _     _     _     _
       _     _     _     _     _     _     _     _     _     _     _     _     _     _
-      _     @excl @at   @amp  @inte ]     @ast  7     8     9     [     _     _     _
-      _     @hash @dol  @lbrc @lpar -     +     4     5     6     \     _     _
-_     _     @perc @care @rbrc @rpar =     0     1     2     3     e     _
+      _     @excl @at   @amp  @inte @eq   @ast  7     8     9     @slas _     _     _
+      _     @hash @dol  @lbrc @lpar @lbra +     4     5     6     \     _     _
+_     _     @perc @care @rbrc @rpar @rbra 0     1     2     3     @dot  _
   _     _     _                      _                _     _     _     _
 )
 
