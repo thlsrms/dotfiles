@@ -1,3 +1,17 @@
+#| Notes:
+    This configuration assumes that `dvorak-alt-intl` is the layout being used:
+    https://github.com/soywod/dvorak-alt-intl
+
+    The source being qwerty causes some confusion below with the keypresses
+    being translated to the layout in use by the OS,
+    for example :
+        keypress s => o on dvorak
+        keypress j => h on dvorak
+        keypress / => z on dvorak
+        keypress b => x on dvorak
+        etc...
+|#
+
 (defcfg
   process-unmapped-keys yes
 )
@@ -19,7 +33,7 @@ lsft  102d  z     x     c     v     b     n     m     ,     .     /     rsft
 (defalias
   main (layer-switch main)
   extl (layer-while-held extended)
-  syml (tap-hold 100 150 spc (layer-while-held symbols))
+  syml (tap-hold 75 100 spc (one-shot-press 300 (layer-while-held symbols)))
   mdia (tap-hold-press 100 200 grv (layer-while-held media))
   qwty (layer-switch qwerty)
 
