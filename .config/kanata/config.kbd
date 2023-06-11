@@ -12,7 +12,7 @@ lsft  102d  z     x     c     v     b     n     m     ,     .     /     rsft
 )
 
 (defvar
-  hold-to-modifier 200
+  hold-to-modifier 150
   htm $hold-to-modifier
 )
 
@@ -25,23 +25,24 @@ lsft  102d  z     x     c     v     b     n     m     ,     .     /     rsft
   met (multi lmet (layer-while-held i3nav))
 
   esct (tap-hold-press 100 200 esc lctl)
-  sfta (tap-hold $htm $htm a lsft)
-  agro (tap-hold $htm $htm s ralt)
-  alte (tap-hold $htm $htm d lalt)
-  ctlu (tap-hold $htm $htm f lctl)
-  ctlh (tap-hold $htm $htm j rctl)
-  altt (tap-hold $htm $htm k lalt)
-  agrn (tap-hold $htm $htm l ralt)
-  sfts (tap-hold $htm $htm ; lsft)
+  ;; Home row mods
+  meta (tap-hold $htm $htm a lmet)
+  alto (tap-hold $htm $htm s lalt)
+  ctle (tap-hold $htm $htm d lctl)
+  sftu (tap-hold $htm $htm f lsft)
+  sfth (tap-hold $htm $htm j rsft)
+  ctlt (tap-hold $htm $htm k rctl)
+  altn (tap-hold $htm $htm l lalt)
+  agrs (tap-hold $htm $htm ; ralt)
 )
 
 (deflayer main
       @qwty _     _     _     _     _     _     _     _     _     _     _     _
       @mdia _     _     _     _     _     _     _     _     _     _     _     _     _
       _     _     _     _     _     _     _     _     _     _     _     ret   @mdia _
-      esc   @sfta @agro @alte @ctlu _     _     @ctlh @altt @agrn @sfts _     _
 @met  @met  _     _     _     _     _     _     _     _     _     _     bspc
   _     @met  @extl                  @syml            @extl _     _     _
+      esc   @meta @alto @ctle @sftu _     _     @sfth @ctlt @altn @agrs _     _
 )
 
 (defvar
@@ -72,8 +73,8 @@ lsft  102d  z     x     c     v     b     n     m     ,     .     /     rsft
       _     _     _     _     _     _     _     _     _     _     _     _     _
       _     f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12   _
       @atab ins   prnt  @sras @sac  slck  pgup  @ssmt bspc  del   @ssc  _     _     _
-      caps  @ssft @sagr @salt @sctl f20   pgdn  lft   down  up    rght  _     _
-_     _     @cz   @cx   @cc   @cv   @smet home  end   @sas  _     grv   _
+      caps  @sagr @salt @sctl @ssft f20   pgdn  lft   down  up    rght  _     _
+_     _     @cz   @cx   @cc   @cv   @smet home  end   @sas  grv   _     _
   _     _     _                      _                _     _     _     _
 )
 
