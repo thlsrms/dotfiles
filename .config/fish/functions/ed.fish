@@ -6,7 +6,7 @@ function ed -d 'Open $VISUAL at the selected directory or open a new buffer if f
         command $VISUAL $argv;
     else
         # Find a directory to open with neovim using fd
-        set -l dir (fd . ~/. /zdrive -H -t directory \
+        set -l dir (fd . ~/.config ~/Documents /zdrive -H -t directory \
             # exclude some of my dirs
             -E "*cache" \
             -E "*.git" \
@@ -14,6 +14,7 @@ function ed -d 'Open $VISUAL at the selected directory or open a new buffer if f
             -E "*node_modules" \
             -E "*target" \
             -E "*.cargo" \
+            -E "*opam" \
             -E "*go/pkg/mod" \
             -E "*github*" \
             -E "*Games*" \
