@@ -5,7 +5,11 @@ function ch -d 'cd into or find and cd if used without arguments'
     if count $argv > /dev/null
         cd $argv;
     else
-        set -l dir (fd . -H -t directory | fzf)
+        set -l dir (fd . -H -t directory \
+            # exclude some dirs
+            -E "*cache" \
+            -E "*registry" \
+			| fzf)
         # If fzf is cancelled cd will default to HOME, on wezterm this is my preferred behavior
         # since I can ALT+direction to go back to the previous directory.
         cd $dir;
