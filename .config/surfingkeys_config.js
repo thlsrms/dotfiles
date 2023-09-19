@@ -30,9 +30,13 @@ const {
 //-- Navigation remaps
 /* Show hints */
 map('u', 'f'); // Show link hints. -- Hold <space> to hide hints
+Hints.setCharacters("aoeuidhtnsqjkxb");
+settings.hintShiftNonActive = true;
 
-mapkey('gO','#8Open an URL in current tab', function() {
-  Front.openOmnibar({type: "URLs", extra: "getTopSites", tabbed: false});
+mapkey('gO', '#8Open an URL in current tab', function() {
+    Front.openOmnibar({ type: "URLs", extra: "getTopSites", tabbed: false });
 });
 
-Hints.setCharacters("aoeuidhtnsqjkxb");
+mapkey('T', 'Choose a tab', function() {
+    Front.openOmnibar({ type: "Tabs" });
+})
