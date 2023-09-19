@@ -26,14 +26,14 @@ lsft  102d  z     x     c     v     b     n     m     ,     .     /     rsft
 )
 
 (defvar
-  hold-to-modifier 150
+  hold-to-modifier 200
   htm $hold-to-modifier
 )
 
 (defalias
   main (layer-switch main)
   extl (layer-while-held extended)
-  syml (tap-hold 75 100 spc (one-shot-press 300 (layer-while-held symbols)))
+  syml (tap-hold 150 150 spc (one-shot-press 50 (layer-while-held symbols)))
   mdia (tap-hold-press 100 200 grv (layer-while-held media))
   qwty (layer-switch qwerty)
 
