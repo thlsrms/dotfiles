@@ -51,6 +51,7 @@ local config = {
     automatically_reload_config = false,
     -- Keys remap
     keys = {
+        { key = '-', mods = 'SUPER',      action = act.DisableDefaultAssignment },
         { key = 'S', mods = 'SHIFT|CTRL', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
         { key = 'H', mods = 'SHIFT|CTRL', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
         -- workspaces
