@@ -60,7 +60,10 @@ use { 'VonHeikemen/lsp-zero.nvim',
     }
 }
 
-use { 'j-hui/fidget.nvim' }
+use { 'j-hui/fidget.nvim',
+    tag = 'legacy',
+    event = 'LspAttach',
+}
 
 -- Debug
 -- TODO: Configure dap
