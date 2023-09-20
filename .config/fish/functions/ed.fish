@@ -23,7 +23,7 @@ function ed -d 'Open $VISUAL at the selected directory or open a new buffer if f
 
         # Neovim needs the -c flag
         if [ $VISUAL = "nvim" ]
-            command $VISUAL $dir/. -c ":cd $dir";
+            command $VISUAL $dir/. -c ":cd $dir" -c ":Telescope find_files";
         else
             command $VISUAL $dir/.;
         end

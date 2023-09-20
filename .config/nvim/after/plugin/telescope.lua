@@ -24,13 +24,10 @@ require('telescope').setup {
         file_sorter = require('telescope.sorters').get_fzy_sorter,
         prompt_prefix = ' 🔍 ',
         color_devicons = true,
-
         sorting_strategy = "ascending",
-
         file_previwer = previewers.vim_buffer_cat.new,
         grep_previwer = previewers.vim_buffer_vimgrep.new,
         qflist_previwer = previewers.vim_buffer_qflist.new,
-
         mappings = {
             i = {
                 -- ["<C-x>"] = false,
@@ -55,7 +52,7 @@ require('telescope').setup {
         },
         file_browser = {
             -- theme = "dropdown",
-            hijack_netrw = true,
+            -- hijack_netrw = true,
         }
     }
 }

@@ -47,6 +47,8 @@ local options = {
 
 local globals = {
     mapleader = " ",
+    loaded_netrw = 1,
+    loaded_netrwPlugin = 1,
 }
 
 vim.opt.shortmess:append('c')
