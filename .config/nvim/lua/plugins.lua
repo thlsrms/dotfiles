@@ -101,7 +101,6 @@ use { 'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim' }
 use { 'tpope/vim-fugitive' }
 
 -- -- Language specifics
-use { 'sheerun/vim-polyglot' }
 -- Rust
 use { 'simrat39/rust-tools.nvim' }
 -- Dart/Flutter
