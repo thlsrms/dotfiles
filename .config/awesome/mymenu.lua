@@ -14,7 +14,8 @@ editor_cmd = terminal .. " -e " .. editor
 local applications = {
     { "Brave browser", function() awful.spawn("brave") end },
     { "Discord",       function() awful.spawn("discord") end },
-    { "Dolphin",       function() awful.spawn("dolphin") end }
+    { "Dolphin",       function() awful.spawn("dolphin") end },
+    { "Calculator",    function() awful.spawn("kcalc") end },
 }
 
 -- Create a launcher widget and a main menu

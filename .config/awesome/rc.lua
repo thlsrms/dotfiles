@@ -96,6 +96,7 @@ awful.rules.rules = {
                 "Blueman-manager",
                 "Galculator",
                 "Gpick",
+                "kcalc",
                 "KeePassXC",
                 "Kruler",
                 "MessageWin", -- kalarm.
