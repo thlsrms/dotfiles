@@ -211,6 +211,3 @@ awful.spawn.with_shell(
     -- list each of your autostart commands, followed by ; inside single quotes, followed by ..
     'dex --environment Awesome --autostart'
 )
-
-awful.spawn("volumeicon")
-awful.spawn("unclutter")
