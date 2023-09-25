@@ -28,11 +28,10 @@ myawesomemenu = {
 
 mymainmenu = awful.menu({
     items = {
-        { "open terminal", terminal },
         { "applications",  applications },
-        { "awesome",
-            myawesomemenu, beautiful.awesome_icon },
-        { "sesion", function() awful.spawn("archlinux-logout") end },
+        { "open terminal", terminal },
+        { "awesome",       myawesomemenu, }, --beautiful.awesome_icon },
+        { "sesion",        function() awful.spawn("archlinux-logout") end },
     }
 })
 
