@@ -9,4 +9,4 @@ xset s noblank
 xset s off
 xset -dpms
 
-export QT_QPA_PLATFORMTHEME="kde"
+export QT_QPA_PLATFORMTHEME="qt5ct"
