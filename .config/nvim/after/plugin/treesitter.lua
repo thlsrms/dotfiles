@@ -4,12 +4,7 @@ if vim.loop.os_uname().sysname == "Windows_NT" then
 end
 
 require 'nvim-treesitter.configs'.setup {
-    ensure_installed = { -- {}, -- one of "all" or a list of languages
-        "lua", "rust", "bash", "c", "c_sharp", "clojure", "cmake", "comment", "commonlisp", "cpp",
-        "css", "dart", "dockerfile", "fish", "gdscript", "gitignore", "glsl", "go", "graphql", "hjson",
-        "html", "java", "javascript", "jsdoc", "json", "json5", "jsonc", "llvm", "make", "markdown",
-        "ninja", "prisma", "python", "regex", "scala", "scheme", "scss", "sql", "svelte", "toml",
-        "tsx", "typescript", "vala", "vim", "vue", "wgsl", "yaml", "zig",
+    ensure_installed = {  -- {}, -- one of "all" or a list of languages
     },
     sync_install = false, -- install languages synchronously
     ignore_install = {},
