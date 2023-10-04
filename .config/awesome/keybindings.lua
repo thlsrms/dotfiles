@@ -6,6 +6,8 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+local toggleWibar = require("wibar")
+
 local keys = {}
 
 keys.globalkeys = gears.table.join(
@@ -211,8 +213,19 @@ keys.globalkeys = gears.table.join(
                 gears.filesystem.get_xdg_config_home() .. "picom/toggle.sh"
             )
         end,
-        { description = "toggle compositor", group = "system" })
+        { description = "toggle compositor", group = "system" }),
+    --
+    -- Show/hide wibar
+    awful.key({ modkey }, "b", function()
+            toggleWibar()
+        end,
+        { description = "toggle statusbar", group = "awesome" }),
 
+    -- Show/hide systray
+    awful.key({ modkey, "Shift" }, "b", function()
+            awful.screen.focused().systray.visible = not awful.screen.focused().systray.visible
+        end,
+        { description = "toggle systray", group = "awesome" })
 )
 
 keys.clientkeys = gears.table.join(

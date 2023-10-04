@@ -63,6 +63,9 @@ awful.screen.connect_for_each_screen(function(s)
         filter  = awful.widget.taglist.filter.all,
         buttons = taglist_buttons
     }
+    -- Create a systray
+    s.systray = wibox.widget.systray()
+    s.systray.visible = false
 
     -- Create a tasklist widget
     s.mytasklist = awful.widget.tasklist {
@@ -131,10 +134,31 @@ awful.screen.connect_for_each_screen(function(s)
             -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             --mykeyboardlayout,
-            wibox.widget.systray(),
+            --wibox.widget.systray(),
+            s.systray,
             clock_calendar,
             battery_widget(),
             s.mylayoutbox,
         },
     }
 end)
+
+-- Wibar visibility {{{
+local function checkWibarForTag(t)
+    t.screen.mywibox.visible = t.barvisible
+end
+
+local function toggleWibarForTag()
+    local t = awful.screen.focused().selected_tag
+    t.barvisible = not t.barvisible
+    checkWibarForTag(t)
+end
+
+for i, t in pairs(root.tags()) do
+    t.barvisible = true
+end
+
+tag.connect_signal("property::selected", checkWibarForTag)
+--}}}
+
+return toggleWibarForTag
