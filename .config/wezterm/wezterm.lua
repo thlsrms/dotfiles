@@ -49,6 +49,7 @@ local config = {
         brightness = 0.8,
     },
     automatically_reload_config = false,
+    adjust_window_size_when_changing_font_size = false,
     -- Keys remap
     keys = {
         { key = '-', mods = 'SUPER',      action = act.DisableDefaultAssignment },
