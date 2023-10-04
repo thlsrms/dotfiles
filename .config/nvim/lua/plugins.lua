@@ -145,4 +145,8 @@ use { 'NvChad/nvim-colorizer.lua',
 
 use { 'shortcuts/no-neck-pain.nvim', version = '*' }
 
+use { 'Exafunction/codeium.vim',
+    event = 'BufEnter'
+}
+
 require('lazy').setup(plugins)
