@@ -1,12 +1,10 @@
 ## My .dotfiles
 - .config/
-    - [awesomewm](https://github.com/awesomeWM/awesome): window manager
+  - [awesomewm](https://github.com/awesomeWM/awesome): window manager
 	- [fish](https://github.com/fish-shell/fish-shell): shell
 	- [helix](https://github.com/helix-editor/helix): Helix editor
 	- [kanata](https://github.com/jtroo/kanata): Keyboard layout and layers manager
-	- [lazygit](https://github.com/jesseduffield/lazygit): TUI application for git commands
 	- [nvim](https://github.com/neovim/neovim): Neovim editor
-	- [picom](https://github.com/yshui/picom): X Compositor for window transparency
 	- surfingkeys_config.js: [SurfingKeys](https://github.com/brookhong/Surfingkeys) browser extension for web navigation using vim-like keys
 	- [wezterm](https://github.com/wez/wezterm): Terminal emulator and multiplexer
 
