@@ -26,7 +26,7 @@ lsft  102d  z     x     c     v     b     n     m     ,     .     /     rsft
 )
 
 (defvar
-  hold-to-modifier 200
+  hold-to-modifier 180
   htm $hold-to-modifier
 )
 
@@ -38,14 +38,14 @@ lsft  102d  z     x     c     v     b     n     m     ,     .     /     rsft
   qwty (layer-switch qwerty)
 
   ;; Home row mods
-  meta (tap-hold-release $htm $htm a lmet)
-  alto (tap-hold-release $htm $htm s lalt)
-  ctle (tap-hold-release $htm $htm d lctl)
-  sftu (tap-hold-release $htm $htm f lsft)
-  sfth (tap-hold-release $htm $htm j rsft)
-  ctlt (tap-hold-release $htm $htm k rctl)
-  altn (tap-hold-release $htm $htm l lalt)
-  agrs (tap-hold-release $htm $htm ; ralt)
+  meta (tap-hold-release $htm $htm a (one-shot 500 lmet))
+  alto (tap-hold-release $htm $htm s (one-shot 500 lalt))
+  ctle (tap-hold-release $htm $htm d (one-shot 500 lctl))
+  sftu (tap-hold-release $htm $htm f (one-shot 500 lsft))
+  sfth (tap-hold-release $htm $htm j (one-shot 500 rsft))
+  ctlt (tap-hold-release $htm $htm k (one-shot 500 rctl))
+  altn (tap-hold-release $htm $htm l (one-shot 500 lalt))
+  agrs (tap-hold-release $htm $htm ; (one-shot 500 ralt))
 )
 
 (deflayer main
