@@ -4,7 +4,6 @@ set fish_greeting
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    bind \cs ch
     bind \cg lazygit
     bind \cu fg
 end
@@ -24,8 +23,9 @@ end
 if test -d ~/.cargo/bin
     fish_add_path -gaP ~/.cargo/bin
 end
-# Source xprofile
-source ~/.xprofile
+if test -d ~/go/bin
+    fish_add_path -gaP ~/go/bin
+end
 
 # Aliases
 source $__fish_config_dir/functions/env_vars.fish
