@@ -1,4 +1,4 @@
-theme = "kaolin-dark"
+theme = "kaolin-dark-transparent"
 
 [editor]
 color-modes = true
@@ -17,6 +17,7 @@ hidden = false
 
 [keys.normal.space]
 # buffer
+B = "buffer_picker"
 b.b = "buffer_picker"
 b.s = ":update"
 b.f = ":format"
@@ -39,15 +40,14 @@ C-d = ["half_page_down", "goto_window_center"]
 ### EVIL mode
 0 = "goto_line_start"
 "$" = "goto_line_end"
-"#" = "goto_first_nonwhitespace"
+"H" = "goto_first_nonwhitespace"
 G = "goto_file_end"
 "%" = "match_brackets"
-"^" = "match_brackets"
 V = ["select_mode", "extend_to_line_bounds"]
 C = ["extend_to_line_end", "yank_main_selection_to_clipboard", "delete_selection", "insert_mode"]
 D = ["extend_to_line_end", "yank_main_selection_to_clipboard", "delete_selection"]
 S = "surround_add"
-x = "delete_selection"
+x = ["yank_main_selection_to_clipboard", "delete_selection"]
 p = ["paste_clipboard_after", "collapse_selection"]
 P = ["paste_clipboard_before", "collapse_selection"]
 Y = ["extend_to_line_end", "yank_main_selection_to_clipboard", "collapse_selection"]
@@ -72,10 +72,9 @@ g.g = ["select_mode", "extend_to_line_bounds", "goto_file_start", "extend_to_lin
 [keys.select]
 0 = "goto_line_start"
 "$" = "goto_line_end"
-"#" = "goto_first_nonwhitespace"
+"H" = "goto_first_nonwhitespace"
 G = "goto_file_end"
 "%" = "match_brackets"
-"^" = "match_brackets"
 D = ["extend_to_line_bounds", "delete_selection", "normal_mode"]
 i = "select_textobject_inner"
 a = "select_textobject_around"
