@@ -131,8 +131,8 @@ keys.globalkeys = gears.table.join(
         { description = "restore minimized", group = "client" }),
 
     -- Prompt
-    awful.key({ modkey }, "r", function() awful.screen.focused().mypromptbox:run() end,
-        { description = "run prompt", group = "launcher" }),
+    --[[awful.key({ modkey }, "r", function() awful.screen.focused().mypromptbox:run() end,
+       { description = "run prompt", group = "launcher" }),]]
 
     awful.key({ modkey, "Mod1" }, "x",
         function()
@@ -145,8 +145,18 @@ keys.globalkeys = gears.table.join(
         end,
         { description = "lua execute prompt", group = "awesome" }),
     -- Menubar
-    awful.key({ modkey }, "o", function() menubar.show() end,
-        { description = "show the menubar", group = "launcher" }),
+    awful.key({ modkey }, "o", function()
+          awful.spawn("rofi -show drun")
+       end,
+       { description = "rofi desktop run", group = "launcher" }),
+    awful.key({ modkey, "Shift" }, "o", function()
+          awful.spawn("rofi -show run")
+      end,
+      { description = "rofi run", group = "launcher" }),
+    awful.key({ "Mod1", "Control" }, "Tab", function()
+          awful.spawn("rofi -show window")
+      end,
+      { description = "rofi windows", group = "launcher" }),
 
     -- Volume
     awful.key({}, "XF86AudioRaiseVolume", function()

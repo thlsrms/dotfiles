@@ -1,0 +1,9 @@
+@theme "rounded-red-dark.rasi"
+configuration {
+        show-icons: true;
+        modes: "window,drun,run,ssh";
+}
+listview {
+        lines: 15;
+        columns: 2;
+}
