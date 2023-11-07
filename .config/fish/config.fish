@@ -1,4 +1,4 @@
-#!/bin/sh fish
+#!/bin/env fish
 # remove greeting message
 set fish_greeting
 
@@ -32,7 +32,13 @@ source $__fish_config_dir/functions/env_vars.fish
 source $__fish_config_dir/functions/my_aliases.fish
 source $__fish_config_dir/functions/system_maintenance.fish
 
-# Extractor function: ex.fish
+# emacs vterm support, 'functions/vterm_printf' required
+if [ "$INSIDE_EMACS" = 'vterm' ]
+    function clear
+        vterm_printf "51;Evterm-clear-scrollback";
+        tput clear;
+    end
+end
 
 # Starship theme:
 # install "community/x86_64/starship" package before.
