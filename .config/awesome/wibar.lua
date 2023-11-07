@@ -65,7 +65,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
     -- Create a systray
     s.systray = wibox.widget.systray()
-    s.systray.visible = false
+    s.systray.visible = true
 
     -- Create a tasklist widget
     s.mytasklist = awful.widget.tasklist {
