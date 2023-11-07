@@ -84,9 +84,9 @@ _     _     _     _     _     _     _     _     _     _     _     _     bspc
 (deflayer extended
       _     _     _     _     _     _     _     _     _     _     _     _     _
       _     f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12   _
-      @atab ins   prnt  @sras @sac  slck  pgup  @ssmt bspc  del   @ssc  _     _     _
+      @atab ins   prnt  @sras @sac  slck  pgup  grv   bspc  del   @ssc  _     _     _
       caps  @sagr @salt @sctl @ssft f20   pgdn  lft   down  up    rght  _     _
-_     _     @cz   @cx   @cc   @cv   @smet home  end   @sas  grv   _     _
+_     _     @cz   @cx   @cc   @cv   @smet home  end   @sas  @ssmt _     _
   _     _     _                      _                _     _     _     _
 )
 
