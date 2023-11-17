@@ -3,9 +3,13 @@
 
 function ed -d 'Open $VISUAL at the selected directory or open a new buffer if fzf is cancelled'
     if count $argv > /dev/null
-        command $VISUAL $argv;
+        if [ $VISUAL = nvim ]
+            command $VISUAL $argv -c ":lcd %:p:h"
+        else
+            command $VISUAL $argv
+        end
     else
-        # Find a directory to open with neovim using fd
+        # Find a directory to open with the editor using fd
         set -l dir (fd . ~/.config ~/Documents /zdrive -H -t directory \
             # exclude some of my dirs
             -E "*cache" \
@@ -16,16 +20,16 @@ function ed -d 'Open $VISUAL at the selected directory or open a new buffer if f
             -E "*.cargo" \
             -E "*opam" \
             -E "*go/pkg/mod" \
-            -E "*github*" \
+            -E "*repos*" \
             -E "*Games*" \
             -E "*Downloads*" \
         | fzf)
 
         # Neovim needs the -c flag
-        if [ $VISUAL = "nvim" ]
-            command $VISUAL $dir/. -c ":cd $dir" -c ":Telescope find_files";
+        if [ $VISUAL = nvim ]
+            command $VISUAL -c ":cd $dir" -c "lua require('dashboard'):instance()"
         else
-            command $VISUAL $dir/.;
+            command $VISUAL $dir/.
         end
     end
 end

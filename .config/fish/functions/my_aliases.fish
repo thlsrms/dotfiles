@@ -1,4 +1,3 @@
-#!/bin/sh fish
 # My aliases
 
 function ch -d 'cd into or find and cd if used without arguments'
@@ -10,7 +9,7 @@ function ch -d 'cd into or find and cd if used without arguments'
             -E "*cache" \
             -E "*registry" \
 			| fzf)
-        # If fzf is cancelled cd will default to HOME, on wezterm this is my preferred behavior
+        # If fzf is cancelled cd will default to HOME, this is my preferred behavior
         # since I can ALT+direction to go back to the previous directory.
         cd $dir;
     end

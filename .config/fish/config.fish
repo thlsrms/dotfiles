@@ -4,8 +4,6 @@ set fish_greeting
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    bind \cg lazygit
-    bind \cu fg
 end
 
 # Set theme
