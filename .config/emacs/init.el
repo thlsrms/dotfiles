@@ -136,6 +136,7 @@
 ;;;;; Files
 (setq create-lockfiles nil)
 (setq make-backup-files nil)
+(setq backup-directory-alist '(("." . "~/.cache/emacs/var/backups")))
 
 ;; Persistent undo
 (use-package undo-tree
@@ -186,6 +187,14 @@
     :hook (on-first-buffer . save-place-mode))
 
 ;;;;; Programming
+;; ANSI color in compilation buffer
+(require 'ansi-color)
+(defun colorize-compilation-buffer ()
+  (read-only-mode)
+  (ansi-color-apply-on-region (point-min) (point-max))
+  (read-only-mode))
+(add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
+
 (electric-pair-mode 1)
 
 ;;; Languages
@@ -207,7 +216,9 @@
 
 (use-package company-irony
   :ensure t
-  :after company)
+  :after company
+  :config
+  (add-hook 'irony-mode-hook 'company-irony-setup-begin-commands))
 (eval-after-load 'company
   '(add-to-list 'company-backends 'company-irony))
 
@@ -230,14 +241,41 @@
   :ensure t
   :defer t)
 
-;; ;; Ocaml
-;; (use-package tuareg
-;;     :ensure t)
+;; Ocaml
+(use-package dune
+  :ensure t)
 
-;; (use-package merlin
-;;     :ensure t
-;;     :after tuareg
-;;     :hook (tuareg-mode . merlin-mode))
+(use-package tuareg
+  :ensure t
+  :hook (tuareg-mode . lsp-deferred))
+
+(use-package ocamlformat
+  :ensure t
+  :custom
+  (ocamlformat-enable 'enable-outside-detected-project)
+  :config
+  (add-hook 'before-save-hook 'ocamlformat-before-save))
+
+(add-to-list 'exec-path "~/.opam/default/bin")
+
+(use-package merlin
+  :ensure t
+  :after tuareg
+  :hook
+  ((tuareg-mode . merlin-mode)
+   (caml-mode . merlin-mode)))
+
+(use-package merlin-company
+  :ensure t
+  :after company)
+
+(use-package flycheck-ocaml
+  :ensure t
+  :config
+  (add-hook 'tuareg-mode-hook
+            (lambda ()
+              (setq-local merlin-error-after-save nil)
+              (flycheck-ocaml-setup))))
 
 ;; RUST
 (use-package rustic
@@ -285,6 +323,7 @@
   :ensure t
   :commands lsp
   :custom
+  (lsp-completion-provider :none)
   (lsp-eldoc-render-all t)
   (lsp-eldoc-enable-hover nil)
   (lsp-idle-delay 0.6)
@@ -624,14 +663,24 @@ directory, and not some random existing directory under `magit-clone-default-dir
           ("C-n". company-select-next)
           ("C-p". company-select-previous)
           ("M-<". company-select-first)
-          ("M->". company-selectlast))
+          ("M->". company-select-last))
     (:map company-mode-map
           ("<tab>". 'custom/tab-indent-or-complete)
           ("TAB". 'custom/tab-indent-or-complete))
     :custom
     (global-company-mode t)
     (company-idle-delay 0.1)
-    (company-minimum-prefix-length 2))
+    (company-minimum-prefix-length 2)
+    (company-transformers '(company-sort-by-backend-importance)))
+
+(use-package pos-tip :ensure t)
+(use-package company-quickhelp
+  :ensure t
+  :custom
+  (company-quickhelp-color-background "gray11")
+  (company-quickhelp-color-foreground "bisque2")
+  :config
+  (company-quickhelp-mode))
 
 (defun company-yasnippet-or-completion ()
   (interactive)
@@ -667,6 +716,22 @@ directory, and not some random existing directory under `magit-clone-default-dir
     (yas-reload-all)
     (add-hook 'prog-mode-hook 'yas-minor-mode)
     (add-hook 'text-mode-hook 'yas-minor-mode))
+
+;; Add yasnippet support to all company backends
+(defvar company-mode/enable-yas t "Enable yasnippet for all backends")
+
+(defun company-mode/backend-with-yas (backend)
+  (if (or (not company-mode/enable-yas) (and (listp backend) (member 'company-yasnippet backend)))
+      backend
+    (append (if (consp backend) backend (list backend))
+            '(:with company-yasnippet))))
+
+(setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
+
+(use-package yasnippet-snippets
+  :ensure t)
+;;(eval-after-load 'company
+;;   '(add-to-list 'company-backends 'company-yasnippet))
 
 ;; Mouse
 (setopt use-dialog-box nil)
@@ -732,8 +797,9 @@ directory, and not some random existing directory under `magit-clone-default-dir
 
 ;; Embark
 (use-package embark
+  :ensure t
     :bind
-    (("C-." . embark-act)
+    (("C-," . embark-act)
      ("C-h B" . embark-bindings))
     :custom
     (prefix-help-command #'embark-prefix-help-command)
@@ -745,6 +811,7 @@ directory, and not some random existing directory under `magit-clone-default-dir
                    (window-parameters (mode-line-format . none)))))
 
 (use-package embark-consult
+  :ensure t
     :hook
     (embark-collect-mode . consult-preview-at-point-mode))
 
@@ -786,9 +853,17 @@ directory, and not some random existing directory under `magit-clone-default-dir
     (writeroom-header-line t)
     (writeroom-mode-line t))
 
+(use-package compile
+  :custom
+  (compilation-context-lines 2)
+  (compilation-error-screen-columns nil)
+  (compilation-scroll-output t)
+  (compilation-search-path '(nil "src"))
+  (compilation-window-height 14))
+
 
 (load (expand-file-name "keybindings" user-emacs-directory))
-     
+
 (provide 'init)
 ;;; init.el ends here
 (custom-set-variables
@@ -796,8 +871,16 @@ directory, and not some random existing directory under `magit-clone-default-dir
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(line-move-visual t)
+ '(next-error-highlight t)
+ '(next-error-highlight-no-select t)
+ '(next-line-add-newlines nil)
  '(package-selected-packages
-   '(git-gutter-fringe git-gutter vterm-toggle vterm centaur-tabs fish-mode rustic lsp-ui lua-mode yaml-mode ws-butler writeroom-mode which-key vertico uuidgen undo-tree treesit-auto titlecase selected ripgrep rainbow-mode projectile persist-state orderless on no-littering markdown-mode marginalia kaolin-themes jinx git-modes general gcmh fzf evil-collection dumb-jump doom-modeline diminish dashboard corfu consult company benchmark-init all-the-icons)))
+   '(yasnippet-snippets ocamlformat flycheck-ocaml merlin-company dune embark-consult git-gutter-fringe git-gutter vterm-toggle vterm centaur-tabs fish-mode rustic lsp-ui lua-mode yaml-mode ws-butler writeroom-mode which-key vertico uuidgen undo-tree treesit-auto titlecase selected ripgrep rainbow-mode projectile persist-state orderless on no-littering markdown-mode marginalia kaolin-themes jinx git-modes general gcmh fzf evil-collection dumb-jump doom-modeline diminish dashboard corfu consult company benchmark-init all-the-icons))
+ '(require-final-newline t)
+ '(sentence-end-double-space nil)
+ '(show-paren-mode t)
+ '(show-trailing-whitespace nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

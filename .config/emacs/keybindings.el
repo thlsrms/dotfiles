@@ -45,6 +45,16 @@
 ;; Magit keys
 (define-key magit-mode-map (kbd "M-t") 'magit-section-toggle)
 
+;; Company trigger insert mode
+(define-key evil-insert-state-map (kbd "C-SPC") 'company-manual-begin)
+(define-key company-active-map (kbd "C-c h") 'company-quickhelp-manual-begin)
+
+;; Errors navigation
+;; (global-set-key [f3] 'next-match)
+;; (defun prev-match () (interactive nil) (next-match -1))
+;; (global-set-key [(shift f3)] 'prev-match)
+;; (global-set-key [backtab] 'auto-complete)
+
 (keymap/keys-def
     :keysmap 'keymap/keys-map
     :prefix "SPC b"
@@ -181,11 +191,13 @@
 (keymap/lsp-def
     :keymaps 'keymap/lsp-map
 
-    "a" '("Code Action" . lsp-execute-code-action)
+    ;; "a" '("Code Action" . lsp-execute-code-action)
+    "a" '("Code Action" . lsp-ui-sideline-apply-code-actions)
     "bf" '("Format buffer" . lsp-format-buffer)
     "b=" '("Format region" . lsp-format-region)
     "gd" '("Find Definition" . lsp-find-definition)
     "gr" '("Find References" . lsp-find-references)
+    "gS" '("Lsp-Ui Imenu" . lsp-ui-imenu)
     "k" '("Glance docs" . lsp-ui-doc-glance)
     ;; refactor
     "r" '("LSP Rename" . lsp-rename))
