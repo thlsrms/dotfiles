@@ -28,5 +28,6 @@ return {
       long_message_to_split = true,
       inc_rename = true,
     },
+    views = { mini = { win_options = { winblend = 0 } } },
   },
 }
