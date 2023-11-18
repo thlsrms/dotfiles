@@ -1,6 +1,7 @@
 return {
   {
     "nvim-neorg/neorg",
+    event = "VimEnter",
     build = ":Neorg sync-parsers",
     dependencies = { "nvim-lua/plenary.nvim" },
     keys = {

@@ -17,7 +17,13 @@ return {
     ]]
     local center = {
       {
-        action = "telescope find_files",
+        action = "Neorg journal today",
+        desc = " today's agenda",
+        icon = "",
+        key = "a",
+      },
+      {
+        action = "Telescope find_files",
         desc = " find file",
         icon = " ",
         key = "f",
@@ -29,13 +35,13 @@ return {
         key = "n",
       },
       {
-        action = "telescope oldfiles",
+        action = "Telescope oldfiles",
         desc = " recent files",
         icon = " ",
         key = "r",
       },
       {
-        action = "telescope live_grep",
+        action = "Telescope live_grep",
         desc = " find text",
         icon = " ",
         key = "g",
