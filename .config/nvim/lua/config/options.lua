@@ -5,6 +5,7 @@ local opt = vim.opt
 
 opt.autoindent = true
 opt.colorcolumn = "101"
+opt.concealcursor = "n"
 opt.cursorline = false -- Enable highlighting of the current line
 opt.errorbells = false
 opt.hlsearch = true
@@ -13,6 +14,7 @@ opt.list = false
 opt.shell = "/usr/bin/fish"
 opt.shiftwidth = 4 -- Size of an indent
 opt.showtabline = 0 -- Hide tabline
+opt.sidescrolloff = 4
 opt.statuscolumn = ""
 opt.swapfile = false
 opt.tabstop = 4 -- Number of spaces tabs count for

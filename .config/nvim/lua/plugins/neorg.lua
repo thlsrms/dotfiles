@@ -30,6 +30,17 @@ return {
               extensions = "all",
             },
           },
+          ["core.summary"] = {},
+          --["core.tempus"] = {},
+          ["core.ui"] = {},
+          --["core.ui.calendar"] = {},
+          ["core.keybinds"] = {
+            config = {
+              hook = function(keybinds)
+                keybinds.map("norg", "n", "M", "<cmd>Neorg inject-metadata<cr>")
+              end,
+            },
+          },
         },
       })
     end,

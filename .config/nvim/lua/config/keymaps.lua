@@ -190,6 +190,7 @@ map("i", "<C-Del>", "<C-o>dw", { remap = false, silent = true })
 map("i", "<M-BS>", "<C-w>", { remap = false, silent = true })
 
 -- buffers
+map("n", "<A-b>", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", { desc = "Buffer picker" })
 map("n", "<leader>B", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", {
     desc = "Buffer picker"
 })
@@ -199,6 +200,7 @@ map({ "n", "v" }, "<leader>bf", function()
   Util.format({ force = true })
 end, { desc = "Format" })
 
+map("n", "<A-p>", "<cmd>Telescope find_files<cr>", { desc = "Find Files" })
 map("n", "<leader>j", "<cmd>Telescope jumplist<cr>", { desc = "Jump list" })
 map("n", "<leader>'", "<cmd>Telescope resume<cr>", { desc = "Open last picker" })
 
@@ -212,6 +214,7 @@ map("n", "<leader>gW", "<cmd>silent execute '!xdg-open ' . shellescape('<cWORD>'
 })
 
 -- Open lazygit with ToggleTerm
+--[[
 local lazy_dotfiles_term = require("toggleterm.terminal").Terminal:new({
     cmd = "lazygit",
     close_on_exit = true,
@@ -222,4 +225,7 @@ map("n", "<leader>gg",
         lazy_dotfiles_term:toggle()
     end,
     { desc = "Toggle lazygit" }
-)
+)]]--
+
+-- Open Neogit
+map("n", "<leader>gg", "<cmd>Neogit<cr>" ,{ desc = "Open Neogit" })

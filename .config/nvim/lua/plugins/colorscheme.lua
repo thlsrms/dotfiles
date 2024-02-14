@@ -16,7 +16,7 @@ return {
         vim.cmd("colorscheme kanagawa")
 
         -- Restyle the colorscheme
-        vim.cmd("hi ColorColumn ctermbg=0 guibg=#1C1C1F")
+        vim.cmd("hi ColorColumn ctermbg=0 guibg=#010101")
         --vim.cmd("hi CursorLine guifg=NONE ctermfg=NONE guibg=NONE ctermbg=NONE gui=NONE cterm=NONE")
         vim.cmd("hi Pmenu               guibg=NONE")
         vim.cmd("hi SignColumn          guibg=NONE")
