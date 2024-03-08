@@ -168,6 +168,7 @@ map("n", "<leader><tab><tab>", "<cmd>tabnew | cd | Dashboard<cr>", { desc = "New
 map("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+map("n", "<A-t>", "<cmd>Telescope telescope-tabs list_tabs<cr>", {desc = "List open Tabs"})
 
 ------------------------------
 -- Add any additional keymaps here
