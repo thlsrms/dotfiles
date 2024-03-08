@@ -15,6 +15,14 @@ vim.api.nvim_create_autocmd("BufReadPre", {
   desc = "Force disable tabline",
 })
 
+vim.api.nvim_create_autocmd("TermOpen", {
+  group = augroup("term_nonumber"),
+  callback = function()
+    vim.cmd("setlocal nonumber norelativenumber")
+  end,
+  desc = "Disable line numbers in terminal mode",
+})
+
 vim.api.nvim_create_autocmd("TabEnter", {
   group = augroup("tabenter_cwd"),
   callback = function()
