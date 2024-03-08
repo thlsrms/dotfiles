@@ -7,6 +7,13 @@ return {
       "sindrets/diffview.nvim",
       "ibhagwan/fzf-lua",
     },
-    config = true,
+    config = function()
+      require("neogit").setup({
+        integrations = {
+          telescope = true,
+          diffview = true,
+        },
+      })
+    end,
   },
 }
