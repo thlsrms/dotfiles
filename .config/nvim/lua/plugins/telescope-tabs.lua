@@ -10,7 +10,7 @@ return {
           end, file_paths),
           ", "
         )
-        return string.format(is_current and "> " or "", "%d: %s%s", tab_id, entry_string)
+        return string.format("%d: %s%s", tab_id, entry_string, is_current and " <" or "")
       end,
     })
   end,
