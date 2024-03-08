@@ -23,7 +23,7 @@ return {
         key = "a",
       },
       {
-        action = "Telescope find_files",
+        action = "Telescope find_files hidden=true",
         desc = " find file",
         icon = " ",
         key = "f",
