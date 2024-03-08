@@ -1,0 +1,25 @@
+# Connecting to headless instance with:
+# neovide --server /tmp/nvimsocket.sock %F
+
+vsync = false
+title-hidden = true
+
+[font]
+normal = ["MonaspaceNeon Nerd Font"]
+size = 9.25
+allow_float_size = true
+
+[font.features]
+"MonaspaceNeon Nerd Font" = [
+    "+ss01",
+    "+ss02",
+    "+ss03",
+    "+ss04",
+    "+ss05",
+    "+ss06",
+    "+ss07",
+    "+ss08",
+    "+calt",
+    "+liga",
+    "+dlig",
+]

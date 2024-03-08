@@ -1,0 +1,12 @@
+[Unit]
+Description=Neovim headless server
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=3
+ExecStart=/usr/bin/nvim --headless --listen /tmp/nvimsocket.sock
+Nice=10
+
+[Install]
+WantedBy=default.target

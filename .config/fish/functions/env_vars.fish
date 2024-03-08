@@ -1,6 +1,6 @@
 # Env vars
-set -gx EDITOR 'nvim'
-set -gx VISUAL 'nvim'
+set -gx EDITOR nvim
+set -gx VISUAL neovide
 
 set -gx CHROME_EXECUTABLE 'brave'
 set -gx CPATH "$(clang -v 2>&1 | grep "Selected GCC installation" | rev | cut -d' ' -f1 | rev)/include"
