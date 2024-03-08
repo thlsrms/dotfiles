@@ -1,8 +1,10 @@
 return {
   "ahmedkhalf/project.nvim",
   opts = {
-    manual_mode = false,
+    manual_mode = true,
     silent_chdir = false,
+    scope_chdir = "tab",
+    detection_methods = { "pattern", "lsp" },
     patterns = {
       ".git",
       "_darcs",
@@ -11,6 +13,9 @@ return {
       ".svn",
       "Makefile",
       "package.json",
+      ".sln",
+      ".projectile",
+      ".prjroot",
     },
   },
   keys = {
