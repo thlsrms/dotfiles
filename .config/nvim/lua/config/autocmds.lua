@@ -14,3 +14,11 @@ vim.api.nvim_create_autocmd("BufReadPre", {
   end,
   desc = "Force disable tabline",
 })
+
+vim.api.nvim_create_autocmd("TabEnter", {
+  group = augroup("tabenter_cwd"),
+  callback = function()
+    vim.cmd("ProjectRoot")
+  end,
+  desc = "Set cwd Project Root",
+})
