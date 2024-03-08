@@ -191,7 +191,7 @@ map("i", "<C-Del>", "<C-o>dw", { remap = false, silent = true })
 map("i", "<M-BS>", "<C-w>", { remap = false, silent = true })
 
 -- buffers
-map("n", "<A-b>", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", { desc = "Buffer picker" })
+map("n", "<A-b>", "<cmd>Telescope buffers sort_mru=true sort_lastused=true only_cwd=true<cr>", { desc = "Buffer picker" })
 map("n", "<leader>B", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", {
     desc = "Buffer picker"
 })
