@@ -2,7 +2,7 @@ return {
   "arnamak/stay-centered.nvim",
   keys = {
     {
-      "<leader>um",
+      "<A-c>",
       function()
         require("stay-centered").toggle()
       end,
