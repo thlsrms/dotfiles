@@ -18,7 +18,7 @@ return {
     local center = {
       {
         action = "Neorg journal today",
-        desc = " today's agenda",
+        desc = " agenda",
         icon = "",
         key = "a",
       },
@@ -59,8 +59,8 @@ return {
         key = "c",
       },
       {
-        action = "SessionLoad ",
-        desc = " restore session",
+        action = [[lua require("resession").load()]],
+        desc = " load session",
         icon = " ",
         key = "s",
       },
