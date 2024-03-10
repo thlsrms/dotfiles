@@ -18,18 +18,18 @@ map("n", "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
 map("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
 
 -- Resize window using <ctrl> arrow keys
-map("n", "<A-Up>", "<cmd>resize +6<cr>", { desc = "Increase window height" })
-map("n", "<A-Down>", "<cmd>resize -6<cr>", { desc = "Decrease window height" })
-map("n", "<A-Left>", "<cmd>vertical resize -6<cr>", { desc = "Decrease window width" })
-map("n", "<A-Right>", "<cmd>vertical resize +6<cr>", { desc = "Increase window width" })
+map("n", "<M-Up>", "<cmd>resize +6<cr>", { desc = "Increase window height" })
+map("n", "<M-Down>", "<cmd>resize -6<cr>", { desc = "Decrease window height" })
+map("n", "<M-Left>", "<cmd>vertical resize -6<cr>", { desc = "Decrease window width" })
+map("n", "<M-Right>", "<cmd>vertical resize +6<cr>", { desc = "Increase window width" })
 
 -- Move Lines
-map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
-map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
-map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
-map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
-map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
-map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+map("n", "<M-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
+map("n", "<M-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
+map("i", "<M-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+map("i", "<M-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+map("v", "<M-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+map("v", "<M-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- buffers
 map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
@@ -168,7 +168,7 @@ map("n", "<leader><tab><tab>", "<cmd>tabnew | cd | Dashboard<cr>", { desc = "New
 map("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
-map("n", "<A-t>", "<cmd>Telescope telescope-tabs list_tabs<cr>", {desc = "List open Tabs"})
+map("n", "<M-t>", "<cmd>Telescope telescope-tabs list_tabs<cr>", {desc = "List open Tabs"})
 
 ------------------------------
 -- Add any additional keymaps here
@@ -191,7 +191,7 @@ map("i", "<C-Del>", "<C-o>dw", { remap = false, silent = true })
 map("i", "<M-BS>", "<C-w>", { remap = false, silent = true })
 
 -- buffers
-map("n", "<A-b>", "<cmd>Telescope buffers sort_mru=true sort_lastused=true only_cwd=true<cr>", { desc = "Buffer picker" })
+map("n", "<M-b>", "<cmd>Telescope buffers sort_mru=true sort_lastused=true only_cwd=true<cr>", { desc = "Buffer picker" })
 map("n", "<leader>B", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", {
     desc = "Buffer picker"
 })
@@ -201,7 +201,7 @@ map({ "n", "v" }, "<leader>bf", function()
   Util.format({ force = true })
 end, { desc = "Format" })
 
-map("n", "<A-p>", "<cmd>Telescope find_files<cr>", { desc = "Find Files" })
+map("n", "<M-p>", "<cmd>Telescope find_files<cr>", { desc = "Find Files" })
 map("n", "<leader>j", "<cmd>Telescope jumplist<cr>", { desc = "Jump list" })
 map("n", "<leader>'", "<cmd>Telescope resume<cr>", { desc = "Open last picker" })
 
