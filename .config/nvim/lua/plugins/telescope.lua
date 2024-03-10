@@ -8,11 +8,9 @@ return {
         sorting_strategy = "ascending",
         winblend = 50,
         mappings = {
-          n = {
-            ["<S-d>"] = "delete_buffer",
-          },
           i = {
             ["<C-S-d>"] = "delete_buffer",
+            ["<esc>"] = "close",
           },
         },
       },
