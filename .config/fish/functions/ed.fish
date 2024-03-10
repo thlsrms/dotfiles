@@ -2,9 +2,14 @@
 # ed - but not the typical ed text editor
 
 function ed -d 'Open $VISUAL at the selected directory or open a new buffer if fzf is cancelled'
-    if count $argv > /dev/null
+    if test (count $argv) -gt 0
         if [ $VISUAL = nvim ]
             command $VISUAL $argv -c ":lcd %:p:h"
+        else if [ $VISUAL = neovide ]
+            command nvim --server /tmp/nvimsocket.sock --remote-send \
+                (string join "" "<C-\><C-N>:tabnew<CR>" \
+                ":e " (realpath $argv) "<CR>" \
+                ":lcd %:p:h<CR>")
         else
             command $VISUAL $argv
         end
@@ -28,6 +33,11 @@ function ed -d 'Open $VISUAL at the selected directory or open a new buffer if f
         # Neovim needs the -c flag
         if [ $VISUAL = nvim ]
             command $VISUAL -c ":cd $dir" -c "lua require('dashboard'):instance()"
+        else if [ $VISUAL = neovide ]
+            command nvim --server /tmp/nvimsocket.sock --remote-send \
+                (string join "" "<C-\><C-N>:tabnew<CR>" \
+                ":cd " $dir "<CR>" \
+                ":Telescope find_files<CR>")
         else
             command $VISUAL $dir/.
         end
