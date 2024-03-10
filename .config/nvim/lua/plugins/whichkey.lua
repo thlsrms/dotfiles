@@ -7,7 +7,7 @@ return {
           name = "+Neorg",
         },
         ["<leader>t"] = {
-          name = "+ToggleTerm",
+          name = "+Terminal",
         },
       })
     end,

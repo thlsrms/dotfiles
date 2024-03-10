@@ -138,11 +138,11 @@ map("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos" })
 --map("n", "<leader>L", function() Util.news.changelog() end, { desc = "LazyVim Changelog" })
 
 -- floating terminal
---local lazyterm = function() Util.terminal(nil, { cwd = Util.root() }) end
---map("n", "<leader>ft", lazyterm, { desc = "Terminal (root dir)" })
---map("n", "<leader>fT", function() Util.terminal() end, { desc = "Terminal (cwd)" })
---map("n", "<c-/>", lazyterm, { desc = "Terminal (root dir)" })
---map("n", "<c-_>", lazyterm, { desc = "which_key_ignore" })
+local lazyterm = function() Util.terminal(nil, { cwd = Util.root() }) end
+map("n", "<leader>tf", lazyterm, { desc = "Terminal (root dir)" })
+map("n", "<leader>tF", function() Util.terminal() end, { desc = "Terminal (cwd)" })
+map("n", "<c-/>", lazyterm, { desc = "Terminal (root dir)" })
+map("n", "<c-_>", lazyterm, { desc = "which_key_ignore" })
 
 -- Terminal Mappings
 map("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
@@ -213,20 +213,6 @@ map("n", "<leader>uN", "<cmd>Telescope notify<cr>", { desc = "Notify history" })
 map("n", "<leader>gW", "<cmd>silent execute '!xdg-open ' . shellescape('<cWORD>')<cr>", {
     desc = "Open URL"
 })
-
--- Open lazygit with ToggleTerm
---[[
-local lazy_dotfiles_term = require("toggleterm.terminal").Terminal:new({
-    cmd = "lazygit",
-    close_on_exit = true,
-    hidden = true,
-})
-map("n", "<leader>gg",
-    function()
-        lazy_dotfiles_term:toggle()
-    end,
-    { desc = "Toggle lazygit" }
-)]]--
 
 -- Open Neogit
 map("n", "<leader>gg", "<cmd>Neogit<cr>" ,{ desc = "Open Neogit" })
