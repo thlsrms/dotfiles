@@ -1,5 +1,8 @@
 return {
   "nvim-telescope/telescope.nvim",
+  keys = {
+    { "<leader>:", false },
+  },
   config = function()
     require("telescope").setup({
       defaults = {
