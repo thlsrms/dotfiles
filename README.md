@@ -1,9 +1,7 @@
 ## My .dotfiles
 - .config/
   - [awesomewm](https://github.com/awesomeWM/awesome): Window Manager
-  - [emacs](https://git.savannah.gnu.org/cgit/emacs.git): Emacs
   - [fish](https://github.com/fish-shell/fish-shell): Shell
-  - [helix](https://github.com/helix-editor/helix): Helix
   - [kanata](https://github.com/jtroo/kanata): Keyboard layout and layers manager
   - [nvim](https://github.com/neovim/neovim): Neovim
   - surfingkeys_config.js: [SurfingKeys](https://github.com/brookhong/Surfingkeys) browser extension for web navigation using vim-like keys

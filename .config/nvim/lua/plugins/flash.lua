@@ -3,6 +3,7 @@ return {
   event = "VeryLazy",
   opts = {
     labels = "aoeuhtns,.crjkbm",
+    modes = { search = { enabled = false } },
   },
   keys = {
     { "s", mode = { "n", "x", "o" }, false },

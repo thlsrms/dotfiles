@@ -15,9 +15,10 @@ local config = {
 			family = "MonaspaceNeon Nerd Font",
 			harfbuzz_features = { "calt", "liga", "dlig", "ss01", "ss02" },
 		},
+		"Noto Sans Mono CJK JP",
 		"JetBrainsMono Nerd Font Mono",
 	}),
-	font_size = 12,
+	font_size = 11,
 	adjust_window_size_when_changing_font_size = false,
 	use_cap_height_to_scale_fallback_fonts = true,
 	tab_bar_at_bottom = true,
@@ -25,7 +26,7 @@ local config = {
 	hide_tab_bar_if_only_one_tab = true,
 	color_scheme = "kanagawabones",
 	colors = {
-		background = color_black01,
+		background = "#202020",
 		tab_bar = {
 			background = color_black01,
 			active_tab = {
@@ -44,14 +45,14 @@ local config = {
 			},
 		},
 	},
+	window_background_opacity = 0.975,
+	text_background_opacity = 1.0,
 	window_padding = {
 		left = 0,
 		right = 0,
 		top = 0,
 		bottom = 0,
 	},
-	text_background_opacity = 1.0,
-	window_background_opacity = 0.9,
 	inactive_pane_hsb = {
 		saturation = 0.9,
 		brightness = 0.8,
