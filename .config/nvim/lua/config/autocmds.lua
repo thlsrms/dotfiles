@@ -31,6 +31,10 @@ vim.api.nvim_create_autocmd("TabEnter", {
   desc = "Set cwd Project Root",
 })
 
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = vim.fn.histdel(":"),
+})
+
 vim.api.nvim_create_autocmd("VimLeavePre", {
   callback = function()
     require("resession").save_all({ notify = true })
