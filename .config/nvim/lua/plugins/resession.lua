@@ -27,6 +27,18 @@ return {
       end,
       desc = "Load session",
     },
+    {
+      "<leader>qq",
+      mode = { "n" },
+      function()
+        require("resession").save_all({ notify = true })
+        for _, ui in pairs(vim.api.nvim_list_uis()) do
+          if ui.chan and not ui.stdout_tty then
+            vim.fn.chanclose(ui.chan)
+          end
+        end
+      end,
+    },
   },
   config = function()
     require("resession").setup({
