@@ -9,7 +9,7 @@ return {
         layout_strategy = "horizontal",
         layout_config = { prompt_position = "top" },
         sorting_strategy = "ascending",
-        winblend = 50,
+        winblend = 10,
         mappings = {
           i = {
             ["<C-S-d>"] = "delete_buffer",
