@@ -24,7 +24,7 @@ return {
             local theme = colors.theme
             return {
               NormalFloat = { bg = "none" },
-              FloatBorder = { bg = "none" },
+              FloatBorder = { bg = "#2a2a30" },
               FloatTitle = { bg = "none" },
 
               -- Borderless Telescope
