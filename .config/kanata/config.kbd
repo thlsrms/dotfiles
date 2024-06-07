@@ -1,15 +1,8 @@
 #| Notes:
-    This configuration assumes that `dvorak-alt-intl` is the layout being used:
-    https://github.com/soywod/dvorak-alt-intl
+    This configuration assumes that `colemak-dh-wide-iso` is the layout being used.
 
-    The source being qwerty causes some confusion below with the keypresses
-    being translated to the layout in use by the OS,
-    for example :
-        keypress s => o on dvorak
-        keypress j => h on dvorak
-        keypress / => z on dvorak
-        keypress b => x on dvorak
-        etc...
+    I shifted the right hand keys one column extra to the right, increasing the gap between both
+    hands for better laptop ergonomy.
 |#
 
 (defcfg
@@ -39,22 +32,22 @@ lsft  102d  z     x     c     v     b     n     m     ,     .     /     rsft
 
   ;; Home row mods
   meta (tap-hold-release $htm $htm a (one-shot 500 lmet))
-  alto (tap-hold-release $htm $htm s (one-shot 500 lalt))
-  ctle (tap-hold-release $htm $htm d (one-shot 500 lctl))
-  sftu (tap-hold-release $htm $htm f (one-shot 500 lsft))
-  sfth (tap-hold-release $htm $htm j (one-shot 500 rsft))
-  ctlt (tap-hold-release $htm $htm k (one-shot 500 rctl))
-  altn (tap-hold-release $htm $htm l (one-shot 500 lalt))
-  agrs (tap-hold-release $htm $htm ; (one-shot 500 ralt))
+  altr (tap-hold-release $htm $htm s (one-shot 500 lalt))
+  ctls (tap-hold-release $htm $htm d (one-shot 500 lctl))
+  sftt (tap-hold-release $htm $htm f (one-shot 500 lsft))
+  sftn (tap-hold-release $htm $htm k (one-shot 500 rsft))
+  ctle (tap-hold-release $htm $htm l (one-shot 500 rctl))
+  alti (tap-hold-release $htm $htm ; (one-shot 500 lalt))
+  agro (tap-hold-release $htm $htm ' (one-shot 500 ralt))
 )
 
 (deflayer main
       @qwty _     _     _     _     _     _     _     _     _     _     _     _
       @mdia _     _     _     _     _     _     _     _     _     _     _     _     _
-      _     _     _     _     _     _     _     _     _     _     _     ret   @mdia _
-      esc   @meta @alto @ctle @sftu _     _     @sfth @ctlt @altn @agrs _     _
-_     _     _     _     _     _     _     _     _     _     _     _     bspc
-  _     _     @extl                  @syml            @extl _     _     _
+      _     _     _     _     _     _     _     _     u     i     o     p     [     _
+      esc   @meta @altr @ctls @sftt _     _     ]     j     @sftn @ctle @alti @agro
+_     _     _     _     _     _     _     _     \     m     ,     .     /
+  _     _     @extl                  @syml            @syml _     _     _
 )
 
 (defvar
@@ -74,19 +67,20 @@ _     _     _     _     _     _     _     _     _     _     _     _     bspc
   ssc (multi (one-shot-press $st lsft) (one-shot-press $st lctl))
   ssmt (multi (one-shot-press $st lsft) (one-shot-press $st lmet))
   sas (multi (one-shot-press $st lalt) (one-shot-press $st lsft))
-  cz C-/
-  cx C-b
-  cc C-i
-  cv C-.
+  cz C-102d
+  cx C-z
+  cc C-x
+  cv C-v
   atab (multi lalt tab)
+  mmic (multi lmet /)
 )
 
 (deflayer extended
       _     _     _     _     _     _     _     _     _     _     _     _     _
       _     f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12   _
-      @atab ins   prnt  @sras @sac  slck  pgup  grv   bspc  del   @ssc  _     _     _
-      caps  @sagr @salt @sctl @ssft f20   pgdn  lft   down  up    rght  _     _
-_     _     @cz   @cx   @cc   @cv   @smet home  end   @sas  @ssmt _     _
+      @atab ins   prnt  @sras @sac  slck  _     _     pgup  grv   bspc  del   @ssc  _
+      caps  @sagr @salt @sctl @ssft @mmic _     _     pgdn  lft   down  up    rght
+_     @cz   @cx   @cc   @cv   @smet _     _     _     home  end   \     b
   _     _     _                      _                _     _     _     _
 )
 
@@ -98,51 +92,51 @@ _     _     @cz   @cx   @cc   @cv   @smet home  end   @sas  @ssmt _     _
   dol S-4
   perc S-5
   care S-6
-  amp S-7
-  ast S-8
-  lpar S-9
-  rpar S-0
-  inte S-[
-  lbrc S--
-  rbrc S-=
-  lbra -
-  rbra =
-  eq ]
-  slas [
-  dot e
+  amp S-8
+  ast S-9
+  lpar S-0
+  rpar S--
+  inte S-n
+  lbrc S-y
+  rbrc S-h
+  lbra y
+  rbra h
+  eq 7
+  slas n
 )
 
 #| ------------------------- sym layer layout ----------------------------
       _     !     @     &     ?     *     =     7     8     9     /     _
-      _     #     $     {     (     [     +     4     5     6     \     _
-_     _     %     ^     }     )     ]     0     1     2     3     .     _
+      _     #     $     {     (     [     +     4     5     6     -     _
+_     %     ^     }     )     ]     \     0     1     2     3     _     _
 ------------------------------------------------------------------------ |#
 (deflayer symbols
       _     _     _     _     _     _     _     _     _     _     _     _     _
       _     _     _     _     _     _     _     _     _     _     _     _     _     _
-      _     @excl @at   @amp  @inte @ast  @eq   7     8     9     @slas _     _     _
-      _     @hash @dol  @lbrc @lpar @lbra +     4     5     6     \     _     _
-_     _     @perc @care @rbrc @rpar @rbra 0     1     2     3     @dot  _
+      _     @excl @at   @amp  @inte @ast  _     _     @eq   8     9     0     @slas _
+      _     @hash @dol  @lbrc @lpar @lbra _     _     +     4     5     6     =
+_     @perc @care @rbrc @rpar @rbra _     _     _     -     1     2     3
   _     _     _                      _                _     _     _     _
 )
 
 (deflayer media
       _     _     _     _     _     _     _     _     _     _     _     _     _
       _     _     _     _     _     _     _     _     _     _     _     _     _     _
-      _     _     vold  volu  _     _     _     _     vold  volu  _     _     _     _
-      _     _     prev  pp    next  f20   f20   prev  pp    next  _     _     _
-_     _     _     _     _     mute  _     mute  _     _     _     _     _
+      _     _     vold  volu  _     _     _     _     _     _     vold  volu  _     _
+      _     _     prev  pp    next  f20   _     _     f20   prev  pp    next  _
+_     _     _     _     _     mute  _     _     _     mute  _     _     _
   _     _     _                      _                _     _     _     _
 )
 
 (deflayer qwerty
       @main f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12
-      grv   1     2     3     4     5     6     7     8     9     0     '     ]     _
-      tab   x     ,     d     o     k     t     f     g     s     r     -     caps  _
-      esc   a     ;     h     y     u     j     c     v     p     z     q     \
-lctl  lsft  /     b     i     .     n     l     m     w     e     [     rsft
-  f20 lmet  lalt                   spc              ralt  rmet  cmp   rctl
+      grv   1     2     3     4     5     6     7     8     9     0     -     ]     _
+      tab   q     w     k     s     f     o     i     l     ;     r     -     caps  _
+      esc   a     d     c     e     g     m     y     n     u     p     '     \
+lsft  102d  z     x     v     t     j     h     ,     .     /     /     rsft
+  lctl lmet  lalt                   spc              ralt  rmet  cmp   rctl
 )
+
 
 (deflayer empty
       _     _     _     _     _     _     _     _     _     _     _     _     _
