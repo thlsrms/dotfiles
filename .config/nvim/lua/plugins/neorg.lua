@@ -2,8 +2,12 @@ return {
   {
     "nvim-neorg/neorg",
     event = "VimEnter",
-    build = ":Neorg sync-parsers",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    version = "*",
+    dependencies = {
+      "vhyrro/luarocks.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-neorg/lua-utils.nvim",
+    },
     keys = {
       { "<leader>nc", "<cmd>Neorg keybind norg core.dirman.new.note<cr>", desc = "Create Note" },
       { "<leader>nr", "<cmd>Neorg return<cr>", desc = "Return" },
@@ -31,9 +35,9 @@ return {
             },
           },
           ["core.summary"] = {},
-          --["core.tempus"] = {},
+          ["core.tempus"] = {},
           ["core.ui"] = {},
-          --["core.ui.calendar"] = {},
+          ["core.ui.calendar"] = {},
           ["core.keybinds"] = {
             config = {
               hook = function(keybinds)

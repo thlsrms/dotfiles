@@ -20,11 +20,12 @@ opt.swapfile = false
 opt.tabstop = 4 -- Number of spaces tabs count for
 opt.wildignore = "*node_modules/**"
 
---if vim.g.neovide then
--- I'm using neovim in headless mode as a daemon,
--- when Neovide connects the config is already loaded so I skip the g:neovide check
-vim.g.neovide_transparency = 0.95
-vim.g.neovide_cursor_animation_length = 0.05
-vim.g.neovide_scroll_animation_length = 0.15
-vim.g.neovide_hide_mouse_when_typing = true
---end
+if vim.g.neovide then
+  -- If using neovim in headless mode as a daemon,
+  -- when Neovide connects the config is already loaded so I skip the g:neovide check
+  vim.g.neovide_transparency = 0.92
+  vim.g.neovide_cursor_animation_length = 0.05
+  vim.g.neovide_scroll_animation_length = 0.15
+  vim.g.neovide_hide_mouse_when_typing = true
+  vim.g.neovide_refresh_rate = 30
+end

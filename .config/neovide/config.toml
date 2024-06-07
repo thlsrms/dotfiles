@@ -2,11 +2,14 @@
 # neovide --server /tmp/nvimsocket.sock %F
 
 vsync = false
+idle = true
 title-hidden = true
+frame = "none"
+fork = false
 
 [font]
 normal = ["MonaspaceNeon Nerd Font"]
-size = 9.25
+size = 7
 allow_float_size = true
 
 [font.features]

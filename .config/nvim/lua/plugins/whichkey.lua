@@ -9,6 +9,9 @@ return {
         ["<leader>t"] = {
           name = "+Terminal",
         },
+        ["<leader>p"] = {
+          name = "+Project",
+        },
       })
     end,
   },

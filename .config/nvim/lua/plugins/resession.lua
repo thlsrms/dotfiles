@@ -25,7 +25,7 @@ return {
       function()
         require("resession").delete()
       end,
-      desc = "Load session",
+      desc = "Delete session",
     },
     {
       "<leader>qq",
@@ -38,6 +38,7 @@ return {
           end
         end
       end,
+      desc = "Save open sessions and quit",
     },
   },
   config = function()
