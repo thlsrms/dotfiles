@@ -16,8 +16,13 @@ map("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
 map("n", "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
 map("n", "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
 map("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
+-- Move to window using the <ctrl> arrow keys
+map("n", "<C-Left>", "<C-w>h", { desc = "Go to left window", remap = true })
+map("n", "<C-Down>", "<C-w>j", { desc = "Go to lower window", remap = true })
+map("n", "<C-Up>", "<C-w>k", { desc = "Go to upper window", remap = true })
+map("n", "<C-Right>", "<C-w>l", { desc = "Go to right window", remap = true })
 
--- Resize window using <ctrl> arrow keys
+-- Resize window using <meta> arrow keys
 map("n", "<M-Up>", "<cmd>resize +6<cr>", { desc = "Increase window height" })
 map("n", "<M-Down>", "<cmd>resize -6<cr>", { desc = "Decrease window height" })
 map("n", "<M-Left>", "<cmd>vertical resize -6<cr>", { desc = "Decrease window width" })
@@ -152,6 +157,10 @@ map("t", "<C-k>", "<cmd>wincmd k<cr>", { desc = "Go to upper window" })
 map("t", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to right window" })
 map("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 map("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
+map(
+    "t", "<M-z>", "pwd | xclip -sel clip<cr><C-\\><C-n>:cd <C-r>+<cr>",
+    { desc = "Change cwd to the current one" }
+)
 
 -- windows
 map("n", "<leader>ww", "<C-W>p", { desc = "Other window", remap = true })
@@ -201,7 +210,7 @@ map({ "n", "v" }, "<leader>bf", function()
   Util.format({ force = true })
 end, { desc = "Format" })
 
-map("n", "<M-p>", "<cmd>Telescope find_files<cr>", { desc = "Find Files" })
+map("n", "<M-p>", "<cmd>Telescope find_files<cr>", { desc = "Find Files", remap = false })
 map("n", "<leader>j", "<cmd>Telescope jumplist<cr>", { desc = "Jump list" })
 map("n", "<leader>'", "<cmd>Telescope resume<cr>", { desc = "Open last picker" })
 
