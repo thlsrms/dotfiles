@@ -15,5 +15,12 @@ return {
         desc = "Toggle LSP inlay hints",
       },
     },
+    opts = {
+      setup = {
+        rust_analyzer = function()
+          return true
+        end,
+      },
+    },
   },
 }
