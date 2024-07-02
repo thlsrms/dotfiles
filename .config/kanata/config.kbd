@@ -43,10 +43,10 @@ lsft  102d  z     x     c     v     b     n     m     ,     .     /     rsft
 
 (deflayer main
       @qwty _     _     _     _     _     _     _     _     _     _     _     _
-      @mdia _     _     _     _     _     _     _     _     _     _     _     _     _
+      _     _     _     _     _     _     _     _     _     _     _     _     _     _
       _     _     _     _     _     _     _     _     u     i     o     p     [     _
       esc   @meta @altr @ctls @sftt _     _     ]     j     @sftn @ctle @alti @agro
-_     _     _     _     _     _     _     _     \     m     ,     .     /
+@mdia _     _     _     _     _     _     _     \     m     ,     .     /
   _     _     @extl                  @syml            @syml _     _     _
 )
 
@@ -57,6 +57,8 @@ _     _     _     _     _     _     _     _     \     m     ,     .     /
 
 ;; "extended" layer aliases
 (defalias
+  exta (layer-while-held extra)
+
   ssft (one-shot-press $st lsft)
   sctl (one-shot-press $st lctl)
   salt (one-shot-press $st lalt)
@@ -77,10 +79,19 @@ _     _     _     _     _     _     _     _     \     m     ,     .     /
 
 (deflayer extended
       _     _     _     _     _     _     _     _     _     _     _     _     _
-      _     f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12   _
-      @atab ins   prnt  @sras @sac  slck  _     _     pgup  grv   bspc  del   @ssc  _
+      _     _     _     _     _     _     _     _     _     _     _     _     _     _
+      @atab ins   prnt  @sras @sac  slck  _     _     pgup  grv   bspc  del   \     _
       caps  @sagr @salt @sctl @ssft @mmic _     _     pgdn  lft   down  up    rght
-_     @cz   @cx   @cc   @cv   @smet _     _     _     home  end   \     b
+_     @cz   @cx   @cc   @smet @cv   _     _     _     home  end   b     @ssc
+  _     _     _                      _                @exta _     _     _
+)
+
+(deflayer extra
+      _     _     _     _     _     _     _     _     _     _     _     _     _
+      _     _     _     _     _     _     _     _     _     _     _     _     _     _
+      @atab f1    f2    f3    f4    f5    _     _     f6    f7    f8    f9    f10   _
+      caps  @sagr @salt @sctl @ssft @mmic _     _     @mmic @ssft @sctl @salt @sagr
+_     _     _     _     f11   _     _     _     _     _     f12   _     _
   _     _     _                      _                _     _     _     _
 )
 
