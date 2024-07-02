@@ -17,6 +17,11 @@ return {
           },
         },
       },
+      extensions = {
+        cmdline = {
+          overseer = { enabled = false },
+        },
+      },
     })
   end,
 }
