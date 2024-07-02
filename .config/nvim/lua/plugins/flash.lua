@@ -2,7 +2,7 @@ return {
   "folke/flash.nvim",
   event = "VeryLazy",
   opts = {
-    labels = "aoeuhtns,.crjkbm",
+    labels = "arstneiowfuydhvk",
     modes = { search = { enabled = false } },
   },
   keys = {
