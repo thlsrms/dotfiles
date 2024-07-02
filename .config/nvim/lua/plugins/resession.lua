@@ -32,10 +32,14 @@ return {
       mode = { "n" },
       function()
         require("resession").save_all({ notify = true })
-        for _, ui in pairs(vim.api.nvim_list_uis()) do
-          if ui.chan and not ui.stdout_tty then
-            vim.fn.chanclose(ui.chan)
+        if vim.g.neovide then
+          for _, ui in pairs(vim.api.nvim_list_uis()) do
+            if ui.chan and not ui.stdout_tty then
+              vim.fn.chanclose(ui.chan)
+            end
           end
+        else
+          vim.cmd.quitall()
         end
       end,
       desc = "Save open sessions and quit",
