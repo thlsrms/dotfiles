@@ -1,3 +1,11 @@
+local function transparent()
+  if vim.g.neovide then
+    return false
+  else
+    return true
+  end
+end
+
 return {
   { "rebelot/kanagawa.nvim" },
 
@@ -11,10 +19,11 @@ return {
       },
       colorscheme = function()
         require("kanagawa").setup({
-          --transparent = true,
+          transparent = transparent(),
           colors = {
             theme = {
-              wave = { ui = { bg = "#202020" } },
+              -- wave = { ui = { bg = "#202020" } },
+              wave = { ui = { bg = "#18181b" } },
               all = {
                 ui = { bg_gutter = "none", float = "none" },
               },

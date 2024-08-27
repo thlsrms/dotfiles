@@ -18,7 +18,7 @@ local config = {
 		"Noto Sans Mono CJK JP",
 		"JetBrainsMono Nerd Font Mono",
 	}),
-	font_size = 11,
+	font_size = 10.5,
 	adjust_window_size_when_changing_font_size = false,
 	use_cap_height_to_scale_fallback_fonts = true,
 	tab_bar_at_bottom = true,
@@ -26,7 +26,7 @@ local config = {
 	hide_tab_bar_if_only_one_tab = true,
 	color_scheme = "kanagawabones",
 	colors = {
-		background = "#202020",
+		background = color_black01,
 		tab_bar = {
 			background = color_black01,
 			active_tab = {
@@ -45,7 +45,7 @@ local config = {
 			},
 		},
 	},
-	window_background_opacity = 0.975,
+	window_background_opacity = 0.95,
 	text_background_opacity = 1.0,
 	window_padding = {
 		left = 0,
@@ -54,8 +54,8 @@ local config = {
 		bottom = 0,
 	},
 	inactive_pane_hsb = {
-		saturation = 0.9,
-		brightness = 0.8,
+		saturation = 0.975,
+		brightness = 0.9,
 	},
 	automatically_reload_config = false,
 	-- Keys remap
@@ -64,6 +64,8 @@ local config = {
 		{ key = "Tab", mods = "CTRL", action = act.DisableDefaultAssignment },
 		{ key = "S", mods = "SHIFT|CTRL", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
 		{ key = "H", mods = "SHIFT|CTRL", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+		{ key = "t", mods = "SUPER", action = act.PaneSelect({ alphabet = "nseriao" }) },
+		{ key = "B", mods = "SHIFT|CTRL", action = act.PaneSelect({ alphabet = "nseriao", mode = "SwapWithActive" }) },
 		-- workspaces
 		{ key = "y", mods = "SHIFT|CTRL", action = act.SwitchToWorkspace({ name = "default" }) },
 		{ key = "o", mods = "SHIFT|CTRL", action = act.SwitchWorkspaceRelative(-1) },

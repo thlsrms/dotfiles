@@ -24,7 +24,7 @@ opt.spelllang = "en_gb"
 if vim.g.neovide then
   -- If using neovim in headless mode as a daemon,
   -- when Neovide connects the config is already loaded so I skip the g:neovide check
-  vim.g.neovide_transparency = 0.92
+  vim.g.neovide_transparency = 0.95
   vim.g.neovide_cursor_animation_length = 0.05
   vim.g.neovide_scroll_animation_length = 0.15
   vim.g.neovide_hide_mouse_when_typing = true
