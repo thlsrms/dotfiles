@@ -8,7 +8,7 @@ return {
     end,
     keys = {
       {
-        "<leader>ch",
+        "<leader>cH",
         function()
           vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}), {})
         end,
@@ -20,6 +20,20 @@ return {
         rust_analyzer = function()
           return true
         end,
+      },
+      servers = {
+        clangd = {
+          cmd = {
+            "clangd",
+            "--background-index",
+            "--clang-tidy",
+            "--header-insertion=iwyu",
+            "--completion-style=detailed",
+            "--function-arg-placeholders",
+            "--fallback-style=llvm",
+            "--query-driver=" .. os.getenv("CXX"),
+          },
+        },
       },
     },
   },
