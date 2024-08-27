@@ -4,6 +4,9 @@ set fish_greeting
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
+    bind \cg lazygit
+    bind \ce $EDITOR
+    bind \cn 'neovide --fork'
 end
 
 # Set theme
@@ -31,14 +34,13 @@ source $__fish_config_dir/functions/my_aliases.fish
 source $__fish_config_dir/functions/system_maintenance.fish
 
 # emacs vterm support, 'functions/vterm_printf' required
-if [ "$INSIDE_EMACS" = 'vterm' ]
+if [ "$INSIDE_EMACS" = vterm ]
     function clear
-        vterm_printf "51;Evterm-clear-scrollback";
-        tput clear;
+        vterm_printf "51;Evterm-clear-scrollback"
+        tput clear
     end
 end
 
 # Starship theme:
 # install "community/x86_64/starship" package before.
 starship init fish | source
-

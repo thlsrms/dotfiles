@@ -34,10 +34,11 @@ function gen-changelog -d "Generate a CHANGELOG.md file from conventional commit
             | awk "$prefix"
         echo "  "
 
-        # Changes to existing functionality, any line containing "refactor: perf:| x(scope):"
+        # Changes to existing functionality,
+        # any line containing "rework: refactor: perf:| x(scope):"
         echo -e "### Changed"
         git log --oneline --pretty=format:$log_format $source...$target \
-            | grep -P "(?:^|\s)(refactor|perf)(\(\w+\))?:\s.+" \
+            | grep -P "(?:^|\s)(changed|rework|refactor|perf)(\(\w+\))?:\s.+" \
             | sort -k1 \
             | awk "$prefix"
         echo "  "
