@@ -1,7 +1,7 @@
 @theme "rounded-red-dark.rasi"
 configuration {
         show-icons: true;
-        modes: "window,drun,run,ssh";
+        modes: "window,drun,run,ssh,combi";
 }
 listview {
         lines: 15;
