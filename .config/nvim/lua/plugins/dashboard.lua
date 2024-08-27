@@ -9,12 +9,11 @@ return {
 
 
 
+    ]] .. vim.fn.getcwd() .. [[
 
 
 
-
-
-    ]]
+            ]]
     local center = {
       {
         action = "Neorg journal today",
@@ -53,7 +52,7 @@ return {
         key = "p",
       },
       {
-        action = [[lua require("lazyvim.util").telescope.config_files()()]],
+        action = [[lua require("lazyvim.util.pick").config_files()()]],
         desc = " config",
         icon = " ",
         key = "c",

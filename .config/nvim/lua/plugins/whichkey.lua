@@ -2,16 +2,10 @@ return {
   {
     "folke/which-key.nvim",
     opts = function()
-      require("which-key").register({
-        ["<leader>n"] = {
-          name = "+Neorg",
-        },
-        ["<leader>t"] = {
-          name = "+Terminal",
-        },
-        ["<leader>p"] = {
-          name = "+Project",
-        },
+      require("which-key").add({
+        { "<leader>n", group = "Neorg" },
+        { "<leader>t", group = "Terminal" },
+        { "<leader>p", group = "Project" },
       })
     end,
   },

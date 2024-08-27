@@ -19,6 +19,7 @@ opt.statuscolumn = ""
 opt.swapfile = false
 opt.tabstop = 4 -- Number of spaces tabs count for
 opt.wildignore = "*node_modules/**"
+opt.spelllang = "en_gb"
 
 if vim.g.neovide then
   -- If using neovim in headless mode as a daemon,
